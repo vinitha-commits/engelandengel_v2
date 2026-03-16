@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -14,7 +14,7 @@ const sections = [
     id: 'overview',
     title: 'Overview',
     paragraphs: [
-      'Engel & Engel is a Los Angeles forensic accounting firm. for over 30+ years, we have provided clients with high-level forensic accounting services. Our clients include top law firms, public corporations, and private companies, seeking forensic accounting services on a variety of litigation issues for both plaintiffs and defendants. Our experience includes testifying in state, federal, and bankruptcy courts.',
+      'Engel & Engel is a Los Angeles forensic accounting firm. For over 30+ years, we have provided clients with high-level forensic accounting services. Our clients include top law firms, public corporations, and private companies, seeking forensic accounting services on a variety of litigation issues for both plaintiffs and defendants. Our experience includes testifying in state, federal, and bankruptcy courts.',
       'We rely on decades of experience and powerful analytical tools to expose hidden transactions, detect manipulated and erroneous information, and identify inconsistencies contained in relevant business records. We work with trial counsel to build a compelling forensic analysis that is understandable to judges and juries. With six professional certifications, extensive experience, and 20 research publications, clients can be confident that our forensic accounting analyses are consistent with established legal and financial principles that can withstand the scrutiny of the court.',
       'When the stakes are high, Engel & Engel can serve as your expert in connection with the following:',
     ],
@@ -25,22 +25,12 @@ const sections = [
     title: 'Economic Damages',
     paragraphs: [],
     items: [
-      'Contract Damages',
-      'Lost Profits',
-      'Fraud Damages',
-      'Lost Goodwill',
-      'Compensatory Damages',
-      'Out of Pocket Damages',
-      'Mitigation Analysis',
-      'Rescission Damages',
-      'Reliance Damages',
-      'Benefit of the Bargain Damages',
-      'IP Infringement Damages',
-      'Construction Damages and Delay Claims',
-      'Business Interruption Damages',
-      'Unestablished Business Damages',
-      'Reputational Damages',
-      'Employment Damages',
+      'Contract Damages', 'Lost Profits', 'Fraud Damages', 'Lost Goodwill',
+      'Compensatory Damages', 'Out of Pocket Damages', 'Mitigation Analysis',
+      'Rescission Damages', 'Reliance Damages', 'Benefit of the Bargain Damages',
+      'IP Infringement Damages', 'Construction Damages and Delay Claims',
+      'Business Interruption Damages', 'Unestablished Business Damages',
+      'Reputational Damages', 'Employment Damages',
     ],
   },
   {
@@ -48,22 +38,12 @@ const sections = [
     title: 'Fraud Investigation',
     paragraphs: [],
     items: [
-      'Contract Fraud',
-      'Money Laundering',
-      'Misappropriation of Funds',
-      'Securities Fraud',
-      'Fraudulent & Misleading Financial Statements',
-      'Construction Fraud',
-      'Insurance Fraud',
-      'Embezzlement Schemes',
-      'Ponzi Schemes',
-      'Employee Embezzlement',
-      'International Money Laundering',
-      'Bankruptcy Fraud',
-      'Tracing of Fraudulent Funds',
-      'Real Estate Fraud',
-      'Inventory Fraud',
-      'Expert Witness Testimony',
+      'Contract Fraud', 'Money Laundering', 'Misappropriation of Funds',
+      'Securities Fraud', 'Fraudulent & Misleading Financial Statements',
+      'Construction Fraud', 'Insurance Fraud', 'Embezzlement Schemes',
+      'Ponzi Schemes', 'Employee Embezzlement', 'International Money Laundering',
+      'Bankruptcy Fraud', 'Tracing of Fraudulent Funds', 'Real Estate Fraud',
+      'Inventory Fraud', 'Expert Witness Testimony',
     ],
   },
   {
@@ -71,19 +51,12 @@ const sections = [
     title: 'Business Valuation',
     paragraphs: [],
     items: [
-      'Corporate Valuation',
-      'Minority Shareholder Valuation',
-      'Corporate Mergers & Acquisitions',
-      'Corporate and Partnership Dissolutions',
-      'Corporation Code 2000 Valuation',
-      'Net Worth Valuation',
-      'Shareholder & Partnership Disputes',
-      'Economic Damage Analysis',
-      'Fair Value Solvency Analysis',
-      'Estate Valuation',
-      'Buy and Sell Agreements',
-      'Buyout Agreements',
-      'Expert Witness Testimony',
+      'Corporate Valuation', 'Minority Shareholder Valuation',
+      'Corporate Mergers & Acquisitions', 'Corporate and Partnership Dissolutions',
+      'Corporation Code 2000 Valuation', 'Net Worth Valuation',
+      'Shareholder & Partnership Disputes', 'Economic Damage Analysis',
+      'Fair Value Solvency Analysis', 'Estate Valuation',
+      'Buy and Sell Agreements', 'Buyout Agreements', 'Expert Witness Testimony',
     ],
   },
   {
@@ -91,18 +64,11 @@ const sections = [
     title: 'Bankruptcy & Insolvency',
     paragraphs: [],
     items: [
-      'Bankruptcy Fraud Investigation',
-      'Solvency Analysis',
-      'Preference Analysis',
-      'Liquidation Analysis',
-      'Adequate Protection Analysis',
-      'Reorganization Plans',
-      'Fraudulent Transfers',
-      'Fair Value and Fair Market Value Valuations',
-      'Analysis of Undercapitalization',
-      'Analysis or Reasonably Equivalent Value',
-      'Investigation of Hidden Distributions',
-      'Expert Witness Testimony',
+      'Bankruptcy Fraud Investigation', 'Solvency Analysis', 'Preference Analysis',
+      'Liquidation Analysis', 'Adequate Protection Analysis', 'Reorganization Plans',
+      'Fraudulent Transfers', 'Fair Value and Fair Market Value Valuations',
+      'Analysis of Undercapitalization', 'Analysis or Reasonably Equivalent Value',
+      'Investigation of Hidden Distributions', 'Expert Witness Testimony',
     ],
   },
   {
@@ -110,17 +76,10 @@ const sections = [
     title: 'Intellectual Property (IP) Litigation',
     paragraphs: [],
     items: [
-      'Infringement Damages',
-      'Misappropriation of Trade Secrets',
-      'Unfair Business Competition',
-      'Lost Profits Analysis',
-      'Market Share Analysis',
-      'Mitigation Analysis',
-      'Reasonable Royalty Analysis',
-      'Panduit Test',
-      'Analysis of Substitute Products',
-      'Corrective Advertising',
-      'Expert Witness Testimony',
+      'Infringement Damages', 'Misappropriation of Trade Secrets',
+      'Unfair Business Competition', 'Lost Profits Analysis', 'Market Share Analysis',
+      'Mitigation Analysis', 'Reasonable Royalty Analysis', 'Panduit Test',
+      'Analysis of Substitute Products', 'Corrective Advertising', 'Expert Witness Testimony',
     ],
   },
   {
@@ -128,17 +87,12 @@ const sections = [
     title: 'Real Estate Litigation',
     paragraphs: [],
     items: [
-      'Investigation with Ownership Issues',
-      'Investigation of Capital Contribution Issues',
-      'Analysis of Distributions',
-      'Investigation of Hidden Distributions',
-      'Analysis of Shareholder/Partnership Agreements',
-      'Analysis of Capital Accounts',
-      'Analysis of Historical Revenues and Expenses',
-      'Analysis of Loans and Loan Proceeds',
+      'Investigation with Ownership Issues', 'Investigation of Capital Contribution Issues',
+      'Analysis of Distributions', 'Investigation of Hidden Distributions',
+      'Analysis of Shareholder/Partnership Agreements', 'Analysis of Capital Accounts',
+      'Analysis of Historical Revenues and Expenses', 'Analysis of Loans and Loan Proceeds',
       'Analysis of Historical Expenses and Hidden Distributions',
-      'Analysis of Operating Agreements',
-      'Analysis of Lost Profits and Damages',
+      'Analysis of Operating Agreements', 'Analysis of Lost Profits and Damages',
     ],
   },
   {
@@ -146,18 +100,12 @@ const sections = [
     title: 'Construction Litigation',
     paragraphs: [],
     items: [
-      'Construction Fraud Investigation',
-      'Construction Damage Analysis',
-      'Construction Defect Damages',
-      'Construction Delay Damages',
-      'Eichleay Formula Calculations',
-      'Construction Accounting',
-      'Investigation of Change Orders',
-      'Bid Analysis',
-      'Construction Cost Investigation',
-      'Construction Loan Analysis',
-      'Construction Budget Analysis',
-      'Expert Witness Testimony',
+      'Construction Fraud Investigation', 'Construction Damage Analysis',
+      'Construction Defect Damages', 'Construction Delay Damages',
+      'Eichleay Formula Calculations', 'Construction Accounting',
+      'Investigation of Change Orders', 'Bid Analysis',
+      'Construction Cost Investigation', 'Construction Loan Analysis',
+      'Construction Budget Analysis', 'Expert Witness Testimony',
     ],
   },
   {
@@ -165,16 +113,11 @@ const sections = [
     title: 'Alter Ego',
     paragraphs: [],
     items: [
-      'Analysis of Alter Ego Factors',
-      'Analysis of Undercapitalization',
-      'Commingling of Funds',
-      'Diversion of Corporate Funds',
-      'Separate Books and Records',
-      'Separate Bank Accounts',
-      'Separate Employees and Offices',
-      'Analysis of Reasonable Compensation',
-      'Analysis of Related Party Transactions',
-      'Analysis of Hidden Distributions',
+      'Analysis of Alter Ego Factors', 'Analysis of Undercapitalization',
+      'Commingling of Funds', 'Diversion of Corporate Funds',
+      'Separate Books and Records', 'Separate Bank Accounts',
+      'Separate Employees and Offices', 'Analysis of Reasonable Compensation',
+      'Analysis of Related Party Transactions', 'Analysis of Hidden Distributions',
       'Expert Witness Testimony',
     ],
   },
@@ -183,17 +126,12 @@ const sections = [
     title: 'Fraudulent Transfers',
     paragraphs: [],
     items: [
-      'Analysis of Reasonable Equivalent Value',
-      'Solvency Analysis',
+      'Analysis of Reasonable Equivalent Value', 'Solvency Analysis',
       'Analysis of Ability to Pay Debts as they Become Due',
-      'Analysis of Undercapitalization',
-      'Tracing of Fraudulent Transactions',
-      'Business Fair Market Valuation',
-      'Business Fair Valuation',
-      'Valuation of Intangible Assets',
-      'Liquidation Analysis',
-      'Financial Fraud Investigations',
-      'Expert Witness Testimony',
+      'Analysis of Undercapitalization', 'Tracing of Fraudulent Transactions',
+      'Business Fair Market Valuation', 'Business Fair Valuation',
+      'Valuation of Intangible Assets', 'Liquidation Analysis',
+      'Financial Fraud Investigations', 'Expert Witness Testimony',
     ],
   },
   {
@@ -201,11 +139,8 @@ const sections = [
     title: 'Employment Litigation',
     paragraphs: [],
     items: [
-      'Historical Lost Earnings',
-      'Projected Lost Earnings',
-      'Lost Benefits',
-      'Mitigation Analysis',
-      'Expert Witness Testimony',
+      'Historical Lost Earnings', 'Projected Lost Earnings', 'Lost Benefits',
+      'Mitigation Analysis', 'Expert Witness Testimony',
     ],
   },
   {
@@ -213,8 +148,7 @@ const sections = [
     title: 'Business Interruption',
     paragraphs: [],
     items: [
-      'Lost Sales Due to Business Interruption',
-      'Lost Profits Due to Business Interruption',
+      'Lost Sales Due to Business Interruption', 'Lost Profits Due to Business Interruption',
       'Lost Goodwill Due to Business Interruption',
       'Expenses Incurred in Connection with Business Interruption',
       'Mitigation Analysis in Connection with Business Interruption',
@@ -227,14 +161,10 @@ const sections = [
     title: 'Personal Injury',
     paragraphs: [],
     items: [
-      'Historical Lost Earnings',
-      'Projected Lost Earnings',
-      'Historical Medical Costs',
-      'Projected Medical Costs',
-      'Mitigation Analysis',
-      'Analysis of Life-care Plans',
-      'Analysis of Cost Reports',
-      'Expert Witness Testimony',
+      'Historical Lost Earnings', 'Projected Lost Earnings',
+      'Historical Medical Costs', 'Projected Medical Costs',
+      'Mitigation Analysis', 'Analysis of Life-care Plans',
+      'Analysis of Cost Reports', 'Expert Witness Testimony',
     ],
   },
   {
@@ -245,10 +175,8 @@ const sections = [
       'Analysis and Evaluation of Misleading Financial Statements',
       'Analysis and Evaluation of Accounting and Auditing Standard of Care',
       'Analysis and Identification of Relevant GAAP and GAAS Principles',
-      'Economic Damages Analysis',
-      'Materiality Analysis',
-      'Disclosure Analysis in Accordance with GAAP and GAAS',
-      'Expert Witness Testimony',
+      'Economic Damages Analysis', 'Materiality Analysis',
+      'Disclosure Analysis in Accordance with GAAP and GAAS', 'Expert Witness Testimony',
     ],
   },
   {
@@ -256,14 +184,10 @@ const sections = [
     title: 'Partnership / Shareholder Disputes',
     paragraphs: [],
     items: [
-      'Dissolution Accounting',
-      'Shareholder Valuation',
-      'Shareholder Derivative Claims',
+      'Dissolution Accounting', 'Shareholder Valuation', 'Shareholder Derivative Claims',
       'Minority Shareholder Discount',
       'Business Valuation in Accordance with California Corporations Code Section 2000',
-      'Excess Officer\'s Compensation',
-      'Concealment of Distributions',
-      'Ownership Disputes',
+      'Excess Officer\'s Compensation', 'Concealment of Distributions', 'Ownership Disputes',
       'Shareholder & Partnership Provisions for Shareholder Buyouts',
       'Investigation of Misappropriation of Funds and Fraud',
     ],
@@ -273,46 +197,141 @@ const sections = [
     title: 'Industry Expertise',
     paragraphs: [],
     items: [
-      'Aerospace',
-      'Agriculture',
-      'Apparel',
-      'Art Galleries and Museums',
-      'Automobile',
-      'Charitable and Nonprofits',
-      'Construction',
-      'Cannabis',
-      'Distributorships',
-      'Education',
-      'Entertainment',
-      'Finance',
-      'Franchises',
-      'Government',
-      'Home Owners Associations (HOA)',
-      'Hospitality (Food & Beverage, Restaurants)',
-      'Hospitals / Healthcare Facilities',
-      'Imports & Exports',
-      'Insurance & Reinsurance',
-      'Investment',
-      'Manufacturing',
-      'Medical Practices',
-      'Media & Entertainment',
-      'Professional Services Practices',
-      'Real Estate Acquisition & Investment',
-      'Real Estate Property Management',
-      'Retail',
-      'Shipping and Transportation',
-      'Investments',
-      'Warehousing',
-      'Technology',
+      'Aerospace', 'Agriculture', 'Apparel', 'Art Galleries and Museums', 'Automobile',
+      'Charitable and Nonprofits', 'Construction', 'Cannabis', 'Distributorships',
+      'Education', 'Entertainment', 'Finance', 'Franchises', 'Government',
+      'Home Owners Associations (HOA)', 'Hospitality (Food & Beverage, Restaurants)',
+      'Hospitals / Healthcare Facilities', 'Imports & Exports', 'Insurance & Reinsurance',
+      'Investment', 'Manufacturing', 'Medical Practices', 'Media & Entertainment',
+      'Professional Services Practices', 'Real Estate Acquisition & Investment',
+      'Real Estate Property Management', 'Retail', 'Shipping and Transportation',
+      'Investments', 'Warehousing', 'Technology',
     ],
   },
 ];
 
-const stats = [
-  { value: '30+', label: 'Years of Experience' },
-  { value: '6', label: 'Professional Certifications' },
-  { value: '20', label: 'Research Publications' },
-];
+
+// ─────────────────────────────────────────────
+// Mobile/Tablet Nav Component
+// ─────────────────────────────────────────────
+
+function MobileNav({ sidebarSections }: { sidebarSections: { id: string; title: string }[] }) {
+  const [activeId, setActiveId] = useState(sidebarSections[0]?.id || '');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY + 150;
+      let currentId = sidebarSections[0]?.id || '';
+
+      for (const section of sidebarSections) {
+        const el = document.getElementById(section.id);
+        if (el && el.offsetTop <= scrollTop) {
+          currentId = section.id;
+        }
+      }
+
+      setActiveId(currentId);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sidebarSections]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const id = e.target.value;
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.offsetTop - 100;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="lg:hidden sticky top-[72px] z-30 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+        <select
+          value={activeId}
+          onChange={handleChange}
+          className="w-full p-3 bg-primary-950 text-white text-sm font-medium rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#D4AF37] appearance-none cursor-pointer"
+          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23D4AF37' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+        >
+          {sidebarSections.map((section) => (
+            <option key={section.id} value={section.id}>
+              {section.title}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// Sidebar Component
+// ─────────────────────────────────────────────
+
+function Sidebar({ sidebarSections }: { sidebarSections: { id: string; title: string }[] }) {
+  const [activeId, setActiveId] = useState(sidebarSections[0]?.id || '');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY + 150;
+      let currentId = sidebarSections[0]?.id || '';
+
+      for (const section of sidebarSections) {
+        const el = document.getElementById(section.id);
+        if (el && el.offsetTop <= scrollTop) {
+          currentId = section.id;
+        }
+      }
+
+      setActiveId(currentId);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sidebarSections]);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.offsetTop - 100;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <aside className="hidden lg:block w-72 flex-shrink-0">
+      <div className="sticky top-28 bg-primary-950 py-6 rounded-xl border-t-4 border-[#D4AF37]">
+        <p className="text-[10px] tracking-[0.2em] uppercase text-white/80 font-bold mb-1 px-6">
+          On This Page
+        </p>
+        <div className="h-[2px] ml-6 w-24 bg-gradient-to-r from-[#D4AF37] to-transparent mb-6" />
+        <nav className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto sidebar-scrollbar">
+          {sidebarSections.map((section) => (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              onClick={(e) => handleClick(e, section.id)}
+              className={`block text-sm py-2 px-6 rounded-r border-l-2 transition-colors ${
+                activeId === section.id
+                  ? 'text-[#D4AF37] hover:text-[#D4AF37] border-[#D4AF37] font-medium bg-[#D4AF37]/20'
+                  : 'text-white border-transparent hover:text-[#D4AF37] hover:bg-[#D4AF37]/20 hover:border-[#D4AF37]'
+              }`}
+            >
+              {section.title}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </aside>
+  );
+}
 
 // ─────────────────────────────────────────────
 // Page
@@ -320,25 +339,22 @@ const stats = [
 
 export default function ForensicAccountingPage() {
   const { scrollY } = useScroll();
+  const sidebarSections = sections.map((s) => ({ id: s.id, title: s.title }));
 
-  // Parallax transforms
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const scale = useTransform(scrollY, [0, 500], [1, 1.1]);
-
   const springY1 = useSpring(y1, { stiffness: 100, damping: 30 });
 
   return (
     <>
       <Header />
-      <main className="bg-slate-50 min-h-screen text-slate-900 overflow-hidden">
+      <main className="bg-white min-h-screen text-slate-900">
 
         {/* ══════════ CINEMATIC HERO ══════════ */}
-        <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[#0A1A3C]">
-          {/* Parallax Background Decorations */}
+        <section className="relative min-h-[60vh] md:min-h-[75vh] lg:min-h-[85vh] flex items-center pt-24 md:pt-0 overflow-hidden bg-[#0A1A3C]">
           <div className="absolute inset-0 z-0 pointer-events-none">
-            {/* Glowing orbs */}
             <motion.div
               style={{ y: y2, scale }}
               className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#D4AF37]/10 blur-[150px] rounded-full"
@@ -347,7 +363,6 @@ export default function ForensicAccountingPage() {
               style={{ y: y1 }}
               className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-[#3b82f6]/10 blur-[120px] rounded-full"
             />
-
             <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
           </div>
 
@@ -361,7 +376,7 @@ export default function ForensicAccountingPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
               >
-                <h1 className="text-7xl md:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl">
                   Forensic Accounting <br />
                   <span className="font-serif italic text-[#D4AF37] font-medium">Services</span>
                 </h1>
@@ -371,160 +386,55 @@ export default function ForensicAccountingPage() {
           </div>
         </section>
 
-        {/* ══════════ OVERVIEW ══════════ */}
-        <section className="py-24 relative bg-white">
-          <div className="container-custom">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                  className="lg:col-span-7"
-                >
-                  <div className="space-y-6">
-                    <p className="text-xl text-slate-700 leading-relaxed font-medium">
-                      <strong>Engel & Engel</strong> is a Los Angeles forensic accounting firm. for over 30+ years, we have provided clients with high-level forensic accounting services. Our clients include top law firms, public corporations, and private companies, seeking forensic accounting services on a variety of litigation issues for both plaintiffs and defendants. Our experience includes testifying in state, federal, and bankruptcy courts.
-                    </p>
+        {/* ══════════ MOBILE/TABLET STICKY NAV ══════════ */}
+        <MobileNav sidebarSections={sidebarSections} />
 
-                    <p className="text-lg text-slate-600 leading-[1.8]">
-                      We rely on decades of experience and powerful analytical tools to expose hidden transactions, detect manipulated and erroneous information, and identify inconsistencies contained in relevant business records. We work with trial counsel to build a compelling forensic analysis that is understandable to judges and juries. With six professional certifications, extensive experience, and 20 research publications, clients can be confident that our forensic accounting analyses are consistent with established legal and financial principles that can withstand the scrutiny of the court.
-                    </p>
+        {/* ══════════ CONTENT BODY WITH SIDEBAR ══════════ */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 lg:pb-28 pt-16">
+          <div className="flex flex-col lg:flex-row gap-12">
 
-                    <div className="p-8 bg-blue-50 rounded-2xl">
-                      <p className="text-lg text-[#0f3574] font-semibold italic">
-                        When the stakes are high, Engel & Engel can serve as your expert in connection with the following:
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
+            {/* Sidebar */}
+            <Sidebar sidebarSections={sidebarSections} />
 
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                  className="lg:col-span-5 relative"
-                >
-                  <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl group">
-                    <Image
-                      src="/images/accounting-111.jpg"
-                      alt="Forensic Accounting Office"
-                      fill
-                      className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f3574]/40 to-transparent" />
-                  </div>
-                  {/* Decorative element */}
-                  <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#D4AF37]/10 -z-10 rounded-full blur-2xl" />
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════ PRACTICE AREAS GRID ══════════ */}
-        <section className="py-16 lg:py-20 bg-slate-50">
-          <div className="container-custom">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Left Column */}
-              {sections.filter((s) => ['economic-damages', 'fraud-investigation', 'business-valuation', 'bankruptcy-insolvency', 'ip-litigation', 'real-estate'].includes(s.id)).map((section) => (
-                <motion.div
-                  key={section.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-white rounded-2xl border border-blue-100 p-6 hover:shadow-lg hover:border-blue-300 transition-all duration-300"
-                >
-                  <h2 className="text-base font-bold text-[#0f3574] uppercase tracking-wide mb-4 pb-2 border-b-2 border-[#0f3574] w-fit">
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              {sections.map((section) => (
+                <section key={section.id} id={section.id} className="mb-10 scroll-mt-[6rem]">
+                  <h2 className="relative text-2xl font-semibold text-primary-950 mb-6 group inline-block">
                     {section.title}
+                    <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-[#0f3574] to-transparent transition-all duration-500 group-hover:w-full" />
                   </h2>
-                  {section.paragraphs.length > 0 && (
-                    <p className="text-sm text-slate-500 leading-relaxed mb-3">{section.paragraphs[0]}</p>
-                  )}
-                  {section.items && section.items.length > 0 && (
-                    <ul className="columns-1 sm:columns-2 gap-x-6">
-                      {section.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 py-1.5 break-inside-avoid">
-                          <span className="mt-1.5 w-1 h-1 rounded-full bg-[#0f3574] flex-shrink-0" />
-                          <span className="text-sm text-slate-600">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </motion.div>
-              ))}
 
-              {/* Right Column */}
-              {sections.filter((s) => ['construction', 'alter-ego', 'fraudulent-transfers', 'employment', 'business-interruption', 'personal-injury', 'accounting-malpractice', 'shareholder-disputes'].includes(s.id)).map((section) => (
-                <motion.div
-                  key={section.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-white rounded-2xl border border-blue-100 p-6 hover:shadow-lg hover:border-blue-300 transition-all duration-300"
-                >
-                  <h2 className="text-base font-bold text-[#0f3574] uppercase tracking-wide mb-4 pb-2 border-b-2 border-[#0f3574] w-fit">
-                    {section.title}
-                  </h2>
-                  {section.paragraphs.length > 0 && (
-                    <p className="text-sm text-slate-500 leading-relaxed mb-3">{section.paragraphs[0]}</p>
-                  )}
-                  {section.items && section.items.length > 0 && (
-                    <ul className="columns-1 sm:columns-2 gap-x-6">
-                      {section.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 py-1.5 break-inside-avoid">
-                          <span className="mt-1.5 w-1 h-1 rounded-full bg-[#0f3574] flex-shrink-0" />
-                          <span className="text-sm text-slate-600">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </motion.div>
+                  <div className="space-y-5 text-base leading-relaxed text-gray-600">
+                    {section.paragraphs.map((paragraph, i) => (
+                      <p key={i}>{paragraph}</p>
+                    ))}
+
+                    {section.items && section.items.length > 0 && (
+                      <ul className={`gap-x-10 gap-y-2 ${
+                        section.items.length > 5
+                          ? 'grid grid-cols-1 sm:grid-cols-2'
+                          : 'flex flex-col'
+                      }`}>
+                        {section.items.map((item, j) => (
+                          <li key={j} className="flex items-start gap-3 text-base text-gray-800">
+                            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0f3574] flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </section>
               ))}
             </div>
           </div>
-        </section>
-
-        {/* ══════════ INDUSTRY EXPERTISE ══════════ */}
-        {
-          sections.filter((s) => s.id === 'industry-expertise').map((section) => (
-            <section key={section.id} className="py-16 lg:py-20 bg-white">
-              <div className="container-custom">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <h2 className="text-xl font-bold text-[#0f3574] uppercase tracking-wide mb-8 pb-2 border-b-2 border-[#0f3574] w-fit">
-                    {section.title}
-                  </h2>
-                  {section.items && section.items.length > 0 && (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-                      {section.items.map((item, i) => (
-                        <div key={i} className="flex items-center gap-2.5 px-4 py-2.5 bg-slate-50 rounded-lg border border-slate-100 hover:border-blue-200 hover:bg-blue-50/50 transition-colors duration-200">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#0f3574] flex-shrink-0" />
-                          <span className="text-sm text-slate-600">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </motion.div>
-              </div>
-            </section>
-          ))
-        }
+        </div>
 
         {/* ══════════ CONTACT CTA ══════════ */}
         <section className="relative py-28 bg-[#0A1A3C] overflow-hidden">
-          {/* Glow orbs */}
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/5 blur-[150px] rounded-full pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
-          {/* Top rule */}
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
 
           <div className="container-custom relative z-10">
@@ -535,8 +445,6 @@ export default function ForensicAccountingPage() {
               transition={{ duration: 0.8 }}
               className="max-w-5xl mx-auto"
             >
-
-              {/* Contact Cards */}
               <p className="text-sm md:text-base text-white/60 font-light mb-4">
                 For additional information about{' '}
                 <span className="text-white font-medium">Engel &amp; Engel&apos;s</span>{' '}
@@ -544,14 +452,12 @@ export default function ForensicAccountingPage() {
                 or a consultation, please contact:
               </p>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Name card */}
                 <div className="flex flex-col justify-center space-y-3 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
                   <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Brandon J. Engel</h3>
                   <p className="text-white/50 text-sm font-medium tracking-widest uppercase">CPA, CFE</p>
                   <div className="h-px w-16 bg-[#D4AF37] mt-2" />
                 </div>
 
-                {/* Links card */}
                 <div className="flex flex-col justify-center space-y-5 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
                   <a href="mailto:brandon@engelandengel.com" className="group flex items-center gap-4">
                     <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#0A1A3C] transition-all duration-300 shrink-0">
@@ -579,7 +485,6 @@ export default function ForensicAccountingPage() {
             </motion.div>
           </div>
 
-          {/* Bottom rule */}
           <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
         </section>
 

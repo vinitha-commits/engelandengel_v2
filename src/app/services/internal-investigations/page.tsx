@@ -1,43 +1,196 @@
 'use client';
 
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
-const overviewParagraphs = [
-  'Financial concerns often surface long before litigation begins. Unexplained losses, irregular transactions, or suspected misconduct can raise serious questions that demand answers. Whether the issue involves potential embezzlement, misuse of funds, or fraud within a family, business, or organization, early investigation is critical to understanding what has occurred and preventing further harm.',
-  'In other situations, fraud or embezzlement has already come to light, but the full extent of the wrongdoing is still unknown. We are often retained to conduct comprehensive investigations that reveal how misconduct occurred, measure the resulting financial impact, and provide clients with a clear report of findings. These reports give decision-makers the evidence they need to pursue recovery, pursue litigation, strengthen internal controls, or refer the matter to law enforcement.',
-  'At Engel & Engel, LLP, we conduct internal forensic accounting investigations that uncover irregularities and quantify financial impact. Our clients include individuals, families, HOAs, companies, celebrities, and government agencies. In many cases, we prepare a professional report of our findings that can be used to take corrective action, strengthen internal controls, pursue civil litigation, or provide to law enforcement agencies such as the Department of Justice or local police.',
+// ─────────────────────────────────────────────
+// Data
+// ─────────────────────────────────────────────
+
+const sections = [
+  {
+    id: 'overview',
+    title: 'Overview',
+    paragraphs: [
+      'Financial concerns often surface long before litigation begins. Unexplained losses, irregular transactions, or suspected misconduct can raise serious questions that demand answers. Whether the issue involves potential embezzlement, misuse of funds, or fraud within a family, business, or organization, early investigation is critical to understanding what has occurred and preventing further harm.',
+      'In other situations, fraud or embezzlement has already come to light, but the full extent of the wrongdoing is still unknown. We are often retained to conduct comprehensive investigations that reveal how misconduct occurred, measure the resulting financial impact, and provide clients with a clear report of findings. These reports give decision-makers the evidence they need to pursue recovery, pursue litigation, strengthen internal controls, or refer the matter to law enforcement.',
+      'At Engel & Engel, LLP, we conduct internal forensic accounting investigations that uncover irregularities and quantify financial impact. Our clients include individuals, families, HOAs, companies, celebrities, and government agencies. In many cases, we prepare a professional report of our findings that can be used to take corrective action, strengthen internal controls, pursue civil litigation, or provide to law enforcement agencies such as the Department of Justice or local police.',
+    ],
+    items: [],
+  },
+  {
+    id: 'services',
+    title: 'Investigation Services',
+    paragraphs: [
+      'Engel & Engel is often retained by corporate entities, nonprofit organizations, homeowners\' associations, government agencies, police departments, high profile individuals, and private individuals, as well as their counsel, to investigate a wide range of suspected misconduct.',
+    ],
+    items: [
+      'Embezzlement Investigations – Identifying misappropriation of funds within businesses, HOAs, and nonprofit',
+      'Fraud Detection – Uncovering financial misconduct in companies, family partnerships, and government entities',
+      'HOA Investigations – Examining potential fraud, misappropriation of funds, and other financial irregularities in homeowners\' associations',
+      'Nonprofit Organization Investigations – Investigating embezzlement, misappropriation, and misuse of charitable or organizational funds',
+      'Celebrity and High-Net-Worth Reviews – Examining potential theft or overbilling by contractors, managers, or advisors',
+      'Family and Partnership Disputes – Tracing funds and clarifying whether assets have been misused by relatives or business partners',
+      'Corporate Investigations – Reviewing internal controls, identifying fraudulent schemes, and calculating damages for organizations',
+      'Reporting of Findings – Delivering professional reports that outline evidence and quantify financial impact for decision-making or potential legal action',
+    ],
+  },
+  {
+    id: 'practice-areas',
+    title: 'Related Practice Areas',
+    paragraphs: [
+      'In connection with our Internal Investigations, Engel & Engel has the expertise and experience to address complex financial issues including the following:',
+    ],
+    items: [
+      'Economic Damages',
+      'Fraud Investigation',
+      'Business Valuation',
+      'Bankruptcy & Insolvency',
+      'Intellectual Property (IP) Investigations',
+      'Real Estate Fraud',
+      'Construction Fraud',
+      'Alter Ego',
+      'Fraudulent Transfers',
+      'Employment Damages',
+      'Business Interruption',
+      'Personal Injury Damages',
+      'Accounting Malpractice',
+      'Partnership/Shareholder Disputes',
+    ],
+  },
+  {
+    id: 'closing',
+    title: 'Our Commitment',
+    paragraphs: [
+      'With decades of experience in financial forensics, Engel & Engel provides the depth of analysis required to uncover misconduct and quantify its financial impact. Our investigations are confidential, fact-driven, and conducted with a clear understanding of what it takes to withstand scrutiny in court. They often serve as the foundation for pre-litigation strategy or future legal proceedings.',
+    ],
+    items: [],
+  },
 ];
 
-const services = [
-  'Embezzlement Investigations – Identifying misappropriation of funds within businesses, HOAs, and nonprofit',
-  'Fraud Detection – Uncovering financial misconduct in companies, family partnerships, and government entities',
-  'HOA Investigations – Examining potential fraud, misappropriation of funds, and other financial irregularities in homeowners\' associations',
-  'Nonprofit Organization Investigations – Investigating embezzlement, misappropriation, and misuse of charitable or organizational funds',
-  'Celebrity and High-Net-Worth Reviews – Examining potential theft or overbilling by contractors, managers, or advisors',
-  'Family and Partnership Disputes – Tracing funds and clarifying whether assets have been misused by relatives or business partners',
-  'Corporate Investigations – Reviewing internal controls, identifying fraudulent schemes, and calculating damages for organizations',
-  'Reporting of Findings – Delivering professional reports that outline evidence and quantify financial impact for decision-making or potential legal action',
-];
+// ─────────────────────────────────────────────
+// Mobile/Tablet Nav Component
+// ─────────────────────────────────────────────
 
-const practiceAreas = [
-  'Economic Damages',
-  'Fraud Investigation',
-  'Business Valuation',
-  'Bankruptcy & Insolvency',
-  'Intellectual Property (IP) Investigations',
-  'Real Estate Fraud',
-  'Construction Fraud',
-  'Alter Ego',
-  'Fraudulent Transfers',
-  'Employment Damages',
-  'Business Interruption',
-  'Personal Injury Damages',
-  'Accounting Malpractice',
-  'Partnership/Shareholder Disputes',
-];
+function MobileNav({ sidebarSections }: { sidebarSections: { id: string; title: string }[] }) {
+  const [activeId, setActiveId] = useState(sidebarSections[0]?.id || '');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY + 150;
+      let currentId = sidebarSections[0]?.id || '';
+
+      for (const section of sidebarSections) {
+        const el = document.getElementById(section.id);
+        if (el && el.offsetTop <= scrollTop) {
+          currentId = section.id;
+        }
+      }
+
+      setActiveId(currentId);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sidebarSections]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const id = e.target.value;
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.offsetTop - 100;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="lg:hidden sticky top-[72px] z-30 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+        <select
+          value={activeId}
+          onChange={handleChange}
+          className="w-full p-3 bg-primary-950 text-white text-sm font-medium rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#D4AF37] appearance-none cursor-pointer"
+          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23D4AF37' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+        >
+          {sidebarSections.map((section) => (
+            <option key={section.id} value={section.id}>
+              {section.title}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// Sidebar Component
+// ─────────────────────────────────────────────
+
+function Sidebar({ sidebarSections }: { sidebarSections: { id: string; title: string }[] }) {
+  const [activeId, setActiveId] = useState(sidebarSections[0]?.id || '');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY + 150;
+      let currentId = sidebarSections[0]?.id || '';
+
+      for (const section of sidebarSections) {
+        const el = document.getElementById(section.id);
+        if (el && el.offsetTop <= scrollTop) {
+          currentId = section.id;
+        }
+      }
+
+      setActiveId(currentId);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sidebarSections]);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.offsetTop - 100;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <aside className="hidden lg:block w-72 flex-shrink-0">
+      <div className="sticky top-28 bg-primary-950 py-6 rounded-xl border-t-4 border-[#D4AF37]">
+        <p className="text-[10px] tracking-[0.2em] uppercase text-white/80 font-bold mb-1 px-6">
+          On This Page
+        </p>
+        <div className="h-[2px] ml-6 w-24 bg-gradient-to-r from-[#D4AF37] to-transparent mb-6" />
+        <nav className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto sidebar-scrollbar">
+          {sidebarSections.map((section) => (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              onClick={(e) => handleClick(e, section.id)}
+              className={`block text-sm py-2 px-6 rounded-r border-l-2 transition-colors ${
+                activeId === section.id
+                  ? 'text-[#D4AF37] hover:text-[#D4AF37] border-[#D4AF37] font-medium bg-[#D4AF37]/20'
+                  : 'text-white border-transparent hover:text-[#D4AF37] hover:bg-[#D4AF37]/20 hover:border-[#D4AF37]'
+              }`}
+            >
+              {section.title}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </aside>
+  );
+}
 
 // ─────────────────────────────────────────────
 // Page
@@ -45,25 +198,22 @@ const practiceAreas = [
 
 export default function InternalInvestigationsPage() {
   const { scrollY } = useScroll();
+  const sidebarSections = sections.map((s) => ({ id: s.id, title: s.title }));
 
-  // Parallax transforms
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const scale = useTransform(scrollY, [0, 500], [1, 1.1]);
-
   const springY1 = useSpring(y1, { stiffness: 100, damping: 30 });
 
   return (
     <>
       <Header />
-      <main className="bg-slate-50 min-h-screen text-slate-900 overflow-hidden">
+      <main className="bg-white min-h-screen text-slate-900">
 
         {/* ══════════ CINEMATIC HERO ══════════ */}
-        <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[#0A1A3C]">
-          {/* Parallax Background Decorations */}
+        <section className="relative min-h-[60vh] md:min-h-[75vh] lg:min-h-[85vh] flex items-center pt-24 md:pt-0 overflow-hidden bg-[#0A1A3C]">
           <div className="absolute inset-0 z-0 pointer-events-none">
-            {/* Glowing orbs */}
             <motion.div
               style={{ y: y2, scale }}
               className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#D4AF37]/10 blur-[150px] rounded-full"
@@ -72,7 +222,6 @@ export default function InternalInvestigationsPage() {
               style={{ y: y1 }}
               className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-[#3b82f6]/10 blur-[120px] rounded-full"
             />
-
             <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
           </div>
 
@@ -86,7 +235,7 @@ export default function InternalInvestigationsPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
               >
-                <h1 className="text-7xl md:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl">
                   Internal <br />
                   <span className="font-serif italic text-[#D4AF37] font-medium">Investigations</span>
                 </h1>
@@ -96,136 +245,55 @@ export default function InternalInvestigationsPage() {
           </div>
         </section>
 
-        {/* ══════════ OVERVIEW ══════════ */}
-        <section className="py-24 relative bg-white">
-          <div className="container-custom">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                  className="lg:col-span-7"
-                >
-                  <div className="space-y-8">
-                    <div className="space-y-6">
-                      {overviewParagraphs.map((p, i) => (
-                        <p key={i} className={`text-slate-600 leading-relaxed ${i === 0 ? 'text-xl text-slate-700 font-medium' : 'text-lg'}`}>
-                          {p}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
+        {/* ══════════ MOBILE/TABLET STICKY NAV ══════════ */}
+        <MobileNav sidebarSections={sidebarSections} />
 
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                  className="lg:col-span-5 relative"
-                >
-                  <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl group">
-                    <Image
-                      src="/images/identify-financial-patterns.jpg"
-                      alt="Internal Investigations"
-                      fill
-                      className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f3574]/40 to-transparent" />
+        {/* ══════════ CONTENT BODY WITH SIDEBAR ══════════ */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 lg:pb-28 pt-16">
+          <div className="flex flex-col lg:flex-row gap-12">
+
+            {/* Sidebar */}
+            <Sidebar sidebarSections={sidebarSections} />
+
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              {sections.map((section) => (
+                <section key={section.id} id={section.id} className="mb-10 scroll-mt-[6rem]">
+                  <h2 className="relative text-2xl font-semibold text-primary-950 mb-6 group inline-block">
+                    {section.title}
+                    <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-[#0f3574] to-transparent transition-all duration-500 group-hover:w-full" />
+                  </h2>
+
+                  <div className="space-y-5 text-base leading-relaxed text-gray-600">
+                    {section.paragraphs.map((paragraph: string, i: number) => (
+                      <p key={i}>{paragraph}</p>
+                    ))}
+
+                    {section.items && section.items.length > 0 && (
+                      <ul className={`gap-x-10 gap-y-2 ${
+                        section.items.length > 5
+                          ? 'grid grid-cols-1 sm:grid-cols-2'
+                          : 'flex flex-col'
+                      }`}>
+                        {section.items.map((item: string, j: number) => (
+                          <li key={j} className="flex items-start gap-3 text-base text-gray-800">
+                            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0f3574] flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
-                  {/* Decorative element */}
-                  <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#D4AF37]/10 -z-10 rounded-full blur-2xl" />
-                </motion.div>
-              </div>
+                </section>
+              ))}
             </div>
           </div>
-        </section>
-
-        {/* ══════════ INVESTIGATION SERVICES ══════════ */}
-        <section className="py-16 lg:py-24 bg-slate-50 relative overflow-hidden">
-          <div className="container-custom max-w-5xl relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-white rounded-3xl border border-blue-100 p-10 md:p-16 shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0f3574] leading-tight mb-8 pb-3 border-b-2 border-[#0f3574] w-fit">
-                Engel &amp; Engel&apos;s Internal Investigation Services
-              </h2>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8">
-                Engel &amp; Engel is often retained by corporate entities, nonprofit organizations, homeowners&apos; associations, government agencies, police departments, high profile individuals, and private individuals, as well as their counsel, to investigate a wide range of suspected misconduct.
-              </p>
-              <ul className="grid grid-cols-1 gap-4">
-                {services.map((item, i) => {
-                  const [title, ...descParts] = item.split(' – ');
-                  const description = descParts.join(' – ');
-
-                  return (
-                    <li key={i} className="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                      <div className="mt-1 w-8 h-8 rounded-full bg-blue-100 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                        <div className="w-2.5 h-2.5 rounded-full bg-current" />
-                      </div>
-                      <div className="flex-1">
-                        <span className="text-lg font-bold text-slate-800 leading-snug group-hover:text-[#0f3574] transition-colors block mb-1">
-                          {title}
-                        </span>
-                        {description && (
-                          <span className="text-base text-slate-600 leading-relaxed block">
-                            {description}
-                          </span>
-                        )}
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </motion.div>
-          </div>
-          {/* Subtle background element */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
-        </section>
-
-        {/* ══════════ PRACTICE AREAS AND CLOSING ══════════ */}
-        <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
-          <div className="container-custom max-w-5xl relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-slate-50 rounded-3xl border border-blue-100 p-10 md:p-16 shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0f3574] leading-tight mb-8 pb-3 border-b-2 border-[#0f3574]">
-                In connection with our Internal Investigations, Engel &amp; Engel has the expertise and experience to address complex financial issues including the following:
-              </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
-                {practiceAreas.map((item, i) => (
-                  <div key={i} className="flex items-start md:items-center gap-3 p-3 bg-white rounded-xl border border-blue-100 hover:border-blue-300 hover:shadow-md transition-all duration-300">
-                    <span className="mt-1 md:mt-0 w-2 h-2 rounded-full bg-[#0f3574] flex-shrink-0" />
-                    <span className="text-sm font-medium text-slate-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="bg-[#0f3574]/5 border-l-4 border-[#0f3574] p-6 rounded-r-2xl">
-                <p className="text-lg text-slate-700 leading-relaxed font-medium italic">
-                  With decades of experience in financial forensics, Engel &amp; Engel provides the depth of analysis required to uncover misconduct and quantify its financial impact. Our investigations are confidential, fact-driven, and conducted with a clear understanding of what it takes to withstand scrutiny in court. They often serve as the foundation for pre-litigation strategy or future legal proceedings.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        </div>
 
         {/* ══════════ CONTACT CTA ══════════ */}
         <section className="relative py-28 bg-[#0A1A3C] overflow-hidden">
-          {/* Glow orbs */}
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/5 blur-[150px] rounded-full pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
-          {/* Top rule */}
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
 
           <div className="container-custom relative z-10">
@@ -236,21 +304,19 @@ export default function InternalInvestigationsPage() {
               transition={{ duration: 0.8 }}
               className="max-w-5xl mx-auto"
             >
-              <p className="text-sm md:text-base text-white/60 font-light mb-4 whitespace-nowrap overflow-hidden text-ellipsis">
+              <p className="text-sm md:text-base text-white/60 font-light mb-4">
                 For additional information about{' '}
                 <span className="text-white font-medium">Engel &amp; Engel&apos;s</span>{' '}
-                <span className="font-serif italic text-[#D4AF37]">Forensic Accounting Services</span>{' '}
+                <span className="font-serif italic text-[#D4AF37]">Internal Investigations</span>{' '}
                 or a consultation, please contact:
               </p>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Name card */}
                 <div className="flex flex-col justify-center space-y-3 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
                   <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Brandon J. Engel</h3>
                   <p className="text-white/50 text-sm font-medium tracking-widest uppercase">CPA, CFE</p>
                   <div className="h-px w-16 bg-[#D4AF37] mt-2" />
                 </div>
 
-                {/* Links card */}
                 <div className="flex flex-col justify-center space-y-5 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
                   <a href="mailto:brandon@engelandengel.com" className="group flex items-center gap-4">
                     <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#0A1A3C] transition-all duration-300 shrink-0">
@@ -278,7 +344,6 @@ export default function InternalInvestigationsPage() {
             </motion.div>
           </div>
 
-          {/* Bottom rule */}
           <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
         </section>
 
