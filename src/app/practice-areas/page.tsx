@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
@@ -13,107 +13,84 @@ import Footer from '@/components/layout/Footer';
 const practiceAreas = [
   {
     title: 'Economic Damages',
-    description: 'Quantification of economic losses in commercial litigation, personal injury, and business disputes.',
+    description: 'Over 1,000 economic damage analyses for both plaintiffs and defendants across a wide variety of industries with MAFF credentials and over 10 research publications.',
     href: '/practice-areas/economic-damages',
-    iconKey: 'damages'
   },
   {
     title: 'Fraud Investigation',
-    description: 'Comprehensive fraud detection and investigation services for businesses and legal proceedings.',
+    description: 'Hundreds of fraud investigations conducted by Certified Fraud Examiners, applying cutting-edge techniques to separate fact from fiction and reconstruct truthful financial pictures.',
     href: '/practice-areas/fraud-investigation',
-    iconKey: 'fraud'
   },
   {
     title: 'Business Valuation',
-    description: 'Professional business valuations for litigation, mergers, acquisitions, and partnership disputes.',
+    description: 'Over 100 business valuations with CVA and ABV credentials across a wide variety of industries, consistent with established principles and able to withstand court scrutiny.',
     href: '/practice-areas/business-valuation',
-    iconKey: 'valuation'
   },
   {
     title: 'Bankruptcy & Insolvency',
-    description: 'Forensic accounting services for bankruptcy proceedings, creditor protection, and insolvency matters.',
+    description: 'Sophisticated forensic accounting support for debtors, trustees, shareholders, and creditors to reconstruct a truthful picture of relevant financial facts in bankruptcy proceedings.',
     href: '/practice-areas/bankruptcy-insolvency',
-    iconKey: 'bankruptcy'
   },
   {
     title: 'IP Litigation',
-    description: 'Economic damage analysis for patent, trademark, and copyright infringement cases.',
+    description: 'Comprehensive intellectual property damages analysis including lost profits, market share analysis, and reasonable royalty calculations, highlighted by research publications on the subject.',
     href: '/practice-areas/ip-litigation',
-    iconKey: 'ip'
   },
   {
     title: 'Real Estate Litigation',
-    description: 'Financial analysis and expert testimony for real estate disputes and construction defect cases.',
+    description: 'Significant experience investigating complex real estate accounting issues, highlighted by an arbitration award in excess of $100 million in a commercial shopping center dispute.',
     href: '/practice-areas/real-estate-litigation',
-    iconKey: 'realestate'
   },
   {
     title: 'Construction Litigation',
-    description: 'Expert analysis for construction delays, cost overruns, and construction defect disputes.',
+    description: 'Extensive experience in forensic investigations and expert testimony for disputes involving builders, contractors, developers, subcontractors, and owners.',
     href: '/practice-areas/construction-litigation',
-    iconKey: 'construction'
   },
   {
     title: 'Alter Ego',
-    description: 'Forensic analysis for piercing the corporate veil and alter ego liability cases.',
+    description: 'Extensive experience conducting forensic investigations and financial analyses on the court\'s 28 alter ego factors for both plaintiffs and defendants, with two research publications.',
     href: '/practice-areas/alter-ego',
-    iconKey: 'alterego'
   },
   {
     title: 'Fraudulent Transfers',
-    description: 'Asset tracing and recovery analysis for fraudulent transfer and voidable transaction cases.',
+    description: 'Deep expertise in business and bankruptcy litigation with CIRA, ABV, MAFF, and CFE credentials, plus four research publications on fraudulent transfers.',
     href: '/practice-areas/fraudulent-transfers',
-    iconKey: 'transfers'
   },
   {
     title: 'Employment Litigation',
-    description: 'Economic damage calculations for wrongful termination, discrimination, and wage disputes.',
+    description: 'Extensive expertise in analyzing and calculating economic damages in employment matters, highlighted by our research publication on the framework for employment damages.',
     href: '/practice-areas/employment-litigation',
-    iconKey: 'employment'
   },
   {
     title: 'Business Interruption',
-    description: 'Lost income analysis for business interruption insurance claims and coverage disputes.',
+    description: 'Extensive experience evaluating business interruption claims for both plaintiffs and defendants across a wide variety of industries for litigators and insurance companies.',
     href: '/practice-areas/business-interruption',
-    iconKey: 'interruption'
   },
   {
     title: 'Personal Injury',
-    description: 'Economic damage analysis for personal injury and wrongful death cases.',
+    description: 'Over 1,000 economic damage calculations and testimony in over 100 cases with MAFF credentials and over 10 research publications in personal injury and wrongful death matters.',
     href: '/practice-areas/personal-injury',
-    iconKey: 'injury'
   },
   {
     title: 'Accounting Malpractice',
-    description: 'Professional standard analysis and damage calculations for accounting malpractice cases.',
+    description: 'Expert investigation of whether financial statements have been prepared in accordance with GAAP and GAAS, qualified to serve for both plaintiffs and defendants.',
     href: '/practice-areas/accounting-malpractice',
-    iconKey: 'malpractice'
   },
   {
     title: 'Partnership & Shareholder Disputes',
-    description: 'Forensic accounting for partnership dissolution, shareholder disputes, and business breakups.',
+    description: 'Involved in over 100 cases regarding corporate and partnership disputes including dissolutions under California Corporations Code Section 2000.',
     href: '/practice-areas/partnership-disputes',
-    iconKey: 'partnership'
   },
   {
     title: 'Trust/Probate Litigation',
-    description: 'Expert forensic accounting for trust, estate, and probate disputes, tracing assets and verifying accountings.',
+    description: 'Untangling complex financial records, tracing assets, and providing forensic accounting analysis to resolve trust and estate disputes and investigate claims of mismanagement or fraud.',
     href: '/practice-areas/trust-probate-litigation',
-    iconKey: 'trust'
   },
   {
     title: 'Defamation Litigation',
-    description: 'Economic damage analysis for defamation cases, evaluating reputational harm and measurable financial losses.',
+    description: 'Forensic accounting expertise examining whether reputational harm has translated into measurable financial losses, with analyses prepared to withstand court scrutiny.',
     href: '/practice-areas/defamation',
-    iconKey: 'defamation'
-  }
-];
-
-const stats = [
-  { value: '30+', label: 'Years Experience' },
-  { value: '100+', label: 'Court Testimonies' },
-  { value: '1,000+', label: 'Cases Resolved' },
-  { value: '$2.3B', label: 'Record Jury Award' },
+  },
 ];
 
 // ─────────────────────────────────────────────
@@ -121,99 +98,91 @@ const stats = [
 // ─────────────────────────────────────────────
 
 export default function PracticeAreasPage() {
-  const { scrollY } = useScroll();
-
-  // Parallax transforms
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const scale = useTransform(scrollY, [0, 500], [1, 1.1]);
-
-  const springY1 = useSpring(y1, { stiffness: 100, damping: 30 });
-
   return (
     <>
       <Header />
-      <main className="bg-slate-50 min-h-screen text-slate-900 overflow-hidden">
+      <main className="min-h-screen bg-white">
 
-        {/* ══════════ CINEMATIC HERO ══════════ */}
-        <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[#0A1A3C]">
-          {/* Parallax Background Decorations */}
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            {/* Glowing orbs */}
-            <motion.div
-              style={{ y: y2, scale }}
-              className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#D4AF37]/10 blur-[150px] rounded-full"
+        {/* ══════════ HERO ══════════ */}
+        <section className="relative bg-primary-950 overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/[0.06] blur-[200px] rounded-full -translate-y-1/3 translate-x-1/4" />
+            <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-[#1e3a8a]/10 blur-[160px] rounded-full" />
+            <div className="absolute inset-0 opacity-[0.03]"
+              style={{
+                backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+                backgroundSize: '64px 64px',
+              }}
             />
-            <motion.div
-              style={{ y: y1 }}
-              className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-[#3b82f6]/10 blur-[120px] rounded-full"
-            />
-
-            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
           </div>
 
-          <div className="container-custom relative z-10 w-full">
+          <div className="container-custom relative z-10 pt-36 pb-24">
             <motion.div
-              style={{ y: springY1, opacity }}
-              className="max-w-4xl mx-auto text-center"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-3xl mx-auto text-center"
             >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-              >
-                <h1 className="text-7xl md:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl">
-                  Practice <br />
-                  <span className="font-serif italic text-[#D4AF37] font-medium">Areas</span>
-                </h1>
-                <div className="h-0.5 w-32 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-6" />
-              </motion.div>
+              <div className="inline-flex items-center gap-3 mb-8">
+                <div className="h-px w-8 bg-[#D4AF37]" />
+                <span className="text-[#D4AF37] text-[11px] font-bold tracking-[0.3em] uppercase">
+                  Engel & Engel
+                </span>
+                <div className="h-px w-8 bg-[#D4AF37]" />
+              </div>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6">
+                Practice <span className="font-serif italic text-[#D4AF37] font-normal">Areas</span>
+              </h1>
+              <p className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-xl mx-auto">
+                Court-ready forensic accounting expertise across 16 specialized disciplines.
+              </p>
             </motion.div>
           </div>
+
+          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/25 to-transparent" />
         </section>
 
-        {/* ══════════ PRACTICE AREAS GRID ══════════ */}
-        <section className="py-32 relative bg-white">
+        {/* ══════════ 16 PRACTICE AREAS ══════════ */}
+        <section className="py-24 md:py-32 bg-slate-50">
           <div className="container-custom">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {practiceAreas.map((area, idx) => (
                 <motion.div
                   key={area.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.05 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.45, delay: idx * 0.04 }}
                 >
                   <Link
                     href={area.href}
-                    className="group relative bg-white p-8 rounded-xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] border border-[#0f3574] border-t-4 hover:shadow-[0_20px_60px_-20px_rgba(15,53,116,0.15)] transition-all duration-500 flex flex-col h-full"
+                    className="group relative flex flex-col h-full rounded-2xl bg-white border border-slate-200 hover:border-[#D4AF37]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden"
                   >
-                    <div className="relative z-10 flex flex-col h-full">
-                      <div className="mb-6 flex items-center justify-between">
-                        <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-[#0f3574] group-hover:bg-[#0f3574] group-hover:text-white transition-all duration-500">
-                          <div className="w-5 h-5 border-2 border-current rounded-sm rotate-45" />
-                        </div>
-                        <span className="text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0">
-                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    {/* Gold left accent bar */}
+                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-l-2xl" />
+
+                    <div className="p-6 md:p-7 flex flex-col h-full">
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="w-9 h-9 rounded-lg bg-primary-950/[0.04] border border-primary-950/10 flex items-center justify-center group-hover:bg-[#D4AF37]/10 group-hover:border-[#D4AF37]/30 transition-all duration-500">
+                          <svg className="w-4 h-4 text-primary-950/40 group-hover:text-[#D4AF37] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-13.5 0L2.633 15.7c-.122.499.106 1.028.589 1.202a5.989 5.989 0 002.031.352 5.989 5.989 0 002.031-.352c.483-.174.711-.703.59-1.202L5.25 4.971z" />
                           </svg>
-                        </span>
+                        </div>
+                        <svg
+                          className="w-4 h-4 text-slate-300 group-hover:text-[#D4AF37] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
+                          fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg>
                       </div>
 
-                      <h3 className="text-xl font-bold text-[#0A1A3C] mb-4 tracking-tight leading-tight group-hover:text-[#0f3574] transition-colors duration-300 relative inline-block">
+                      <h3 className="text-[17px] font-bold text-primary-950 mb-3 leading-snug group-hover:text-[#0f3574] transition-colors duration-300">
                         {area.title}
-                        <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-[#0f3574] to-transparent transition-all duration-500 group-hover:w-full" />
                       </h3>
 
-                      <p className="text-slate-600 font-light leading-relaxed text-[0.95rem] flex-grow mb-6">
+                      <p className="text-slate-500 text-[13px] leading-relaxed flex-grow">
                         {area.description}
                       </p>
-
-                      <div className="flex items-center gap-2 text-[10px] font-bold tracking-widest text-[#0f3574] opacity-70 group-hover:opacity-100 transition-all uppercase mt-auto">
-                        View Service
-                        <div className="h-px flex-grow bg-[#0f3574]/10 group-hover:bg-[#0f3574]/30" />
-                      </div>
                     </div>
                   </Link>
                 </motion.div>
@@ -222,49 +191,46 @@ export default function PracticeAreasPage() {
           </div>
         </section>
 
-        {/* ══════════ CTA SECTION ══════════ */}
-        <section className="py-24 relative bg-slate-50">
+        {/* ══════════ CTA ══════════ */}
+        <section className="py-24 md:py-28 bg-white">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-8 md:p-12 lg:p-20 bg-[#0A1A3C] rounded-[2rem] text-white relative overflow-hidden group"
+              transition={{ duration: 0.6 }}
+              className="bg-primary-950 rounded-2xl overflow-hidden relative"
             >
-              <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl group-hover:bg-white/10 transition-colors duration-700" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#D4AF37]/10 rounded-full -translate-x-1/2 translate-y-1/2 blur-2xl transition-all duration-1000 group-hover:scale-125" />
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-0 right-0 w-80 h-80 bg-white/[0.03] rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-60 h-60 bg-[#D4AF37]/[0.06] rounded-full -translate-x-1/3 translate-y-1/3 blur-3xl" />
+              </div>
 
-              <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-12">
-                <div className="max-w-2xl text-center md:text-left">
-                  <span className="text-[#D4AF37] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Request Consultation</span>
-                  <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-                    Secure a Confidential <br />
-                    <span className="font-serif italic text-[#D4AF37] font-medium transition-all duration-500">Consultation</span>
-                  </h2>
-                  <p className="text-slate-300 text-lg leading-relaxed mb-8 max-w-xl">
-                    Discuss your needs with Los Angeles’ leading forensic accounting experts. We provide clear, defensive financial evidence that withstands court scrutiny.
-                  </p>
+              <div className="relative z-10 px-8 md:px-14 lg:px-16 py-14 md:py-16">
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+                  <div className="max-w-lg">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4 leading-snug">
+                      Ready to discuss <span className="font-serif italic text-[#D4AF37] font-normal">your case?</span>
+                    </h2>
+                    <p className="text-slate-400 text-base leading-relaxed">
+                      Schedule a confidential consultation with Los Angeles&apos; leading forensic accounting experts.
+                    </p>
+                  </div>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Link href="/contact" className="bg-[#D4AF37] hover:bg-[#C5A028] text-[#0A1A3C] px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105 text-center">
-                      Schedule Now
+                    <Link
+                      href="/contact"
+                      className="bg-[#D4AF37] hover:bg-[#c9a430] text-primary-950 px-8 py-4 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/25 text-center text-sm whitespace-nowrap"
+                    >
+                      Schedule Consultation
                     </Link>
-                    <a href="tel:+13102772220" className="border border-white/20 hover:border-white/50 text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:bg-white/5 text-center">
+                    <a
+                      href="tel:+13102772220"
+                      className="border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:bg-white/5 text-center text-sm whitespace-nowrap"
+                    >
                       (310) 277-2220
                     </a>
                   </div>
-                </div>
-
-                <div className="hidden lg:block">
-                  <div className="w-px h-64 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-                </div>
-
-                <div className="text-center md:text-right space-y-4 min-w-[240px]">
-                  <p className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-bold">Primary Contact</p>
-                  <p className="text-xl font-bold">Brandon J. Engel</p>
-                  <p className="text-slate-400 font-light">CPA, CFE, CIRA, CVA, MAFF, ABV</p>
-                  <div className="h-px w-12 bg-[#D4AF37] ml-auto hidden md:block" />
-                  <p className="text-slate-400">brandon@engelandengel.com</p>
                 </div>
               </div>
             </motion.div>
@@ -276,4 +242,3 @@ export default function PracticeAreasPage() {
     </>
   );
 }
-
