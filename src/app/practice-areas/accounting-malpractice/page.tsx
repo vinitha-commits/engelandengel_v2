@@ -83,7 +83,7 @@ export default function AccountingMalpracticePage() {
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                   <div className="relative">
                     <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent rounded-full hidden lg:block" />
-                    <p className="">Whether by error or manipulation of financial statements, Engel &amp; Engel possesses the expertise and experience to investigate whether or not financial statements have been prepared in accordance with Generally Accepted Accounting Principles (GAAP) and General Accepted Auditing Standards (GAAS). Overall, Engel &amp; Engel is qualified to serve as your expert in connection with accounting malpractice matters for both plaintiffs and defendants, and prepare analyses that are consistent with established accounting principles and are able to withstand the scrutiny of the court.</p>
+                    <p className="text-[18px] leading-relaxed">Whether by error or manipulation of financial statements, Engel &amp; Engel possesses the expertise and experience to investigate whether or not financial statements have been prepared in accordance with Generally Accepted Accounting Principles (GAAP) and General Accepted Auditing Standards (GAAS). Overall, Engel &amp; Engel is qualified to serve as your expert in connection with accounting malpractice matters for both plaintiffs and defendants, and prepare analyses that are consistent with established accounting principles and are able to withstand the scrutiny of the court.</p>
                   </div>
                 </motion.div>
               </section>

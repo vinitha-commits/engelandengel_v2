@@ -1,8 +1,6 @@
 'use client'
 
 import React from 'react'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
 
 const services = [
   {
@@ -60,35 +58,23 @@ export default function ServicesOverview() {
           </div>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[2px] bg-[rgba(212,175,55,0.08)] border border-[rgba(212,175,55,0.12)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
 
             {services.map((service) => (
               <a
                 href={service.href}
                 key={service.id}
-                className="card-accent h-36 relative bg-primary-950  cursor-pointer p-6 transition-colors duration-300 overflow-hidden group flex flex-col justify-center"
+                className="card-accent relative rounded-2xl bg-white/[0.05] border border-white/10 cursor-pointer p-8 transition-all duration-300 overflow-hidden group flex flex-col items-center text-center hover:border-[#d4af37]/30 hover:bg-white/[0.08]"
               >
-                {/* <div className="flex justify-between items-start mb-4"> */}
-                  {/* <span className="font-mono text-xs tracking-[0.2em] text-[#d4af37] opacity-60">
-                    {service.id}
-                  </span> */}
+                {/* Gold dot */}
+                <div className="w-2 h-2 rounded-full bg-[#d4af37] mb-5 group-hover:scale-150 transition-transform duration-300" />
 
-                  {/* <span className="card-tag font-mono text-[9px] tracking-[0.25em] uppercase text-[rgba(212,175,55,0.6)] border border-[rgba(212,175,55,0.6)] px-2.5 py-1 pt-[7px]">
-                    {service.tag}
-                  </span> */}
-                {/* </div> */}
-
-                {/* <span className="card-icon block text-[32px] text-[rgba(212,175,55,0.6)] mb-4">
-                  {service.icon}
-                </span> */}
-
-                <h3 className="card-title text-center text-xl font-semibold text-[#fff]">
+                <h3 className="card-title text-lg font-semibold text-white group-hover:text-[#d4af37] transition-colors duration-300">
                   {service.title}
                 </h3>
 
-                {/* <p className="card-desc font-mono text-[12px] text-[rgba(200,195,180,0.5)] leading-relaxed">
-                  {service.desc}
-                </p> */}
+                {/* Bottom line */}
+                <div className="h-[2px] w-0 group-hover:w-12 bg-[#d4af37] mt-5 transition-all duration-400" />
               </a>
             ))}
 
@@ -128,37 +114,6 @@ export default function ServicesOverview() {
 
         .card-accent:hover::before {
           transform: scaleX(1);
-        }
-
-        .card-desc {
-          max-height: 0;
-          overflow: hidden;
-          opacity: 0;
-          transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
-        }
-
-        .card-accent:hover .card-desc {
-          max-height: 120px;
-          opacity: 1;
-        }
-
-        .card-tag {
-          transition: color 0.3s, border-color 0.3s, background 0.3s;
-        }
-
-        .card-accent:hover .card-tag {
-          color: #d4af37;
-          border-color: rgba(212,175,55,0.5);
-          background: rgba(212,175,55,0.06);
-        }
-
-        .card-icon {
-          transition: color 0.4s, transform 0.4s;
-        }
-
-        .card-accent:hover .card-icon {
-          color: rgba(212,175,55,1);
-          transform: scale(1.1);
         }
 
         .card-title {

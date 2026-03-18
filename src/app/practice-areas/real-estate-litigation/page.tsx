@@ -138,7 +138,7 @@ export default function RealEstateLitigationPage() {
                 >
                   <div className="relative">
                     <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent rounded-full hidden lg:block" />
-                    <p className="">
+                    <p className="text-[18px] leading-relaxed">
                       Real estate litigators often require the expertise of a forensic accountant when evaluating financial issues. When financial issues arise for developers, brokers, lessors, lessees, owners, buyers, sellers, and financers, Engel &amp; Engel brings to bear significant experience in investigating and analyzing complex real estate accounting issues. Our real estate litigation experience is highlighted with an arbitration award in excess of $100 million in connection with a buy/sell dispute of a commercial shopping center. Overall, Engel &amp; Engel has the qualifications and experience to conduct a forensic analysis that is consistent with established financial principles and able to withstand the scrutiny of the court.
                     </p>
                   </div>

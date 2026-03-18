@@ -237,7 +237,7 @@ export default function ExpertWitnessTestimonyPage() {
                     <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-[#0f3574] to-transparent transition-all duration-500 group-hover:w-full" />
                   </h2>
 
-                  <div className="space-y-5 text-base leading-relaxed text-gray-600">
+                  <div className="space-y-5 text-[18px] leading-relaxed text-gray-600">
                     {section.paragraphs.map((paragraph: string, i: number) => (
                       <p key={i}>{paragraph}</p>
                     ))}

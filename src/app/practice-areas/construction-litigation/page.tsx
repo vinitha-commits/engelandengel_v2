@@ -105,7 +105,7 @@ export default function ConstructionLitigationPage() {
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                   <div className="relative">
                     <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent rounded-full hidden lg:block" />
-                    <p className="">
+                    <p className="text-[18px] leading-relaxed">
                       Construction litigation often demands the financial expertise of a forensic accountant. Engel &amp; Engel has extensive experience in conducting forensic investigations and providing expert testimony in connection with construction litigation for both plaintiffs and defendants. Builders, general contractors, developers, subcontractors, and owners have turned to Engel &amp; Engel&apos;s expertise in financial issues relating to disputes in construction projects. Overall, Engel &amp; Engel has the qualifications and experience to investigate and opine on complex construction issues that are consistent with established financial principles.
                     </p>
                   </div>

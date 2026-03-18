@@ -158,7 +158,7 @@ export default function EconomicDamagesPage() {
                 >
                   <div className="relative">
                     <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent rounded-full hidden lg:block" />
-                    <p className="">
+                    <p className="text-[18px] leading-relaxed">
                       Business litigation often requires a forensic analysis of economic damages. Engel &amp; Engel has conducted over 1,000 economic damage analyses for both plaintiffs and defendants in a wide variety of industries. Our economic damage qualifications are highlighted with a credentialed Master Analyst in Financial Forensics (MAFF) and over 10 research publications in connection with economic damages. Overall, Engel &amp; Engel has the credentials and experience to prepare damage models that are consistent with established financial principles and are able to withstand the scrutiny of the court.
                     </p>
                   </div>

@@ -77,7 +77,7 @@ export default function EmploymentLitigationPage() {
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                   <div className="relative">
                     <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent rounded-full hidden lg:block" />
-                    <p className="">Engel &amp; Engel has extensive expertise and experience in analyzing and calculating economic damages in employment litigation matters for both plaintiffs and defendants. Our expertise is highlighted with our research publication, &apos;Framework for the Calculation of Employment Damages&apos;. Overall, Engel &amp; Engel has the qualifications and experience to prepare damage and mitigation analyses that are consistent with established legal principles and are able to withstand the scrutiny of the court.</p>
+                    <p className="text-[18px] leading-relaxed">Engel &amp; Engel has extensive expertise and experience in analyzing and calculating economic damages in employment litigation matters for both plaintiffs and defendants. Our expertise is highlighted with our research publication, &apos;Framework for the Calculation of Employment Damages&apos;. Overall, Engel &amp; Engel has the qualifications and experience to prepare damage and mitigation analyses that are consistent with established legal principles and are able to withstand the scrutiny of the court.</p>
                   </div>
                 </motion.div>
               </section>

@@ -166,7 +166,7 @@ export default function BusinessValuationPage() {
 
                   <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent rounded-full hidden lg:block" />
 
-                  <p>
+                  <p className="text-[18px] leading-relaxed">
                     Engel & Engel possesses extensive experience and qualifications to
                     provide business valuation services and serve as your valuation
                     expert. Our qualifications include two business valuation

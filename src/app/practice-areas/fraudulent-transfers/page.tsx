@@ -145,7 +145,7 @@ export default function FraudulentTransfersPage() {
                 >
                   <div className="relative">
                     <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent rounded-full hidden lg:block" />
-                    <p className="">
+                    <p className="text-[18px] leading-relaxed">
                       Business and bankruptcy litigators often require forensic accounting expertise in connection with fraudulent transfer claims. Engel &amp; Engel has extensive experience, both in business litigation and bankruptcy litigation, in investigating fraudulent transfers and providing expert witness testimony for both plaintiffs and defendants. Engel &amp; Engel&apos;s fraudulent transfer expertise is highlighted with a credentialed Certified Insolvency and Restructuring Advisor (CIRA), as well as an Accreditation in Business Valuation (ABV), a Master Analyst in Financial Forensics (MAFF), and Certified Fraud Examiners (CFE). Engel &amp; Engel&apos;s expertise is further highlighted with four research publications on the subject of fraudulent transfers. Overall, Engel &amp; Engel has the qualifications and experience to conduct a fraudulent transfer analysis that is consistent with established legal principles and able to withstand the scrutiny of the court.
                     </p>
                   </div>

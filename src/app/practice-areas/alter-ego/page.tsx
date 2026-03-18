@@ -103,7 +103,7 @@ export default function AlterEgoPage() {
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                   <div className="relative">
                     <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent rounded-full hidden lg:block" />
-                    <p className="">
+                    <p className="text-[18px] leading-relaxed">
                       Business litigation often demands the expertise of forensic accountants in matters involving Alter Ego. Engel &amp; Engel has extensive experience in conducting forensic investigations and financial analyses as to the courts&apos; 28 alter ego factors for both plaintiffs and defendants. Engel &amp; Engel&apos;s expertise is highlighted with two Alter Ego research publications. Overall, Engel &amp; Engel has the qualifications and experience to conduct forensic alter ego investigations and opine as to alter ego factors.
                     </p>
                   </div>

@@ -170,7 +170,7 @@ export default function FraudInvestigationPage() {
                 >
                   <div className="relative">
                     <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent rounded-full hidden lg:block" />
-                    <p className="">
+                    <p className="text-[18px] leading-relaxed">
  With the expertise of Certified Fraud Examiners, Engel & Engel has conducted
     hundreds of fraud investigations in connection with a variety of fraudulent
     schemes for both plaintiffs and defendants. We apply cutting-edge

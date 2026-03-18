@@ -138,7 +138,7 @@ export default function IpLitigationPage() {
                 >
                   <div className="relative">
                     <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent rounded-full hidden lg:block" />
-                   <p>
+                   <p className="text-[18px] leading-relaxed">
                   Intellectual property litigation often demands the expertise
                   of a forensic accountant in evaluating infringement damages.
                   Engel & Engel has extensive experience conducting forensic

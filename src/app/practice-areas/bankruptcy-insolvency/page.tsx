@@ -172,7 +172,7 @@ export default function BankruptcyInsolvencyPage() {
 
                   <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent rounded-full hidden lg:block" />
 
-                  <p>
+                  <p className="text-[18px] leading-relaxed">
                     Bankruptcy lawyers require sophisticated support when litigating
                     financial bankruptcy issues. Debtors, trustees, shareholders,
                     and creditors often need forensic accounting investigations
