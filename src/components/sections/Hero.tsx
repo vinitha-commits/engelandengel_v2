@@ -189,10 +189,10 @@ export default function Hero() {
           >
             <motion.h1
               variants={titleVariants}
-              className="text-2xl md:text-3xl lg:text-3xl font-medium text-white mb-0 tracking-tighter leading-[1] drop-shadow-2xl"
+              className="text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-0 tracking-tighter leading-[1] drop-shadow-2xl"
             >
               California&apos;s Top <br />
-              <span className="font-serif text-5xl md:text-7xl lg:text-8xl italic font-medium text-[#D4AF37] drop-shadow-[0_0_20px_rgba(212,175,55,0.4)] mt-1 block">Forensic Accountants</span>
+              <span className="font-serif text-6xl md:text-8xl lg:text-9xl italic font-medium text-[#D4AF37] drop-shadow-[0_0_20px_rgba(212,175,55,0.4)] mt-1 block">Forensic Accountants</span>
             </motion.h1>
 
             <motion.div
@@ -240,7 +240,7 @@ export default function Hero() {
                       }
                     }
                   }}
-                  className={`flex font-medium items-center lg:text-xl  tracking-tight group/item cursor-default py-0.5 ${point.isGold ? 'text-[#D4AF37]' : 'text-white'}`}
+                  className={`flex font-medium items-center text-base md:text-xl lg:text-2xl tracking-tight group/item cursor-default py-0.5 ${point.isGold ? 'text-[#D4AF37]' : 'text-white'}`}
                 >
                   <span className={`w-1.5 h-1.5 rounded-full mr-3 shrink-0 ${point.isGold ? 'bg-[#D4AF37]' : 'bg-white/40'}`} />
                   <span className="mr-1">

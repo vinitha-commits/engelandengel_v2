@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 
 // ─────────────────────────────────────────────
@@ -14,6 +15,7 @@ const contactPersons = [
   {
     header: 'Forensic Accounting Services',
     name: 'Jason A. Engel, CPA, CFE, CIRA, CVA, MAFF, ABV',
+    image: '/images/team/jason-engel.jpg',
     address: '350 S Grand Avenue, Suite 3160',
     city: 'Los Angeles, CA 90071',
     phone: '(310) 277-2220',
@@ -23,6 +25,7 @@ const contactPersons = [
   {
     header: 'Forensic Accounting Services',
     name: 'Brandon J. Engel, CPA, CFE, ABV',
+    image: '/images/team/brandon-engel.jpg',
     address: '350 S Grand Avenue, Suite 3160',
     city: 'Los Angeles, CA 90071',
     phone: '(310) 277-2220',
@@ -175,9 +178,9 @@ export default function ContactPage() {
 
                       <div className="relative z-10">
                         <div className="flex items-start gap-5 mb-5">
-                          {/* Avatar circle */}
-                          <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center shrink-0 group-hover:bg-[#D4AF37]/20 transition-colors duration-500">
-                            <span className="text-[#D4AF37] font-serif text-lg font-bold">{person.name.charAt(0)}</span>
+                          {/* Avatar */}
+                          <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#D4AF37]/40 shrink-0">
+                            <Image width={56} height={56} src={person.image} alt={person.name} className="w-full h-full object-cover object-top" />
                           </div>
                           <div>
                             <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]/80 mb-1">{person.header}</p>

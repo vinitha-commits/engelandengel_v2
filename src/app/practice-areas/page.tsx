@@ -103,43 +103,29 @@ export default function PracticeAreasPage() {
       <Header />
       <main className="min-h-screen bg-white">
 
-        {/* ══════════ HERO ══════════ */}
-        <section className="relative bg-primary-950 overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/[0.06] blur-[200px] rounded-full -translate-y-1/3 translate-x-1/4" />
-            <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-[#1e3a8a]/10 blur-[160px] rounded-full" />
-            <div className="absolute inset-0 opacity-[0.03]"
-              style={{
-                backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
-                backgroundSize: '64px 64px',
-              }}
-            />
+        {/* ══════════ CINEMATIC HERO ══════════ */}
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[#0A1A3C]">
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#D4AF37]/10 blur-[150px] rounded-full" />
+            <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-[#3b82f6]/10 blur-[120px] rounded-full" />
+            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
           </div>
 
-          <div className="container-custom relative z-10 pt-36 pb-24">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-3xl mx-auto text-center"
-            >
-              <div className="inline-flex items-center gap-3 mb-8">
-                <div className="h-px w-8 bg-[#D4AF37]" />
-                <span className="text-[#D4AF37] text-[11px] font-bold tracking-[0.3em] uppercase">
-                  Engel & Engel
-                </span>
-                <div className="h-px w-8 bg-[#D4AF37]" />
-              </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6">
-                Practice <span className="font-serif italic text-[#D4AF37] font-normal">Areas</span>
-              </h1>
-              <p className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-xl mx-auto">
-                Court-ready forensic accounting expertise across 16 specialized disciplines.
-              </p>
-            </motion.div>
+          <div className="container-custom relative z-10 w-full">
+            <div className="max-w-4xl mx-auto text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+              >
+                <h1 className="text-7xl md:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl">
+                  Practice <br />
+                  <span className="font-serif italic text-[#D4AF37] font-medium">Areas</span>
+                </h1>
+                <div className="h-0.5 w-32 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-6" />
+              </motion.div>
+            </div>
           </div>
-
-          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/25 to-transparent" />
         </section>
 
         {/* ══════════ 16 PRACTICE AREAS ══════════ */}
@@ -191,51 +177,7 @@ export default function PracticeAreasPage() {
           </div>
         </section>
 
-        {/* ══════════ CTA ══════════ */}
-        <section className="py-24 md:py-28 bg-white">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-primary-950 rounded-2xl overflow-hidden relative"
-            >
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-white/[0.03] rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-60 h-60 bg-[#D4AF37]/[0.06] rounded-full -translate-x-1/3 translate-y-1/3 blur-3xl" />
-              </div>
-
-              <div className="relative z-10 px-8 md:px-14 lg:px-16 py-14 md:py-16">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
-                  <div className="max-w-lg">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4 leading-snug">
-                      Ready to discuss <span className="font-serif italic text-[#D4AF37] font-normal">your case?</span>
-                    </h2>
-                    <p className="text-slate-400 text-base leading-relaxed">
-                      Schedule a confidential consultation with Los Angeles&apos; leading forensic accounting experts.
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Link
-                      href="/contact"
-                      className="bg-[#D4AF37] hover:bg-[#c9a430] text-primary-950 px-8 py-4 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/25 text-center text-sm whitespace-nowrap"
-                    >
-                      Schedule Consultation
-                    </Link>
-                    <a
-                      href="tel:+13102772220"
-                      className="border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:bg-white/5 text-center text-sm whitespace-nowrap"
-                    >
-                      (310) 277-2220
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+       
 
         <Footer />
       </main>

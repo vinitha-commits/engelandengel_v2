@@ -117,65 +117,28 @@ export default function CasesPage() {
           </div>
         </section>
 
-        {/* CASES */}
-        <section className="py-20">
+        {/* MASONRY-STYLE GRID */}
+        <section className="pt-16 pb-24">
           <div className="max-w-7xl mx-auto px-6">
-
-            {/* Top 2 featured cases — large 2-col */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-              {cases.slice(0, 2).map((case_, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="group"
-                >
-                  <div className="h-full rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-[#D4AF37]/30 hover:shadow-2xl transition-all duration-500">
-                    {/* Result banner */}
-                    <div className="relative bg-gradient-to-r from-[#0A1A3C] to-[#0f2952] px-8 py-5">
-                      <div className="absolute right-6 top-1/2 -translate-y-1/2 text-[80px] font-bold text-white/[0.03] leading-none select-none">
-                        {String(idx + 1).padStart(2, '0')}
-                      </div>
-                      <p className="text-[#D4AF37] text-[11px] font-bold tracking-[0.2em] uppercase mb-1">Result</p>
-                      <p className="text-white text-xl font-bold">{case_.result}</p>
-                    </div>
-                    <div className="p-8">
-                      <h3 className="text-2xl font-bold text-[#0A1A3C] mb-4 leading-snug group-hover:text-[#0f3574] transition-colors duration-300">
-                        {case_.title}
-                      </h3>
-                      <p className="text-slate-500 text-[15px] leading-[1.8]">
-                        {case_.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Rest of cases — 3-col grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {cases.slice(2).map((case_, idx) => (
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-5 space-y-5">
+              {cases.map((case_, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: idx * 0.03 }}
                   viewport={{ once: true, margin: '-30px' }}
-                  className="group"
+                  className="break-inside-avoid group"
                 >
-                  <div className="h-full rounded-xl border border-slate-200 bg-white overflow-hidden hover:border-[#D4AF37]/30 hover:shadow-xl transition-all duration-500 flex flex-col">
-                    <div className="p-6 md:p-7 flex flex-col flex-grow">
-                      {/* Result pill */}
-                      <div className="flex items-center gap-2 mb-4">
-                        <svg className="w-3.5 h-3.5 text-[#D4AF37] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clipRule="evenodd" />
-                        </svg>
-                        <span className="text-[12px] font-bold text-[#D4AF37] uppercase tracking-wider">
-                          {case_.result}
-                        </span>
-                      </div>
+                  <div className="relative bg-gradient-to-br from-slate-50 to-white border border-slate-150 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-400">
+                    {/* Gold top strip */}
+                    <div className="h-1 bg-gradient-to-r from-[#D4AF37] via-[#D4AF37]/60 to-transparent" />
+
+                    <div className="p-6 md:p-7">
+                      {/* Result */}
+                      <p className="text-[12px] font-bold tracking-wide uppercase text-[#D4AF37] mb-4">
+                        {case_.result}
+                      </p>
 
                       {/* Title */}
                       <h3 className="text-lg font-bold text-[#0A1A3C] mb-3 leading-snug group-hover:text-[#0f3574] transition-colors duration-300">
@@ -183,18 +146,14 @@ export default function CasesPage() {
                       </h3>
 
                       {/* Description */}
-                      <p className="text-slate-500 text-[13.5px] leading-[1.75] flex-grow">
+                      <p className="text-slate-500 text-[13.5px] leading-[1.75]">
                         {case_.description}
                       </p>
-
-                      {/* Bottom divider */}
-                      <div className="h-px w-full bg-slate-100 group-hover:bg-[#D4AF37]/20 transition-colors duration-500 mt-5" />
                     </div>
                   </div>
                 </motion.div>
               ))}
             </div>
-
           </div>
         </section>
 

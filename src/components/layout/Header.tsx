@@ -34,7 +34,7 @@ const services = [
 
 const aboutDropdown = [
   { name: 'Our Team', href: '/team' },
-  { name: 'Events', href: '/events' },
+  // { name: 'Events', href: '/events' },
   { name: 'Careers', href: '/careers' },
 ]
 
@@ -341,13 +341,12 @@ export default function Header() {
 
             {/* Practice Areas Dropdown - FIFTH */}
             <div className="relative" ref={practiceAreasDropdownRef}>
-              <button
-                type="button"
+              <Link
+                href="/practice-areas"
                 className={cn(
                   'flex items-center text-sm font-medium transition-colors duration-200 hover:text-primary-600',
                   isScrolled ? 'text-gray-700' : 'text-white hover:text-primary-200'
                 )}
-                onClick={() => setIsPracticeAreasOpen(!isPracticeAreasOpen)}
                 onMouseEnter={() => {
                   setIsPracticeAreasOpen(true)
                   setIsServicesOpen(false)
@@ -368,7 +367,7 @@ export default function Header() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
-              </button>
+              </Link>
 
               {/* Practice Areas Dropdown Menu */}
               {isPracticeAreasOpen && (

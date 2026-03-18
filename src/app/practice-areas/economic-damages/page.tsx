@@ -260,13 +260,10 @@ export default function EconomicDamagesPage() {
         </section>
 
         {/* ══════════ CONTACT CTA ══════════ */}
-        <section className="relative py-16 md:py-24 bg-primary-950 overflow-hidden">
-          {/* Animated background elements */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4AF37]/[0.03] rounded-full blur-[100px]" />
-            <div className="absolute top-0 left-0 w-full h-full opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-          </div>
-          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
+        <section className="relative py-28 bg-[#0A1A3C] overflow-hidden">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/5 blur-[150px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
 
           <div className="container-custom relative z-10">
             <motion.div
@@ -274,58 +271,50 @@ export default function EconomicDamagesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto text-center"
+              className="max-w-5xl mx-auto"
             >
-              {/* <span className="inline-block text-[#D4AF37] text-xs font-bold tracking-[0.3em] uppercase mb-6">Get in Touch</span> */}
-              {/* <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-5">
-                Ready to Discuss<br />
-                <span className="font-serif italic text-[#D4AF37] font-medium">Your Case?</span>
-              </h2> */}
-              <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto mb-14 leading-relaxed">
-                For additional information about Engel &amp; Engel&apos;s Forensic Accounting Services or a consultation, please contact us.
+              <p className="text-base md:text-lg text-white/60 font-light mb-10 text-center">
+                For additional information about{' '}
+                <span className="text-white font-medium">Engel &amp; Engel&apos;s</span>{' '}
+                <span className="font-serif italic text-[#D4AF37]">Economic Damages</span>{' '}
+                or a consultation, please contact:
               </p>
-
-              {/* Contact card */}
-              <div className="relative max-w-3xl mx-auto">
-                <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-b from-[#D4AF37]/30 via-white/10 to-transparent" />
-                <div className="relative bg-white/[0.04] backdrop-blur-md rounded-3xl p-8 md:p-12">
-                  <div className="flex flex-col md:flex-row items-center gap-6">
-                    {/* Avatar / Initials */}
-                    <div className="flex-shrink-0">
-                      <div className=" rounded-2xl bg-gradient-to-br from-[#D4AF37] to-[#B8962E] flex items-center justify-center shadow-lg shadow-[#D4AF37]/20 overflow-hidden">
-                        <Image width={100} height={100} src='/images/team/brandon-engel.jpg' alt='Brandon J. Engel' className="h-20 w-20  object-cover object-top"/>
-                      </div>
-                    </div>
-
-                    {/* Name & credentials */}
-                    <div className="text-center md:text-left flex-1">
-                      <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Brandon J. Engel</h3>
-                      <p className="text-white/40 text-sm font-medium tracking-wider uppercase mt-1">CPA, CFE, ABV</p>
-                    </div>
-
-                    {/* Divider */}
-                    <div className="hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-white/15 to-transparent" />
-
-                    {/* Contact links */}
-                    <div className="flex flex-col gap-4">
-                      <a href="mailto:brandon@engelandengel.com" className="group flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-200">
-                        <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] transition-all duration-300">
-                          <svg className="w-4 h-4 text-[#D4AF37] group-hover:text-primary-950 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                          </svg>
-                        </div>
-                        <span className="text-sm font-medium">brandon@engelandengel.com</span>
-                      </a>
-                      <a href="tel:310-277-2220" className="group flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-200">
-                        <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] transition-all duration-300">
-                          <svg className="w-4 h-4 text-[#D4AF37] group-hover:text-primary-950 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                          </svg>
-                        </div>
-                        <span className="text-sm font-medium">310-277-2220</span>
-                      </a>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="flex items-center gap-6 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
+                  <div className="flex-shrink-0">
+                    <div className="rounded-full overflow-hidden border-2 border-[#D4AF37]/40">
+                      <Image width={80} height={80} src="/images/team/brandon-engel.jpg" alt="Brandon J. Engel" className="w-20 h-20 object-cover object-top" />
                     </div>
                   </div>
+                  <div className="space-y-2">
+                    <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Brandon J. Engel</h3>
+                    <p className="text-white/50 text-sm font-medium tracking-widest uppercase">CPA, CFE, ABV</p>
+                    <div className="h-px w-16 bg-[#D4AF37] mt-2" />
+                  </div>
+                </div>
+
+                <div className="flex flex-col justify-center space-y-5 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
+                  <a href="mailto:brandon@engelandengel.com" className="group flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#0A1A3C] transition-all duration-300 shrink-0">
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <span className="text-lg font-semibold text-white/90 group-hover:text-white border-b border-white/20 group-hover:border-[#D4AF37] pb-0.5 transition-all duration-200">
+                      brandon@engelandengel.com
+                    </span>
+                  </a>
+
+                  <a href="tel:310-277-2220" className="group flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#0A1A3C] transition-all duration-300 shrink-0">
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                    </div>
+                    <span className="text-lg font-semibold text-white/90 group-hover:text-white border-b border-white/20 group-hover:border-[#D4AF37] pb-0.5 transition-all duration-200">
+                      310-277-2220
+                    </span>
+                  </a>
                 </div>
               </div>
             </motion.div>

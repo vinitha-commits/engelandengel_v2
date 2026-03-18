@@ -1,14 +1,35 @@
 'use client';
 
-import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import Image from 'next/image';
+
+const practiceAreas = [
+  { title: 'Economic Damages', href: '/practice-areas/economic-damages' },
+  { title: 'Fraud Investigation', href: '/practice-areas/fraud-investigation' },
+  { title: 'Business Valuation', href: '/practice-areas/business-valuation' },
+  { title: 'Bankruptcy & Insolvency', href: '/practice-areas/bankruptcy-insolvency' },
+  { title: 'IP Litigation', href: '/practice-areas/ip-litigation' },
+  { title: 'Real Estate Litigation', href: '/practice-areas/real-estate-litigation' },
+  { title: 'Construction Litigation', href: '/practice-areas/construction-litigation' },
+  { title: 'Alter Ego', href: '/practice-areas/alter-ego' },
+  { title: 'Fraudulent Transfers', href: '/practice-areas/fraudulent-transfers' },
+  { title: 'Employment Litigation', href: '/practice-areas/employment-litigation' },
+  { title: 'Business Interruption', href: '/practice-areas/business-interruption' },
+  { title: 'Personal Injury', href: '/practice-areas/personal-injury' },
+  { title: 'Accounting Malpractice', href: '/practice-areas/accounting-malpractice' },
+  { title: 'Partnership & Shareholder Disputes', href: '/practice-areas/partnership-disputes' },
+  { title: 'Trust/Probate Litigation', href: '/practice-areas/trust-probate-litigation' },
+  { title: 'Defamation Litigation', href: '/practice-areas/defamation' },
+];
 
 export default function FraudulentTransfersPage() {
+  const pathname = usePathname();
   const { scrollY } = useScroll();
 
-  // Parallax transforms
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -16,16 +37,35 @@ export default function FraudulentTransfersPage() {
 
   const springY1 = useSpring(y1, { stiffness: 100, damping: 30 });
 
+  const services = [
+    'Analysis of Reasonable Equivalent Value',
+    'Solvency Analysis',
+    'Analysis of Ability to Pay Debts as they Become Due',
+    'Analysis of Undercapitalization',
+    'Tracing of Fraudulent Transactions',
+    'Business Fair Market Valuation',
+    'Business Fair Valuation',
+    'Valuation of Intangible Assets',
+    'Liquidation Analysis',
+    'Financial Fraud Investigations',
+    'Expert Witness Testimony',
+  ];
+
+  const publications = [
+    'The Element of Reasonably Equivalent Value',
+    'The Element of Insolvency',
+    'The Element of Reasonably Small Capital',
+    'The Element of Inability to Pay Debts as they Mature',
+  ];
+
   return (
     <>
       <Header />
-      <main className="bg-slate-50 min-h-screen text-slate-900 overflow-hidden">
+      <main className=" min-h-screen">
 
-        {/* ══════════ CINEMATIC HERO ══════════ */}
-        <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[#0A1A3C]">
-          {/* Parallax Background Decorations */}
+        {/* ══════════ HERO ══════════ */}
+        <section className="relative min-h-[70vh] flex items-end overflow-hidden bg-primary-950">
           <div className="absolute inset-0 z-0 pointer-events-none">
-            {/* Glowing orbs */}
             <motion.div
               style={{ y: y2, scale }}
               className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#D4AF37]/10 blur-[150px] rounded-full"
@@ -34,211 +74,182 @@ export default function FraudulentTransfersPage() {
               style={{ y: y1 }}
               className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-[#3b82f6]/10 blur-[120px] rounded-full"
             />
-
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
             <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
           </div>
 
-          <div className="container-custom relative z-10 w-full">
+          <div className="container-custom relative z-10 w-full pb-20 pt-40">
             <motion.div
               style={{ y: springY1, opacity }}
-              className="max-w-4xl mx-auto text-center"
+              className="max-w-5xl"
             >
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
               >
-                <h1 className="text-7xl md:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl">
-                  Fraudulent <br />
+                <p className="text-[#D4AF37] text-sm font-semibold tracking-[0.3em] uppercase mb-6">Practice Area</p>
+                <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white leading-[0.9]">
+                  Fraudulent<br />
                   <span className="font-serif italic text-[#D4AF37] font-medium">Transfers</span>
                 </h1>
-                <div className="h-0.5 w-32 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-6" />
+                <div className="h-[3px] w-24 bg-[#D4AF37] mt-8" />
               </motion.div>
             </motion.div>
           </div>
         </section>
 
-        {/* ══════════ OVERVIEW ══════════ */}
-        <section className="py-24 relative bg-white">
-          <div className="container-custom">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-stretch">
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                  className="lg:col-span-7 flex flex-col justify-center"
-                >
-                  <div className="space-y-8">
-                    <div className="space-y-6">
-                      <p className="text-slate-600 leading-relaxed text-xl text-slate-700 font-medium" dangerouslySetInnerHTML={{ __html: "Business and bankruptcy litigators often require forensic accounting expertise in connection with fraudulent transfer claims. Engel & Engel has extensive experience, both in business litigation and bankruptcy litigation, in investigating fraudulent transfers and providing expert witness testimony for both plaintiffs and defendants. Engel & Engel's fraudulent transfer expertise is highlighted with a credentialed Certified Insolvency and Restructuring Advisor (CIRA), as well as an Accreditation in Business Valuation (ABV), a Master Analyst in Financial Forensics (MAFF), and Certified Fraud Examiners (CFE). Engel & Engel's expertise is further highlighted with four research publications on the subject of fraudulent transfers. Overall, Engel & Engel has the qualifications and experience to conduct a fraudulent transfer analysis that is consistent with established legal principles and able to withstand the scrutiny of the court." }}></p>
-                    </div>
-                  </div>
-                </motion.div>
+        {/* ══════════ CONTENT WITH SIDEBAR ══════════ */}
+        <div className="container-custom relative py-16 lg:py-24">
+          <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
 
+            {/* ── Sticky Sidebar ── */}
+            <aside className="hidden lg:block lg:w-72 xl:w-80 flex-shrink-0 z-20 sticky top-28">
+              <div className="">
+                <nav className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+                  <div className="p-5 bg-primary-950">
+                    <h3 className="text-sm font-bold text-white tracking-[0.2em] uppercase">Practice Areas</h3>
+                  </div>
+                  <div className="max-h-[70vh] overflow-y-auto py-2 custom-scrollbar">
+                    {practiceAreas.map((area) => {
+                      const isActive = pathname === area.href;
+                      return (
+                        <Link
+                          key={area.href}
+                          href={area.href}
+                          className={`block px-5 py-3 text-[0.85rem] font-medium transition-all duration-200 border-l-[3px] ${
+                            isActive
+                              ? 'bg-primary-950/5 text-primary-950 border-l-[#D4AF37] font-semibold'
+                              : 'text-gray-800 border-l-transparent hover:bg-slate-50 hover:text-primary-950 hover:border-l-primary-950/30'
+                          }`}
+                        >
+                          {area.title}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </nav>
+              </div>
+            </aside>
+
+            {/* ── Main Content ── */}
+            <div className="flex-1 min-w-0">
+
+              {/* ══════════ OVERVIEW ══════════ */}
+              <section className="">
                 <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
-                  className="lg:col-span-5 relative h-full min-h-[300px]"
                 >
-                  <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl group">
-                    <Image
-                      src="/images/future-lost-profits.png"
-                      alt="Economic Damages"
-                      fill
-                      className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f3574]/40 to-transparent" />
+                  <div className="relative">
+                    <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/40 to-transparent rounded-full hidden lg:block" />
+                    <p className="">
+                      Business and bankruptcy litigators often require forensic accounting expertise in connection with fraudulent transfer claims. Engel &amp; Engel has extensive experience, both in business litigation and bankruptcy litigation, in investigating fraudulent transfers and providing expert witness testimony for both plaintiffs and defendants. Engel &amp; Engel&apos;s fraudulent transfer expertise is highlighted with a credentialed Certified Insolvency and Restructuring Advisor (CIRA), as well as an Accreditation in Business Valuation (ABV), a Master Analyst in Financial Forensics (MAFF), and Certified Fraud Examiners (CFE). Engel &amp; Engel&apos;s expertise is further highlighted with four research publications on the subject of fraudulent transfers. Overall, Engel &amp; Engel has the qualifications and experience to conduct a fraudulent transfer analysis that is consistent with established legal principles and able to withstand the scrutiny of the court.
+                    </p>
                   </div>
-                  {/* Decorative element */}
-                  <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#D4AF37]/10 -z-10 rounded-full blur-2xl" />
                 </motion.div>
-              </div>
+              </section>
+
+              {/* ══════════ SERVICES ══════════ */}
+              <section className="py-10 my-10 border-t border-b border-slate-200">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary-950 leading-tight mb-4">
+                    How Engel &amp; Engel Helps Business and Bankruptcy Litigation Attorneys
+                  </h2>
+                  <div className="h-[3px] w-16 bg-primary-950 mb-4" />
+                  <p className="mb-10">
+                    When the stakes are high, Engel &amp; Engel can serve as your expert in connection with the following:
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+                    {services.map((item, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: i * 0.03 }}
+                        className="group relative p-5 bg-white rounded-2xl border border-slate-200 hover:border-primary-950/30 hover:shadow-lg transition-all duration-300 flex justify-center flex-col"
+                      >
+                        <div className="absolute top-1/2 -translate-y-1/2 left-5 w-2 h-2 rounded-full bg-[#D4AF37] group-hover:scale-125 transition-transform" />
+                        <span className="block pl-5 text-[0.95rem] font-medium leading-snug group-hover:text-primary-950 transition-colors">
+                          {item}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              </section>
+
+              {/* ══════════ PUBLICATIONS ══════════ */}
+              <section className="border-slate-200">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary-950 tracking-tight mb-4">
+                    Research Publications
+                  </h2>
+                  <div className="h-[3px] w-16 bg-primary-950 mb-6" />
+                  <p className="mb-10">
+                    Engel &amp; Engel has published various research publications in connection with fraudulent transfers:
+                  </p>
+                  <div className="space-y-3">
+                    {publications.map((item, i) => (
+                      <motion.a
+                        href="/publications/fraudulent-transfers"
+                        key={i}
+                        initial={{ opacity: 0, x: -15 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: i * 0.04 }}
+                        className="group flex gap-5 p-5 rounded-xl bg-white border border-transparent hover:border-primary-950/20 hover:shadow-md transition-all duration-300 items-center"
+                      >
+                        <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary-950/5 text-primary-950 flex items-center justify-center text-sm font-bold group-hover:bg-primary-950 group-hover:text-white transition-all duration-300">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        <span className="font-medium text-gray-800 leading-snug group-hover:text-primary-950 transition-colors">
+                          {item}
+                        </span>
+                      </motion.a>
+                    ))}
+                  </div>
+                </motion.div>
+              </section>
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* ══════════ SERVICES ══════════ */}
-        <section className="py-16 lg:py-24 bg-slate-50 relative overflow-hidden">
-          <div className="container-custom max-w-5xl relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-white rounded-3xl border border-blue-100 p-10 md:p-16 shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0f3574] leading-tight mb-8 pb-3 border-b-2 border-[#0f3574] w-fit"> How Engel & Engel Helps Business and Bankruptcy Litigation Attorneys </h2>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8"> When the stakes are high, Engel & Engel can serve as your expert in connection with the following: </p>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <li key="Analysis of Reasonable Equivalent Value" className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-blue-100 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2 h-2 rounded-full bg-current" />
-                    </div>
-                    <span className="text-[1.05rem] font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">{"Analysis of Reasonable Equivalent Value"}</span>
-                  </li>
-                  <li key="Solvency Analysis" className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-blue-100 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2 h-2 rounded-full bg-current" />
-                    </div>
-                    <span className="text-[1.05rem] font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">{"Solvency Analysis"}</span>
-                  </li>
-                  <li key="Analysis of Ability to Pay Debts as they Become Due" className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-blue-100 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2 h-2 rounded-full bg-current" />
-                    </div>
-                    <span className="text-[1.05rem] font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">{"Analysis of Ability to Pay Debts as they Become Due"}</span>
-                  </li>
-                  <li key="Analysis of Undercapitalization" className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-blue-100 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2 h-2 rounded-full bg-current" />
-                    </div>
-                    <span className="text-[1.05rem] font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">{"Analysis of Undercapitalization"}</span>
-                  </li>
-                  <li key="Tracing of Fraudulent Transactions" className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-blue-100 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2 h-2 rounded-full bg-current" />
-                    </div>
-                    <span className="text-[1.05rem] font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">{"Tracing of Fraudulent Transactions"}</span>
-                  </li>
-                  <li key="Business Fair Market Valuation" className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-blue-100 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2 h-2 rounded-full bg-current" />
-                    </div>
-                    <span className="text-[1.05rem] font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">{"Business Fair Market Valuation"}</span>
-                  </li>
-                  <li key="Business Fair Valuation" className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-blue-100 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2 h-2 rounded-full bg-current" />
-                    </div>
-                    <span className="text-[1.05rem] font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">{"Business Fair Valuation"}</span>
-                  </li>
-                  <li key="Valuation of Intangible Assets" className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-blue-100 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2 h-2 rounded-full bg-current" />
-                    </div>
-                    <span className="text-[1.05rem] font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">{"Valuation of Intangible Assets"}</span>
-                  </li>
-                  <li key="Liquidation Analysis" className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-blue-100 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2 h-2 rounded-full bg-current" />
-                    </div>
-                    <span className="text-[1.05rem] font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">{"Liquidation Analysis"}</span>
-                  </li>
-                  <li key="Financial Fraud Investigations" className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-blue-100 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2 h-2 rounded-full bg-current" />
-                    </div>
-                    <span className="text-[1.05rem] font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">{"Financial Fraud Investigations"}</span>
-                  </li>
-                  <li key="Expert Witness Testimony" className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-blue-100 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2 h-2 rounded-full bg-current" />
-                    </div>
-                    <span className="text-[1.05rem] font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">{"Expert Witness Testimony"}</span>
-                  </li>
-              </ul>
-            </motion.div>
-          </div>
-          {/* Subtle background element */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
-        </section>
-
-        {/* ══════════ PUBLICATIONS ══════════ */}
-        <section className="py-16 lg:py-24 bg-white">
-          <div className="container-custom max-w-5xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-slate-50 rounded-3xl border border-blue-100 p-10 md:p-16 shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0f3574] tracking-tight mb-8 pb-3 border-b-2 border-[#0f3574] w-fit">
-                Research Publications
-              </h2>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8">
-                Engel & Engel has published the following research publications in connection with fraudulent transfers:
-              </p>
-              <ul className="grid grid-cols-1 gap-4">
-                  <li key="The Element of Reasonably Equivalent Value" className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-blue-100 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 group">
-                    <div className="mt-1 w-8 h-8 rounded-full bg-blue-50 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2.5 h-2.5 rounded-full bg-current" />
-                    </div>
-                    <span className="text-lg font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">The Element of Reasonably Equivalent Value</span>
-                  </li>
-                  <li key="The Element of Insolvency" className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-blue-100 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 group">
-                    <div className="mt-1 w-8 h-8 rounded-full bg-blue-50 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2.5 h-2.5 rounded-full bg-current" />
-                    </div>
-                    <span className="text-lg font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">The Element of Insolvency</span>
-                  </li>
-                  <li key="The Element of Reasonably Small Capital" className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-blue-100 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 group">
-                    <div className="mt-1 w-8 h-8 rounded-full bg-blue-50 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2.5 h-2.5 rounded-full bg-current" />
-                    </div>
-                    <span className="text-lg font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">The Element of Reasonably Small Capital</span>
-                  </li>
-                  <li key="The Element of Inability to Pay Debts as they Mature" className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-blue-100 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 group">
-                    <div className="mt-1 w-8 h-8 rounded-full bg-blue-50 text-[#0f3574] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f3574] group-hover:text-white transition-colors duration-300">
-                      <div className="w-2.5 h-2.5 rounded-full bg-current" />
-                    </div>
-                    <span className="text-lg font-medium text-slate-700 leading-snug group-hover:text-[#0f3574] transition-colors">The Element of Inability to Pay Debts as they Mature</span>
-                  </li>
-              </ul>
-            </motion.div>
+        {/* ══════════ MOBILE PRACTICE AREAS ══════════ */}
+        <section className="lg:hidden py-12 bg-white border-t border-slate-200">
+          <div className="container-custom">
+            <h3 className="text-lg font-bold text-primary-950 mb-6 tracking-tight">Other Practice Areas</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {practiceAreas.filter((area) => area.href !== pathname).map((area) => (
+                <Link
+                  key={area.href}
+                  href={area.href}
+                  className="block p-4 bg-slate-50 rounded-xl text-[0.8rem] font-medium text-slate-600 hover:bg-primary-950/5 hover:text-primary-950 transition-all duration-200 border border-slate-100 hover:border-primary-950/20"
+                >
+                  {area.title}
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* ══════════ CONTACT CTA ══════════ */}
         <section className="relative py-28 bg-[#0A1A3C] overflow-hidden">
-          {/* Glow orbs */}
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/5 blur-[150px] rounded-full pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
-          {/* Top rule */}
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
 
           <div className="container-custom relative z-10">
@@ -249,21 +260,26 @@ export default function FraudulentTransfersPage() {
               transition={{ duration: 0.8 }}
               className="max-w-5xl mx-auto"
             >
-              <p className="text-sm md:text-base text-white/60 font-light mb-4 whitespace-nowrap overflow-hidden text-ellipsis">
+              <p className="text-base md:text-lg text-white/60 font-light mb-10 text-center">
                 For additional information about{' '}
                 <span className="text-white font-medium">Engel &amp; Engel&apos;s</span>{' '}
-                <span className="font-serif italic text-[#D4AF37]">Forensic Accounting Services</span>{' '}
+                <span className="font-serif italic text-[#D4AF37]">Fraudulent Transfers</span>{' '}
                 or a consultation, please contact:
               </p>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Name card */}
-                <div className="flex flex-col justify-center space-y-3 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
-                  <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Brandon J. Engel</h3>
-                  <p className="text-white/50 text-sm font-medium tracking-widest uppercase">CPA, CFE, ABV</p>
-                  <div className="h-px w-16 bg-[#D4AF37] mt-2" />
+                <div className="flex items-center gap-6 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
+                  <div className="flex-shrink-0">
+                    <div className="rounded-full overflow-hidden border-2 border-[#D4AF37]/40">
+                      <Image width={80} height={80} src="/images/team/brandon-engel.jpg" alt="Brandon J. Engel" className="w-20 h-20 object-cover object-top" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Brandon J. Engel</h3>
+                    <p className="text-white/50 text-sm font-medium tracking-widest uppercase">CPA, CFE, ABV</p>
+                    <div className="h-px w-16 bg-[#D4AF37] mt-2" />
+                  </div>
                 </div>
 
-                {/* Links card */}
                 <div className="flex flex-col justify-center space-y-5 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
                   <a href="mailto:brandon@engelandengel.com" className="group flex items-center gap-4">
                     <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#0A1A3C] transition-all duration-300 shrink-0">
@@ -291,7 +307,6 @@ export default function FraudulentTransfersPage() {
             </motion.div>
           </div>
 
-          {/* Bottom rule */}
           <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
         </section>
 

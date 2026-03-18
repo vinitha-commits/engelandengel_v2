@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import Image from 'next/image';
 
 // ─────────────────────────────────────────────
 // Data
@@ -304,17 +305,24 @@ export default function InternalInvestigationsPage() {
               transition={{ duration: 0.8 }}
               className="max-w-5xl mx-auto"
             >
-              <p className="text-sm md:text-base text-white/60 font-light mb-4">
+              <p className="text-base md:text-lg text-white/60 font-light mb-10 text-center">
                 For additional information about{' '}
                 <span className="text-white font-medium">Engel &amp; Engel&apos;s</span>{' '}
                 <span className="font-serif italic text-[#D4AF37]">Internal Investigations</span>{' '}
                 or a consultation, please contact:
               </p>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="flex flex-col justify-center space-y-3 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
-                  <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Brandon J. Engel</h3>
-                  <p className="text-white/50 text-sm font-medium tracking-widest uppercase">CPA, CFE</p>
-                  <div className="h-px w-16 bg-[#D4AF37] mt-2" />
+                <div className="flex items-center gap-6 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
+                  <div className="flex-shrink-0">
+                    <div className="rounded-full overflow-hidden border-2 border-[#D4AF37]/40">
+                      <Image width={80} height={80} src="/images/team/brandon-engel.jpg" alt="Brandon J. Engel" className="w-20 h-20 object-cover object-top" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Brandon J. Engel</h3>
+                    <p className="text-white/50 text-sm font-medium tracking-widest uppercase">CPA, CFE, ABV</p>
+                    <div className="h-px w-16 bg-[#D4AF37] mt-2" />
+                  </div>
                 </div>
 
                 <div className="flex flex-col justify-center space-y-5 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">

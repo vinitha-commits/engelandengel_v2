@@ -158,9 +158,10 @@ export default function CasesPage() {
                     className="group relative bg-white p-8 md:p-10 md:pb-8 pb-8 rounded-xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] border border-[#0f3574] border-t-4 hover:shadow-[0_20px_60px_-20px_rgba(15,53,116,0.15)] transition-all duration-500 flex flex-col"
                   >
                     <div className="mb-8">
-                      <h3 className="text-[1.75rem] font-bold text-[#0A1A3C] tracking-tight leading-tight mb-5 group-hover:text-[#0f3574] transition-colors duration-300 relative inline-block">
+                      <h3 className="text-[1.75rem] font-bold text-[#0A1A3C] tracking-tight leading-tight mb-5 group-hover:text-[#0f3574] transition-colors duration-300 relative inline-flex items-center gap-3">
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0" />
                         {case_.title}
-                        <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-[#0f3574] to-transparent transition-all duration-500 group-hover:w-full" />
+                        <span className="absolute -bottom-2 left-0 w-16 h-0.5 bg-gradient-to-r from-[#D4AF37] to-transparent transition-all duration-500 group-hover:w-full" />
                       </h3>
                       <div>
                         <span className="text-2xl md:text-3xl font-serif italic text-[#0f3574] leading-tight font-medium">
