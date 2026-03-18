@@ -58,23 +58,17 @@ export default function ServicesOverview() {
           </div>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
             {services.map((service) => (
               <a
                 href={service.href}
                 key={service.id}
-                className="card-accent relative rounded-2xl bg-white/[0.05] border border-white/10 cursor-pointer p-8 transition-all duration-300 overflow-hidden group flex flex-col items-center text-center hover:border-[#d4af37]/30 hover:bg-white/[0.08]"
+                className="card-accent relative rounded-2xl bg-white/[0.05] border border-white/10 cursor-pointer p-8 h-28 transition-all duration-300 overflow-hidden group flex items-center justify-center hover:border-[#d4af37]/30 hover:bg-white/[0.08]"
               >
-                {/* Gold dot */}
-                <div className="w-2 h-2 rounded-full bg-[#d4af37] mb-5 group-hover:scale-150 transition-transform duration-300" />
-
-                <h3 className="card-title text-lg font-semibold text-white group-hover:text-[#d4af37] transition-colors duration-300">
+                <h3 className="card-title text-lg font-semibold text-white group-hover:text-[#d4af37] transition-colors duration-300 whitespace-nowrap">
                   {service.title}
                 </h3>
-
-                {/* Bottom line */}
-                <div className="h-[2px] w-0 group-hover:w-12 bg-[#d4af37] mt-5 transition-all duration-400" />
               </a>
             ))}
 
