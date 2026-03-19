@@ -8,12 +8,12 @@ import Image from 'next/image';
 import RequestPublicationModal from '@/components/modals/RequestPublicationModal';
 
 const publications = [
-  { title: 'Framework for the Calculation of Lost Profits: Part I', image: '/images/sample.png' },
-  { title: 'Framework for the Calculation of Lost Profits: Part II: "The Element of Certainty"', image: '/images/future-lost-profits.png' },
-  { title: 'Framework for the Calculation of Lost Profits: Part III: "Prospective Lost Profits"', image: '/images/future-lost-profits.png' },
-  { title: 'Framework for the Calculation of Lost Profits: Part IV: "Unestablished Businesses"', image: '/images/future-lost-profits.png' },
-  { title: 'Framework for the Calculation of Lost Profits: Part V: "Mitigation of Damages"', image: '/images/future-lost-profits.png' },
-  { title: 'Discounting Future Lost Profits', image: '/images/future-lost-profits.png' },
+  { title: 'Framework for the Calculation of Lost Profits: Part I', image: '/images/FINANCIAL ISSUES IN BUSINESS LITIGATION2.png' },
+  { title: 'Framework for the Calculation of Lost Profits: Part II: "The Element of Certainty"', image: '/images/law2.png' },
+  { title: 'Framework for the Calculation of Lost Profits: Part III: "Prospective Lost Profits"', image: '/images/law3.png' },
+  { title: 'Framework for the Calculation of Lost Profits: Part IV: "Unestablished Businesses"', image: '/images/law4.png' },
+  { title: 'Framework for the Calculation of Lost Profits: Part V: "Mitigation of Damages"', image: '/images/law5.png' },
+  { title: 'Discounting Future Lost Profits', image: '/images/law6.png' },
 ];
 
 export default function EconomicDamagesPublications() {

@@ -165,13 +165,11 @@ export default function Hero() {
           src="/images/hero.webp"
           alt="Expert Team"
           fill
-          className="object-cover brightness-[0.2] contrast-[1.1] grayscale-[20%]"
+          className="object-cover brightness-[0.5] contrast-[1.1] grayscale-[20%]"
           priority
           sizes="100vw"
         />
-        {/* Layered gradients for a cinematic look */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-950/80 via-transparent to-primary-950" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(30,58,138,0.2)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-primary-950/40" />
       </div>
 
       {/* Decorative architectural elements */}

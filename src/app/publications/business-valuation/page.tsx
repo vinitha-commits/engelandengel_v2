@@ -4,13 +4,12 @@ import React, { useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { Button } from '@/components/ui/Button';
+
 import Image from 'next/image';
 import RequestPublicationModal from '@/components/modals/RequestPublicationModal';
 
 const publications = [
-    { title: 'The Framework for a Business Valuation: Part I: "Revenue Estimation and Cost Structure"', image: '/images/future-lost-profits.png' },
-    { title: 'The Framework for a Business Valuation: Part II: "Discount and Capitalization Rates"', image: '/images/future-lost-profits.png' },
+    { title: 'The Framework for a Business Valuation: Part I: "Revenue Estimation and Cost Structure"', image: '/images/law10.png' },
 ];
 export default function BusinessValuationPublications() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -71,46 +70,43 @@ export default function BusinessValuationPublications() {
                 </div>
             </section>
 
-            {/* ══════════ PUBLICATIONS GRID ══════════ */}
-            <section className="py-24 relative bg-white">
+            {/* PUBLICATIONS */}
+            <section className="py-24 bg-white">
                 <div className="container-custom">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14">
                         {publications.map((pub, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="relative bg-white p-8 rounded-[2rem] flex flex-col items-start h-full text-left overflow-hidden"
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden"
                             >
-                                {/* Static Blue Architectural Frame */}
-                                <div className="absolute inset-0 border border-[#0A1A3C] rounded-[2rem]" />
-                                <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-[#0A1A3C] rounded-tr-[2rem]" />
-                                <div className="absolute bottom-0 left-0 w-16 h-16 border-b border-l border-[#0A1A3C] rounded-bl-[2rem]" />
-
-                                {/* Document Preview */}
-                                <div className="relative w-full max-w-[200px] aspect-[3/4] mb-8 overflow-hidden rounded-lg shadow-[0_20px_40px_rgba(0,0,0,0.1)] bg-slate-50 mx-auto">
+                                {/* IMAGE */}
+                                <div className="w-full flex items-center justify-center bg-white border-b p-6">
                                     <Image
                                         src={pub.image}
                                         alt={pub.title}
-                                        fill
-                                        className="object-cover"
+                                        width={400}
+                                        height={520}
+                                        className="w-full h-auto object-contain rounded shadow-md"
                                     />
                                 </div>
 
-                                <h3 className="text-base font-medium text-[#0A1A3C] mb-8 leading-[1.3] tracking-tight min-h-[5.5rem] flex items-center text-left">
-                                    {pub.title}
-                                </h3>
+                                {/* CONTENT */}
+                                <div className="p-8 flex flex-col flex-grow">
+                                    <h3 className="text-lg font-semibold text-[#0A1A3C] leading-snug mb-8 min-h-[70px]">
+                                        {pub.title}
+                                    </h3>
 
-                                <button
-                                    onClick={() => handleRequestClick(pub.title, pub.image)}
-                                    className="mt-auto w-full group/btn relative overflow-hidden bg-[#0A1A3C] hover:bg-[#D4AF37] text-white py-4 px-6 rounded-xl transition-all duration-500 flex items-center justify-center gap-3 shadow-lg hover:shadow-[#D4AF37]/30"
-                                >
-                                    <span className="text-[11px] font-bold tracking-[0.25em] uppercase relative z-10 transition-colors duration-500 group-hover/btn:text-[#0A1A3C]">
+                                    <button
+                                        onClick={() => handleRequestClick(pub.title, pub.image)}
+                                        className="mt-auto w-full bg-[#0A1A3C] hover:bg-[#D4AF37] text-white py-4 rounded-lg transition-all duration-400 text-[12px] tracking-[0.25em] uppercase font-semibold hover:text-[#0A1A3C]"
+                                    >
                                         Request Publication
-                                    </span>
-                                </button>
+                                    </button>
+                                </div>
                             </motion.div>
                         ))}
                     </div>
