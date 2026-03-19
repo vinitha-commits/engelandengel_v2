@@ -8,7 +8,7 @@ const services = [
   {
     id: '01',
     title: 'Forensic Accounting',
-    description: 'Detailed financial analysis and investigation to uncover the truth behind complex financial disputes.',
+    description: 'Detailed financial analysis to uncover the truth behind complex financial disputes.',
     href: '/services/forensic-accounting',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -19,7 +19,7 @@ const services = [
   {
     id: '02',
     title: 'Expert Witness Testimony',
-    description: 'Credible, clear expert testimony backed by rigorous financial analysis and courtroom experience.',
+    description: 'Credible testimony backed by rigorous financial analysis and courtroom experience.',
     href: '/services/expert-witness-testimony',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -30,7 +30,7 @@ const services = [
   {
     id: '03',
     title: 'Joint Retention Program',
-    description: 'A collaborative approach where one expert serves both parties to reduce costs and streamline litigation.',
+    description: 'One expert serves both parties to reduce costs and streamline litigation.',
     href: '/services/joint-retention-program',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -41,7 +41,7 @@ const services = [
   {
     id: '04',
     title: 'Internal Investigations',
-    description: 'Thorough internal reviews to detect fraud, mismanagement, and financial irregularities.',
+    description: 'Thorough reviews to detect fraud, mismanagement, and financial irregularities.',
     href: '/services/internal-investigations',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -53,67 +53,83 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section className="py-24 md:py-32 bg-[#fafaf8]">
-      <div className="container-custom">
+    <section className="relative py-20 md:py-28 overflow-hidden bg-primary-950">
+      {/* Background grid */}
+      <div className="absolute inset-0 opacity-100" style={{
+        backgroundImage: `linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px)`,
+        backgroundSize: '60px 60px',
+      }} />
+
+      {/* Glow effects */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full pointer-events-none" style={{
+        background: 'radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)',
+      }} />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none" style={{
+        background: 'radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%)',
+      }} />
+
+      <div className="relative z-10 container-custom">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16 md:mb-20"
+          transition={{ duration: 0.6 }}
+          className="flex md:items-center flex-col md:flex-row gap-4 md:gap-8 mb-14 lg:mb-20"
         >
-          <p className="text-xs font-medium tracking-[0.25em] uppercase text-stone-400 mb-4">
-            What We Do
-          </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl text-stone-900 tracking-tight leading-[0.95]">
-            Our <em className="font-serif italic text-[#b89a3a] font-normal">Services</em>
-          </h2>
+          <div className="flex-none">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl text-white leading-[0.9] tracking-tight">
+              Our <em className="text-[#d4af37] font-serif italic">Services</em>
+            </h2>
+          </div>
+          <div className="flex-1 h-px w-full" style={{
+            background: 'linear-gradient(90deg, rgba(212,175,55,0.5), transparent)',
+          }} />
         </motion.div>
 
-        {/* 2x2 Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 max-w-5xl mx-auto">
+        {/* Cards - taller with icons, descriptions, and hover animations */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((service, i) => (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.08 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
             >
               <Link
                 href={service.href}
-                className="group relative block bg-white rounded-xl border border-stone-200/80 p-8 md:p-10 transition-all duration-300 hover:shadow-lg hover:shadow-stone-200/50 hover:border-stone-300"
+                className="service-card group relative block rounded-2xl bg-white/[0.04] border border-white/[0.08] p-8 h-full min-h-[260px] transition-all duration-500 overflow-hidden hover:bg-white/[0.08] hover:border-[#d4af37]/30 hover:-translate-y-1"
               >
-                {/* Top row: number + arrow */}
-                <div className="flex items-center justify-between mb-8">
-                  <span className="text-xs font-mono text-stone-300 tracking-wide">
-                    {service.id}
-                  </span>
-                  <div className="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center group-hover:border-[#b89a3a] group-hover:bg-[#b89a3a]/5 transition-all duration-300">
-                    <svg
-                      className="w-3.5 h-3.5 text-stone-300 group-hover:text-[#b89a3a] transition-colors duration-300"
-                      fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-                    </svg>
-                  </div>
-                </div>
+                {/* Animated gold top border */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+
+                {/* Bottom glow on hover */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-24 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{
+                  background: 'radial-gradient(ellipse, rgba(212,175,55,0.1) 0%, transparent 70%)',
+                }} />
 
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-lg bg-stone-100 flex items-center justify-center text-stone-500 mb-6 group-hover:bg-[#b89a3a]/10 group-hover:text-[#b89a3a] transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center text-[#d4af37]/70 mb-6 group-hover:border-[#d4af37]/30 group-hover:text-[#d4af37] group-hover:bg-[#d4af37]/5 transition-all duration-400">
                   {service.icon}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl md:text-2xl font-semibold text-stone-900 tracking-tight mb-3 group-hover:text-[#b89a3a] transition-colors duration-300">
+                <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-[#d4af37] transition-colors duration-300">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm leading-relaxed text-stone-400">
+                <p className="text-sm leading-relaxed text-white/35 group-hover:text-white/50 transition-colors duration-300">
                   {service.description}
                 </p>
+
+                {/* Arrow */}
+                <div className="absolute bottom-8 right-8 w-8 h-8 rounded-full border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400">
+                  <svg className="w-3.5 h-3.5 text-[#d4af37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
+                  </svg>
+                </div>
               </Link>
             </motion.div>
           ))}
