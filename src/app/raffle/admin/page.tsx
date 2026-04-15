@@ -216,7 +216,7 @@ export default function RaffleAdminPage() {
               <h1 className="text-xl font-bold text-gray-900 tracking-tight">
                 {showForgotPassword ? (forgotSent ? 'Check Your Email' : 'Reset Password') : 'Engel & Engel'}
               </h1>
-              <p className="text-gray-400 text-sm mt-1">
+              <p className="text-gray-600 text-sm mt-1">
                 {showForgotPassword ? (forgotSent ? 'We sent you a reset link' : 'Enter your admin email') : 'Raffle Admin'}
               </p>
             </div>
@@ -241,14 +241,14 @@ export default function RaffleAdminPage() {
               ) : (
                 <form onSubmit={handleForgotPassword} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-medium text-gray-500 mb-1.5">Email Address</label>
+                    <label className="block text-xs font-semibold text-gray-800 mb-1.5">Email Address</label>
                     <input
                       type="email"
                       value={forgotEmail}
                       onChange={e => { setForgotEmail(e.target.value); setError('') }}
                       placeholder="admin@example.com"
                       required
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm placeholder:text-gray-300 focus:outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 transition-all"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 transition-all"
                     />
                   </div>
                   <button type="submit" className="w-full py-3 bg-primary-950 text-white text-sm font-semibold rounded-lg hover:bg-black transition-colors">
@@ -262,25 +262,25 @@ export default function RaffleAdminPage() {
             ) : (
               <form onSubmit={handleLogin} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-medium text-gray-500 mb-1.5">Email</label>
+                  <label className="block text-xs font-semibold text-gray-800 mb-1.5">Email</label>
                   <input
                     type="email"
                     value={loginEmail}
                     onChange={e => { setLoginEmail(e.target.value); setError('') }}
                     placeholder="admin@example.com"
                     required
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm placeholder:text-gray-300 focus:outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 transition-all"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-500 mb-1.5">Password</label>
+                  <label className="block text-xs font-semibold text-gray-800 mb-1.5">Password</label>
                   <input
                     type="password"
                     value={loginPassword}
                     onChange={e => { setLoginPassword(e.target.value); setError('') }}
                     placeholder="Enter password"
                     required
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm placeholder:text-gray-300 focus:outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 transition-all"
                   />
                 </div>
                 <button type="submit" className="w-full py-3 bg-primary-950 text-white text-sm font-semibold rounded-lg hover:bg-black transition-colors">
@@ -651,7 +651,7 @@ export default function RaffleAdminPage() {
                     <table className="w-full min-w-[700px]">
                       <thead>
                         <tr className="bg-gray-50/50">
-                          {['#', 'Name', 'Title', 'Email', 'Phone', 'Company', 'Submitted'].map(h => (
+                          {['#', 'Name', 'Email', 'Phone', 'Company', 'Title', 'Submitted'].map(h => (
                             <th key={h} className="text-left px-6 py-3.5 text-[11px] font-semibold text-gray-400 uppercase tracking-wider">{h}</th>
                           ))}
                         </tr>
@@ -671,10 +671,10 @@ export default function RaffleAdminPage() {
                                 <span className="text-sm font-semibold text-gray-900">{entry.name}</span>
                               </div>
                             </td>
-                            <td className="px-6 py-4 text-sm text-gray-500">{entry.title || '—'}</td>
                             <td className="px-6 py-4 text-sm text-gray-500">{entry.email}</td>
                             <td className="px-6 py-4 text-sm text-gray-500">{entry.phone}</td>
                             <td className="px-6 py-4 text-sm text-gray-500">{entry.company}</td>
+                            <td className="px-6 py-4 text-sm text-gray-500">{entry.title || '—'}</td>
                             <td className="px-6 py-4 text-sm text-gray-400">
                               {new Date(entry.timestamp).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
                             </td>

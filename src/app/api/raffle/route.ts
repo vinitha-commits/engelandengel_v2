@@ -99,7 +99,7 @@ export async function POST(request: NextRequest) {
             <div style="padding: 30px;">
               <h2 style="color: #172554; margin: 0 0 15px;">You're In, ${entry.name}!</h2>
               <p style="color: #64748b; line-height: 1.6; margin: 0 0 20px;">
-                Your entry for the <strong>Luxury Oceanfront Getaway at Terranea Resort</strong> drawing has been received. The winner will be notified following the event.
+                Your entry for the <strong>Luxury Oceanfront Getaway at Terranea Resort</strong> drawing has been received. The winner will be notified directly following the event.
               </p>
               <div style="background: #f8fafc; border-left: 3px solid #D4AF37; padding: 15px; margin: 0 0 20px;">
                 <p style="margin: 0; color: #334155; font-size: 14px;"><strong>Name:</strong> ${entry.name}</p>

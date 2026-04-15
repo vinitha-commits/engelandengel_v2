@@ -96,8 +96,8 @@ export default function RafflePage() {
                   </div>
                 </div>
 
-                <p className="text-white/40 text-sm font-light leading-relaxed">
-                  Complete the form below to enter the drawing. Winner will be notified following the event.
+                <p className="text-white text-sm font-medium leading-relaxed">
+                  Complete the form to enter the drawing. Winner will be notified directly following the event.
                 </p>
               </div>
 
@@ -108,13 +108,13 @@ export default function RafflePage() {
             </div>
 
             {/* Right panel — form */}
-            <div className="md:col-span-3 p-8 md:p-10 lg:p-12">
+            <div className="md:col-span-3 p-8 md:p-10 lg:p-12 flex flex-col justify-center">
 
               {!isSubmitted ? (
                 <>
-                  <div className="mb-8">
+                  <div className="mb-6">
                     <h2 className="text-xl font-bold text-gray-900 tracking-tight">Your Details</h2>
-                    <p className="text-gray-400 text-sm mt-1">All fields are required to enter the drawing.</p>
+                    <p className="text-gray-600 text-sm mt-1">All fields are required to enter the drawing.</p>
                   </div>
 
                   <form onSubmit={handleSubmit}>
@@ -122,16 +122,16 @@ export default function RafflePage() {
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="bg-red-50 border border-red-100 text-red-500 px-4 py-2.5 text-sm rounded-lg mb-5"
+                        className="bg-red-50 border border-red-200 text-red-600 px-4 py-2.5 text-sm rounded-lg mb-5"
                       >
                         {error}
                       </motion.div>
                     )}
 
-                    {/* 2-column grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-5">
-                      <div className="sm:col-span-2">
-                        <label className="block text-xs font-semibold text-gray-400 mb-1.5 uppercase tracking-wider">Full Name</label>
+                    {/* Form fields — single column */}
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-[13px] font-semibold text-gray-900 mb-1">Full Name</label>
                         <input
                           type="text"
                           name="name"
@@ -139,25 +139,12 @@ export default function RafflePage() {
                           onChange={handleChange}
                           required
                           placeholder="John Smith"
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm placeholder:text-gray-300 focus:outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/10 transition-all"
+                          className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                         />
                       </div>
 
-                      <div className="sm:col-span-2">
-                        <label className="block text-xs font-semibold text-gray-400 mb-1.5 uppercase tracking-wider">Title</label>
-                        <input
-                          type="text"
-                          name="title"
-                          value={formData.title}
-                          onChange={handleChange}
-                          required
-                          placeholder="e.g. Partner, Managing Director"
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm placeholder:text-gray-300 focus:outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/10 transition-all"
-                        />
-                      </div>
-
-                      <div className="sm:col-span-2">
-                        <label className="block text-xs font-semibold text-gray-400 mb-1.5 uppercase tracking-wider">Email Address</label>
+                      <div>
+                        <label className="block text-[13px] font-semibold text-gray-900 mb-1">Email Address</label>
                         <input
                           type="email"
                           name="email"
@@ -165,12 +152,12 @@ export default function RafflePage() {
                           onChange={handleChange}
                           required
                           placeholder="john@company.com"
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm placeholder:text-gray-300 focus:outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/10 transition-all"
+                          className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-gray-400 mb-1.5 uppercase tracking-wider">Phone Number</label>
+                        <label className="block text-[13px] font-semibold text-gray-900 mb-1">Phone Number</label>
                         <input
                           type="tel"
                           name="phone"
@@ -178,12 +165,12 @@ export default function RafflePage() {
                           onChange={handleChange}
                           required
                           placeholder="(310) 555-0100"
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm placeholder:text-gray-300 focus:outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/10 transition-all"
+                          className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-gray-400 mb-1.5 uppercase tracking-wider">Company / Firm</label>
+                        <label className="block text-[13px] font-semibold text-gray-900 mb-1">Company / Firm</label>
                         <input
                           type="text"
                           name="company"
@@ -191,26 +178,34 @@ export default function RafflePage() {
                           onChange={handleChange}
                           required
                           placeholder="Smith & Associates"
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm placeholder:text-gray-300 focus:outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/10 transition-all"
+                          className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                         />
                       </div>
-                    </div>
 
-                    {/* Divider */}
-                    <div className="h-px bg-gray-100 my-6" />
+                      <div>
+                        <label className="block text-[13px] font-semibold text-gray-900 mb-1">Title</label>
+                        <input
+                          type="text"
+                          name="title"
+                          value={formData.title}
+                          onChange={handleChange}
+                          required
+                          placeholder="e.g. Partner, Managing Director"
+                          className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                        />
+                      </div>
+
+                    </div>
 
                     {/* Submit */}
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-3.5 bg-[#D4AF37] text-white font-bold text-sm tracking-wider uppercase rounded-lg hover:bg-primary-950 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full mt-6 py-3 bg-[#D4AF37] text-white font-bold text-sm tracking-wider uppercase rounded-md hover:bg-primary-950 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? 'Submitting...' : 'Submit Entry'}
                     </button>
 
-                    <p className="text-center text-gray-300 text-[11px] mt-4">
-                      One entry per person. Winner will be notified following the event.
-                    </p>
                   </form>
                 </>
               ) : (
@@ -239,7 +234,7 @@ export default function RafflePage() {
                     <h2 className="text-3xl font-bold text-gray-900 tracking-tight mb-2">You're In!</h2>
                     <div className="h-[2px] w-10 bg-[#D4AF37] mx-auto my-4" />
                     <p className="text-gray-400 text-sm max-w-sm mx-auto leading-relaxed">
-                      Thank you, <strong className="text-gray-700">{formData.name}</strong>. Your entry for the <strong className="text-gray-700">Luxury Oceanfront Getaway at Terranea Resort</strong> has been submitted. The winner will be notified following the event.
+                      Thank you, <strong className="text-gray-700">{formData.name}</strong>. Your entry for the <strong className="text-gray-700">Luxury Oceanfront Getaway at Terranea Resort</strong> has been submitted. The winner will be notified directly following the event.
                     </p>
                   </motion.div>
 

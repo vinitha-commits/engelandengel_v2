@@ -1,29 +1,26 @@
+'use client'
+
 import React from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import Hero from '@/components/sections/Hero'
+import HeroV7 from '@/components/sections/HeroV7'
 import IntroSection from '@/components/sections/IntroSection'
+import ForbesBanner from '@/components/sections/ForbesBanner'
 import ServicesOverview from '@/components/sections/ServicesOverview'
-import ExpertiseGrid from '@/components/sections/ExpertiseGrid'
+import ExpertiseGridV4 from '@/components/sections/ExpertiseGridV4'
 import Certifications from '@/components/sections/Certifications'
 import GoogleReviews from '@/components/sections/GoogleReviews'
-import ForbesBanner from '@/components/sections/ForbesBanner'
 import ContactCTA from '@/components/sections/ContactCTA'
-
-export const metadata = {
-  title: 'Engel & Engel - Premier Forensic Accounting Firm in Los Angeles',
-  description: 'Established in Los Angeles in 1994, Engel & Engel LLP is one of the premier providers of forensic accounting and advisory services in California and nationwide. From strategy to testimony.',
-}
 
 export default function HomePage() {
   return (
     <main>
       <Header />
-      <Hero />
+      <HeroV7 />
       <IntroSection />
       <ForbesBanner />
       <ServicesOverview />
-      <ExpertiseGrid />
+      <ExpertiseGridV4 />
       <Certifications />
       <GoogleReviews />
       <ContactCTA />

@@ -76,21 +76,22 @@ export default function HeroV7() {
   const [activeSlide, setActiveSlide] = useState(0)
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const duration = activeSlide === 0 ? 9000 : 4000
+    const timeout = setTimeout(() => {
       setActiveSlide((prev) => (prev + 1) % 2)
-    }, 6000)
-    return () => clearInterval(interval)
-  }, [])
+    }, duration)
+    return () => clearTimeout(timeout)
+  }, [activeSlide])
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-28 bg-primary-950">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero.webp"
+          src="/images/Forensic-Accounting-Firm-Los-Angeles-1.jpg"
           alt="Expert Team"
           fill
-          className="object-cover brightness-[0.35] contrast-[1.1] grayscale-[30%]"
+          className="object-cover brightness-[0.45] contrast-[1.1] grayscale-[30%]"
           priority
           sizes="100vw"
         />

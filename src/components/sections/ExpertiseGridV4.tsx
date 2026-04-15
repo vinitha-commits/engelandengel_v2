@@ -46,37 +46,40 @@ export default function ExpertiseGridV4() {
               transition={{ duration: 0.4, delay: index * 0.03 }}
             >
               <Link href={area.href} className="group block">
-                <div className="relative h-44 overflow-hidden cursor-pointer rounded-lg">
+                <div className="relative h-44 overflow-hidden cursor-pointer rounded-lg transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_16px_50px_rgba(212,175,55,0.25)]">
                   {/* Card base */}
-                  <div className="absolute inset-0 bg-white backdrop-blur-md border border-gray-100 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-600 group-hover:bg-primary-950 group-hover:border-[#D4AF37]/20 group-hover:shadow-[0_12px_40px_rgba(212,175,55,0.15)]" />
-
-                  {/* Gold shimmer on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/0 via-[#D4AF37]/0 to-[#D4AF37]/0 group-hover:from-[#D4AF37]/5 group-hover:via-transparent group-hover:to-[#D4AF37]/10 transition-all duration-700 rounded-lg" />
-
-                  {/* Corner brackets — visible before hover too */}
-                  <div className="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#D4AF37]/20 group-hover:border-[#D4AF37]/60 transition-all duration-500 rounded-tl-sm" />
-                  <div className="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#D4AF37]/20 group-hover:border-[#D4AF37]/60 transition-all duration-500 rounded-br-sm" />
+                  <div className="absolute inset-0 bg-[#e8edf5] backdrop-blur-md rounded-lg shadow-[0_6px_25px_rgba(0,0,0,0.08)] transition-all duration-500 group-hover:bg-primary-950" />
+                  {/* Shine sweep effect */}
+                  <div className="absolute inset-0 z-[1] overflow-hidden rounded-lg pointer-events-none">
+                    <div className="absolute -inset-full top-0 h-full w-1/3 bg-gradient-to-r from-transparent via-[#D4AF37]/10 to-transparent animate-shine" style={{ animationDelay: `${index * 0.2}s` }} />
+                  </div>
+                  {/* Inner border */}
+                  <div className="absolute inset-3 z-[2] border border-[#172554] rounded group-hover:border-[#D4AF37] transition-all duration-500 pointer-events-none" />
 
                   {/* Content */}
                   <div className="relative z-10 h-full flex flex-col items-center justify-center px-5">
                     {/* Icon */}
-                    <div className="mb-4 group-hover:scale-110 transition-transform duration-500">
-                      <svg className="w-7 h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.2}>
+                    <div className="w-12 h-12 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/30 flex items-center justify-center mb-4 group-hover:bg-[#D4AF37]/20 group-hover:border-[#D4AF37]/50 group-hover:scale-110 transition-all duration-500">
+                      <svg className="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d={area.icon} />
                       </svg>
                     </div>
 
-                    {/* Gold line */}
-                    <div className="w-8 h-[1px] bg-[#D4AF37]/30 mb-3 group-hover:w-12 group-hover:bg-[#D4AF37] transition-all duration-500" />
-
                     {/* Title */}
-                    <h3 className="text-[13px] font-bold uppercase tracking-[0.15em] leading-tight text-center text-primary-950 group-hover:text-white transition-colors duration-500">
+                    <h3 className="text-[15px] font-bold uppercase tracking-[0.12em] leading-tight text-center text-primary-950 group-hover:text-white transition-colors duration-500">
                       {area.title}
                     </h3>
+
+                    {/* Arrow — appears on hover */}
+                    <div className="mt-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400">
+                      <svg className="w-4 h-4 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
                   </div>
 
                   {/* Bottom gold line */}
-                  <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#D4AF37] to-[#D4AF37]/30 group-hover:w-full transition-all duration-700 ease-out" />
+                  <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#D4AF37] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </div>
               </Link>
             </motion.div>

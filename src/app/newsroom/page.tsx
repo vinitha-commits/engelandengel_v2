@@ -69,12 +69,8 @@ const newsItems = [
 export default function NewsroomPage() {
   const [activeCategory, setActiveCategory] = useState('All')
 
-  const filteredNews = activeCategory === 'All'
-    ? newsItems
-    : newsItems.filter(item => item.category === activeCategory)
 
   const featuredItem = newsItems.find(item => item.featured)
-  const regularItems = filteredNews.filter(item => !item.featured)
 
   return (
     <>
@@ -137,7 +133,7 @@ export default function NewsroomPage() {
                   </h2>
                   <p className="text-gray-500 leading-relaxed font-light mb-6">{featuredItem.excerpt}</p>
                   <div className="h-px bg-gray-100 mb-6" />
-                  <Link href="/blog" className="inline-flex items-center gap-2 text-[#D4AF37] font-bold text-sm hover:gap-4 transition-all duration-300">
+                  <Link href="/newsroom/jason-engel-forbes-top-cpas-valuations-2025" className="inline-flex items-center gap-2 text-[#D4AF37] font-bold text-sm hover:gap-4 transition-all duration-300">
                     Read More
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -169,67 +165,6 @@ export default function NewsroomPage() {
                 </button>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* News Grid */}
-      <section className="py-16 bg-white">
-        <div className="container-custom">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {regularItems.map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group"
-                >
-                  <div className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-500 group-hover:-translate-y-1 h-full flex flex-col">
-                    {/* Image */}
-                    <div className="relative h-48 bg-gray-50 overflow-hidden">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase bg-white/90 backdrop-blur-sm text-primary-950 px-3 py-1 rounded-sm">
-                          {item.category}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6 flex-1 flex flex-col">
-                      <span className="text-xs text-gray-400 mb-3">{item.date}</span>
-                      <h3 className="text-lg font-bold text-primary-950 tracking-tight mb-3 leading-snug group-hover:text-[#D4AF37] transition-colors duration-300">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-500 text-sm leading-relaxed font-light flex-1">
-                        {item.excerpt}
-                      </p>
-                      <div className="mt-5 pt-5 border-t border-gray-100">
-                        <span className="inline-flex items-center gap-2 text-[#D4AF37] font-bold text-xs group-hover:gap-3 transition-all duration-300">
-                          Read More
-                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {filteredNews.length === 0 && (
-              <div className="text-center py-20">
-                <p className="text-gray-400 text-lg">No news items in this category yet.</p>
-              </div>
-            )}
           </div>
         </div>
       </section>
