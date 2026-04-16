@@ -110,7 +110,7 @@ export default function HeroV8() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center">
 
             {/* Left — Title area */}
-            <div className="lg:col-span-7 text-center lg:text-left lg:-mt-28">
+            <div className="lg:col-span-7 text-center lg:text-left lg:-mt-16">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
