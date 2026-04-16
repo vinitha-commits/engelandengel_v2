@@ -64,7 +64,7 @@ export default function RafflePage() {
               {/* Content */}
               <div className="relative z-10">
                 <Link href="/">
-                  <Image src="/images/logo-accountants-white-font.png" alt="Engel & Engel" width={220} height={45} />
+                  <Image src="/images/logo-name_238ba79c.svg" alt="Engel & Engel" width={280} height={45} />
                 </Link>
               </div>
 
