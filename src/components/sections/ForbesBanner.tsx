@@ -57,7 +57,7 @@ export default function ForbesBanner() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="lg:col-span-5 flex justify-center"
             >
-              <Link href="/newsroom">
+              <Link href="/newsroom/jason-engel-forbes-top-cpas-valuations-2025">
                 <div className="relative">
                   {/* Soft shadow behind image */}
                   <div className="absolute inset-4 bg-black/5 rounded-2xl blur-xl" />
