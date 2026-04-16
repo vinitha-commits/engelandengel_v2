@@ -116,10 +116,10 @@ export default function HeroV8() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tighter leading-[1] mb-3">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tighter leading-[1] mb-3 drop-shadow-[0_0_40px_rgba(255,255,255,0.3)]">
                   California&apos;s Top
                 </h1>
-                <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl xl:text-9xl italic font-medium text-[#D4AF37] leading-[0.95] drop-shadow-[0_0_30px_rgba(212,175,55,0.2)]">
+                <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl xl:text-9xl italic font-medium text-[#D4AF37] leading-[0.95] drop-shadow-[0_0_40px_rgba(212,175,55,0.35)]">
                   Forensic<br />Accountants
                 </h1>
 
