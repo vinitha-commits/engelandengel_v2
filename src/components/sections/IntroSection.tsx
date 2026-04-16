@@ -8,7 +8,7 @@ export default function IntroSection() {
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div className="lg:col-span-6 relative group">
-            <img className='mt-[-120px] md:mt-[-220px]' src="/images/forensic-accounting-experts.png" alt="" />
+            <img className='mt-[-120px] md:mt-[-200px]' src="/images/forensic-accounting-experts.png" alt="" />
             <div className="relative z-10 bg-primary-950 text-white p-10 lg:ms-auto mt-[-100px]  rounded-sm shadow-[20px_20px_60px_-15px_rgba(23,37,84,0.3)] w-fit ">
               <div className="absolute top-0 right-0 p-4 opacity-20">
                 <svg className="w-12 h-12 text-[#D4AF37]" fill="currentColor" viewBox="0 0 24 24">

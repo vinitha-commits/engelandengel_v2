@@ -18,12 +18,12 @@ export default function HomePage() {
       <Header />
       <HeroV7 />
       <IntroSection />
-      <ForbesBanner />
       <ServicesOverview />
       <ExpertiseGridV4 />
       <Certifications />
       <GoogleReviews />
       <ContactCTA />
+      <ForbesBanner />
       <Footer />
     </main>
   )

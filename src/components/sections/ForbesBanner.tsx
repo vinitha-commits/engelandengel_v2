@@ -39,7 +39,7 @@ export default function ForbesBanner() {
               </div>
 
               <Link
-                href="/newsroom"
+                href="/newsroom/jason-engel-forbes-top-cpas-valuations-2025"
                 className="inline-flex items-center gap-2 px-7 py-3 bg-primary-950 text-white font-semibold text-sm tracking-wider uppercase rounded-lg hover:bg-[#D4AF37] transition-colors duration-300"
               >
                 Read More

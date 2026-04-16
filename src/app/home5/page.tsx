@@ -3,7 +3,7 @@
 import React from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import HeroV5 from '@/components/sections/HeroV5'
+import HeroV8 from '@/components/sections/HeroV8'
 import IntroSection from '@/components/sections/IntroSection'
 import ServicesOverview from '@/components/sections/ServicesOverview'
 import ExpertiseGrid from '@/components/sections/ExpertiseGrid'
@@ -15,7 +15,7 @@ export default function Home5Page() {
   return (
     <main>
       <Header />
-      <HeroV5 />
+      <HeroV8 />
       <IntroSection />
       <ServicesOverview />
       <ExpertiseGrid />
