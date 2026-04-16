@@ -185,13 +185,6 @@ export default function RaffleAdminPage() {
           animate={{ opacity: 1, y: 0 }}
           className="w-full max-w-sm"
         >
-          {/* Logo */}
-          <div className="text-center mb-6">
-            <Link href="/">
-              <Image src="/images/logo.png" alt="Engel & Engel" width={180} height={50} className="mx-auto" />
-            </Link>
-          </div>
-
           {/* Card */}
           <div className="bg-white rounded-2xl shadow-xl p-8">
             {/* Icon + Title */}
@@ -311,7 +304,7 @@ export default function RaffleAdminPage() {
         <div className="hidden lg:flex w-64 min-h-screen bg-[#0d1f42] flex-col border-r border-white/5 fixed left-0 top-0 bottom-0 z-30">
           <div className="p-6 border-b border-white/5">
             <Link href="/">
-              <Image src="/images/logo-accountants-white-font.png" alt="Engel & Engel" width={180} height={45} />
+              <Image src="/images/logo-name_238ba79c.svg" alt="Engel & Engel" width={200} height={45} />
             </Link>
           </div>
 
@@ -393,7 +386,7 @@ export default function RaffleAdminPage() {
           {/* Mobile/Tablet header */}
           <div className="lg:hidden bg-[#0d1f42] px-4 py-3 flex items-center justify-between sticky top-0 z-20 border-b border-white/5">
             <Link href="/">
-              <Image src="/images/logo-accountants-white-font.png" alt="Engel & Engel" width={130} height={32} />
+              <Image src="/images/logo-name_238ba79c.svg" alt="Engel & Engel" width={150} height={32} />
             </Link>
             <div className="flex items-center gap-2">
               <span className="bg-[#D4AF37] text-primary-950 text-[11px] font-bold w-7 h-7 rounded-full flex items-center justify-center">{entries.length}</span>
