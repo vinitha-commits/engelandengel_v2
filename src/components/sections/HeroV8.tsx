@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
-export default function HeroV8() {
+export default function HeroV8({ overlayOpacity = 0.4 }: { overlayOpacity?: number } = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   // Connection lines between dots
@@ -85,7 +85,7 @@ export default function HeroV8() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-primary-950/50" />
+        <div className="absolute inset-0 bg-primary-950" style={{ opacity: overlayOpacity }} />
       </div>
 
       {/* Network animation */}

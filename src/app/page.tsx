@@ -3,7 +3,7 @@
 import React from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import HeroV7 from '@/components/sections/HeroV7'
+import HeroV8 from '@/components/sections/HeroV8'
 import IntroSection from '@/components/sections/IntroSection'
 import ForbesBanner from '@/components/sections/ForbesBanner'
 import ServicesOverview from '@/components/sections/ServicesOverview'
@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <main>
       <Header />
-      <HeroV7 />
+      <HeroV8 overlayOpacity={0.5} />
       <IntroSection />
       <ServicesOverview />
       <ExpertiseGridV4 />

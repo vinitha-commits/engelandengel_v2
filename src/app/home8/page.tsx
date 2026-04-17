@@ -3,7 +3,7 @@
 import React from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import HeroV7 from '@/components/sections/HeroV7'
+import HeroV8 from '@/components/sections/HeroV8'
 import IntroSection from '@/components/sections/IntroSection'
 import ForbesBanner from '@/components/sections/ForbesBanner'
 import ServicesOverviewV3 from '@/components/sections/ServicesOverviewV3'
@@ -16,7 +16,7 @@ export default function Home8Page() {
   return (
     <main>
       <Header />
-      <HeroV7 />
+      <HeroV8 overlayOpacity={0.3} />
       <IntroSection />
       <ForbesBanner />
       <ServicesOverviewV3 />
