@@ -72,11 +72,10 @@ const blogPosts = [
 ]
 
 const categories = [
-  'All Posts',
-  'Forensic Accounting',
-  'Expert Selection',
-  'Fraud Investigation',
-  'Document Discovery'
+  'All',
+  'Events',
+  'News',
+  'Announcements'
 ]
 
 export default function BlogPage() {

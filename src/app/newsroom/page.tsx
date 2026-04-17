@@ -7,15 +7,15 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
-const categories = ['All', 'Press', 'Awards', 'Events', 'Media']
+const categories = ['All', 'Events', 'News', 'Announcements']
 
 const newsItems = [
   {
     id: 1,
     title: 'Engel & Engel Named to Forbes 2025 Top Valuation CPAs List',
-    excerpt: 'Engel & Engel LLP has been recognized by Forbes as one of the top valuation CPA firms in the United States for 2025, highlighting the firm\'s expertise in business valuation and forensic accounting.',
+    excerpt: 'Jason Engel has been named among Forbes\' inaugural list of America\'s Top CPAs in Valuations. This prestigious list was drawn from nominations, independent research, and interviews with industry leaders and experts.',
     date: 'March 2025',
-    category: 'Awards',
+    category: 'Announcements',
     image: '/images/memberships/forbes.png',
     featured: true,
   },
@@ -33,7 +33,7 @@ const newsItems = [
     title: 'Engel & Engel Expands Forensic Accounting Services Nationwide',
     excerpt: 'The firm has expanded its forensic accounting and expert witness services to serve attorneys and legal teams across all 50 states, building on over 30 years of experience.',
     date: 'January 2025',
-    category: 'Press',
+    category: 'News',
     image: '/images/forensic-accounting.jpg',
     featured: false,
   },
@@ -42,7 +42,7 @@ const newsItems = [
     title: 'Jason Engel Recognized as Leading Forensic Accounting Expert',
     excerpt: 'Jason A. Engel, CPA, CFE, CVA, CIRA, MAFF has been recognized for his contributions to forensic accounting and expert testimony in high-stakes litigation matters.',
     date: 'December 2024',
-    category: 'Awards',
+    category: 'Announcements',
     image: '/images/forensic-accounting-experts.png',
     featured: false,
   },
@@ -51,7 +51,7 @@ const newsItems = [
     title: 'Engel & Engel Partners with ACFE for Fraud Prevention Initiatives',
     excerpt: 'As certified fraud examiners, Engel & Engel has partnered with the Association of Certified Fraud Examiners to support fraud prevention education and awareness programs.',
     date: 'November 2024',
-    category: 'Press',
+    category: 'News',
     image: '/images/memberships/acfe.jpg',
     featured: false,
   },

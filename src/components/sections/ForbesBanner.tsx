@@ -31,10 +31,7 @@ export default function ForbesBanner() {
 
               <div className="flex flex-col gap-4 mb-8">
                 <p>
-                  Jason Engel has been named to Forbes&apos; inaugural list of America&apos;s Top CPAs for Valuations, recognizing leading professionals in Business Valuations. This distinction reflects years of proven expertise, professional credibility, and trust earned with industry leaders and organizations.
-                </p>
-                <p>
-                  For nearly 25 years, Jason has practiced public and forensic accounting at both global and boutique firms. He has testified in more than ten matters in federal, state, bankruptcy, and arbitration proceedings. He holds multiple designations including CPA, CFE, CVA, and MAFF.
+                  Jason Engel has been named among Forbes&apos; inaugural list of America&apos;s Top CPAs in Valuations. This prestigious list was drawn from nominations, independent research, and interviews with industry leaders and experts.
                 </p>
               </div>
 

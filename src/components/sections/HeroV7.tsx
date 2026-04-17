@@ -1,9 +1,8 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 export default function HeroV7() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -73,16 +72,6 @@ export default function HeroV7() {
 
   const sublineText = "Let Our Numbers Do The Talking"
 
-  const [activeSlide, setActiveSlide] = useState(0)
-
-  useEffect(() => {
-    const duration = activeSlide === 0 ? 9000 : 4000
-    const timeout = setTimeout(() => {
-      setActiveSlide((prev) => (prev + 1) % 2)
-    }, duration)
-    return () => clearTimeout(timeout)
-  }, [activeSlide])
-
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-28 bg-primary-950">
       {/* Background */}
@@ -132,69 +121,36 @@ export default function HeroV7() {
               transition={{ duration: 1, delay: 0.5 }}
               className="lg:col-span-5"
             >
-              <AnimatePresence mode="wait">
-                {activeSlide === 0 ? (
-                  <motion.div
-                    key="bullets"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className="bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-lg p-8 md:p-10 relative overflow-hidden">
-                      <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-[#D4AF37]/70" />
-                      <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-[#D4AF37]/70" />
+              <div className="bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-lg p-8 md:p-10 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-[#D4AF37]/70" />
+                <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-[#D4AF37]/70" />
 
-                      <div className="bg-[#D4AF37]/10 border border-[#D4AF37]/20 rounded-md px-4 py-3 mb-6">
-                        <h2 className="text-sm md:text-base font-bold text-[#D4AF37] tracking-[0.3em] uppercase text-center">
-                          {sublineText}
-                        </h2>
-                      </div>
+                <div className="bg-[#D4AF37]/10 border border-[#D4AF37]/20 rounded-md px-4 py-3 mb-6">
+                  <h2 className="text-sm md:text-base font-bold text-[#D4AF37] tracking-[0.3em] uppercase text-center">
+                    {sublineText}
+                  </h2>
+                </div>
 
-                      <ul className="space-y-4">
-                        {bulletPoints.map((point, index) => (
-                          <motion.li
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 + index * 0.5, duration: 0.9, ease: 'easeOut' }}
-                            className={`flex items-center text-base md:text-lg font-medium ${point.isGold ? 'text-[#D4AF37]' : 'text-white/85'}`}
-                          >
-                            <span className={`w-1.5 h-1.5 rounded-full mr-3 shrink-0 ${point.isGold ? 'bg-[#D4AF37] shadow-[0_0_6px_rgba(212,175,55,0.5)]' : 'bg-white/30'}`} />
-                            <span>{point.text}</span>
-                            {point.highlight && (
-                              <a href='/cases' className="text-[#D4AF37] underline hover:no-underline decoration-1 underline-offset-4 ml-1">
-                                {point.highlight}
-                              </a>
-                            )}
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="forbes"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="flex items-center justify-center"
-                  >
-                    <Link href="/newsroom">
-                      <div className="relative w-96 h-96 md:w-[420px] md:h-[420px] cursor-pointer hover:scale-105 transition-transform duration-300">
-                        <Image
-                          src="/images/memberships/forbes.png"
-                          alt="Forbes America's Top CPAs for Valuations 2025"
-                          fill
-                          className="object-contain"
-                          unoptimized
-                        />
-                      </div>
-                    </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                <ul className="space-y-4">
+                  {bulletPoints.map((point, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 + index * 0.5, duration: 0.9, ease: 'easeOut' }}
+                      className={`flex items-center text-base md:text-lg font-medium ${point.isGold ? 'text-[#D4AF37]' : 'text-white/85'}`}
+                    >
+                      <span className={`w-1.5 h-1.5 rounded-full mr-3 shrink-0 ${point.isGold ? 'bg-[#D4AF37] shadow-[0_0_6px_rgba(212,175,55,0.5)]' : 'bg-white/30'}`} />
+                      <span>{point.text}</span>
+                      {point.highlight && (
+                        <a href='/cases' className="text-[#D4AF37] underline hover:no-underline decoration-1 underline-offset-4 ml-1">
+                          {point.highlight}
+                        </a>
+                      )}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
             </motion.div>
 
           </div>
