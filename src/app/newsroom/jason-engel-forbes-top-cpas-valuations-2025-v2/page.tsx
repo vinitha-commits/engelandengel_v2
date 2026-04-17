@@ -5,9 +5,8 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 
-export default function ForbesTopCPAsArticle() {
+export default function ForbesTopCPAsArticleV2() {
   return (
     <>
       <main>
@@ -170,68 +169,41 @@ export default function ForbesTopCPAsArticle() {
           </div>
         </article>
 
-        {/* Contact CTA */}
-        <section className="relative py-28 bg-[#0A1A3C] overflow-hidden">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/5 blur-[150px] rounded-full pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
-          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
-
-          <div className="container-custom relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="max-w-5xl mx-auto"
-            >
-              <p className="text-base md:text-lg text-white/60 font-light mb-10 text-center">
-                For additional information about{' '}
-                <span className="text-white font-medium">Engel &amp; Engel&apos;s</span>{' '}
-                <span className="font-serif italic text-[#D4AF37]">Valuation Services</span>{' '}
-                or a consultation, please contact:
-              </p>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="flex items-center gap-6 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
-                  <div className="flex-shrink-0">
-                    <div className="rounded-full overflow-hidden border-2 border-[#D4AF37]/40">
-                      <Image width={80} height={80} src="/images/team/brandon-engel.jpg" alt="Brandon J. Engel" className="w-20 h-20 object-cover object-top" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Brandon J. Engel</h3>
-                    <p className="text-white/50 text-sm font-medium tracking-widest uppercase">CPA, CFE, ABV</p>
-                    <div className="h-px w-16 bg-[#D4AF37] mt-2" />
-                  </div>
+        {/* Call to Action */}
+        <section className="py-16">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-blue-900 text-white p-8 rounded-lg text-center">
+                <h2 className="text-3xl font-bold mb-4">Need Expert Valuation Services?</h2>
+                <p className="text-blue-100 mb-6 text-lg">
+                  Contact Engel & Engel LLP for professional business valuation, forensic accounting,
+                  and expert witness testimony services. Over 30+ years of experience with hundreds of successful cases.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/contact" className="inline-block bg-white text-blue-900 hover:bg-blue-50 px-6 py-3 rounded-lg font-semibold transition-colors">
+                    Get Free Consultation
+                  </Link>
+                  <Link href="/newsroom" className="inline-block border border-white text-white hover:bg-white hover:text-blue-900 px-6 py-3 rounded-lg font-semibold transition-colors">
+                    Back to Newsroom
+                  </Link>
                 </div>
 
-                <div className="flex flex-col justify-center space-y-5 p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
-                  <a href="mailto:brandon@engelandengel.com" className="group flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#0A1A3C] transition-all duration-300 shrink-0">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
+                {/* Contact Info */}
+                <div className="mt-8 pt-6 border-t border-blue-800">
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-blue-100">
+                    <div className="flex items-center gap-2">
+                      <span className="font-medium">Call:</span>
+                      <span>(310) 277-2220</span>
                     </div>
-                    <span className="text-lg font-semibold text-white/90 group-hover:text-white border-b border-white/20 group-hover:border-[#D4AF37] pb-0.5 transition-all duration-200">
-                      brandon@engelandengel.com
-                    </span>
-                  </a>
-
-                  <a href="tel:310-277-2220" className="group flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#0A1A3C] transition-all duration-300 shrink-0">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
+                    <div className="flex items-center gap-2">
+                      <span className="font-medium">Email:</span>
+                      <span>info@engelandengel.com</span>
                     </div>
-                    <span className="text-lg font-semibold text-white/90 group-hover:text-white border-b border-white/20 group-hover:border-[#D4AF37] pb-0.5 transition-all duration-200">
-                      310-277-2220
-                    </span>
-                  </a>
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
-
-          <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
         </section>
 
         <Footer />
