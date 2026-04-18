@@ -12,9 +12,9 @@ const categories = ['All', 'Events', 'News', 'Announcements']
 const newsItems = [
   {
     id: 1,
-    title: 'Engel & Engel Named to Forbes 2025 Top Valuation CPAs List',
+    title: 'Jason Engel Named to Forbes\' Inaugural List of America\'s Top CPAs in Valuations',
     excerpt: 'Jason Engel has been named among Forbes\' inaugural list of America\'s Top CPAs in Valuations. This prestigious list was drawn from nominations, independent research, and interviews with industry leaders and experts.',
-    date: 'March 2025',
+    date: 'March 6, 2026',
     category: 'Announcements',
     image: '/images/memberships/forbes.png',
     featured: true,

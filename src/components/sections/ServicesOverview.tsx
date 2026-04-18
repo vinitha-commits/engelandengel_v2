@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 const services = [
   {
     title: 'Forensic Accounting',
-    description: 'For over 30+ years, we have provided clients with high-level forensic accounting services for both plaintiffs and defendants in state, federal, and bankruptcy courts.',
+    description: 'For over 30 years, we have provided top law firms, public corporations, and private companies with high-level forensic accounting services.',
     href: '/services/forensic-accounting',
     image: '/images/forensic-accounting.jpg',
     icon: (
@@ -18,7 +18,7 @@ const services = [
   },
   {
     title: 'Expert Witness Testimony',
-    description: 'Engel & Engel has provided expert testimony in over 100 cases for both plaintiffs and defendants in state, federal, and bankruptcy courts.',
+    description: 'We have provided expert witness testimony in over 100 cases for both plaintiffs and defendants in state, federal, and bankruptcy courts.',
     href: '/services/expert-witness-testimony',
     image: '/images/court-1.jpg',
     icon: (
@@ -29,7 +29,7 @@ const services = [
   },
   {
     title: 'Joint Retention Program',
-    description: 'Engel & Engel provides a specialized Joint Retention Program as an alternative to the typical litigation process as a way to resolve disputed financial issues and achieve settlement.',
+    description: 'We provide a specialized Joint Retention Program as an alternative to the typical litigation process for resolving disputed financial issues and achieving settlement.',
     href: '/services/joint-retention-program',
     image: '/images/retention-program.jpg',
     icon: (
@@ -40,7 +40,7 @@ const services = [
   },
   {
     title: 'Internal Investigations',
-    description: 'We conduct internal forensic accounting investigations that uncover irregularities and quantify financial impact for individuals, families, companies, and government agencies.',
+    description: 'We provide the depth of analysis required to uncover misconduct and quantify its financial impact; our investigations often serving as the foundation for pre-litigation analysis or future legal proceedings.',
     href: '/services/internal-investigations',
     image: '/images/identify-financial-patterns.jpg',
     icon: (

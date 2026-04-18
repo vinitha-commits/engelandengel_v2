@@ -39,15 +39,15 @@ export default function ForbesTopCPAsArticle() {
 
                     <div className="mb-4">
                       <span className="inline-block bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
-                        Awards
+                        Announcements
                       </span>
-                      <span className="ml-3 text-white/60 text-sm">April 2025</span>
+                      <span className="ml-3 text-white/60 text-sm">March 6, 2026</span>
                     </div>
                     <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                      Jason A. Engel Named to Forbes Top CPAs for Valuations
+                      Jason Engel Named to Forbes&apos; Inaugural List of America&apos;s Top CPAs in Valuations
                     </h1>
                     <p className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-4xl">
-                      Partner at Engel & Engel LLP recognized among the nation&apos;s leading valuation CPA professionals by Forbes for 2025.
+                      Drawn from nominations, independent research, and interviews with industry leaders and experts.
                     </p>
                     <div className="flex flex-wrap items-center gap-6 text-white/90">
                       <div className="flex items-center gap-3">
@@ -96,74 +96,24 @@ export default function ForbesTopCPAsArticle() {
               {/* Content */}
               <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900 prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3 prose-ul:my-4 prose-ol:my-4 prose-li:my-1">
                 <p>
-                  <strong>Los Angeles, CA</strong> — Engel & Engel LLP is proud to announce that <strong>Jason A. Engel, CPA</strong>, Partner at the firm, has been named to the prestigious <strong>Forbes 2025 Top CPAs for Valuations</strong> list. This national recognition honors the leading valuation CPA professionals across the United States, and places Jason among an elite group of experts recognized by one of the world&apos;s most respected business publications.
+                  <strong>LOS ANGELES &mdash; March 6, 2026</strong>
+                </p>
+                <p>
+                  Jason Engel has been named among Forbes&apos; inaugural list of America&apos;s Top CPAs in Valuations. This prestigious list was drawn from nominations, independent research, and interviews with industry leaders and experts.
+                </p>
+                <p>
+                  For nearly 47 years, Jason has been engaged in the practice of public accounting and has been a respected leader in the forensic accounting arena since 1982. Jason has served as an expert witness in over 500 cases and has testified in federal, bankruptcy, and state courts. He has also testified in arbitration and has served as a court appointed accounting referee. His professional credentials include those of Certified Public Accountant (CPA), Certified Fraud Examiner (CFE), Certified Insolvency and Restructuring Advisor (CIRA), Certified Valuation Analyst (CVA), Master Analyst of Financial Forensics (MAFF), and Accredited in Business Valuation (ABV).
+                </p>
+                <p>
+                  This recognition reflects his commitment to forensic accounting and valuation services that align with the needs of private practice attorneys and in-house counsel.
                 </p>
 
-                <h2>About the Forbes Top CPAs for Valuations List</h2>
+                <h2>About Engel &amp; Engel</h2>
                 <p>
-                  The Forbes Top CPAs for Valuations list is an annual ranking that identifies the most trusted and accomplished CPA professionals who specialize in business valuations nationwide. Forbes developed this list through an extensive research process in partnership with industry experts, evaluating professionals based on their credentials, depth of experience, areas of specialization, industry reputation, and demonstrated track record of delivering expert valuation services in complex financial and legal matters.
+                  Engel &amp; Engel, LLP has been engaged in the practice of forensic accounting and expert testimony since 1994. Located in Los Angeles, Engel &amp; Engel has positioned itself as one of the premier providers of forensic accounting and advisory services not only in California, but nationwide as well. The firm is dedicated to providing private practice law firms, as well as in-house counsel of Fortune 500 to middle-market companies, complex business litigation support including fraud investigations, economic damages, business valuation, bankruptcy and insolvency, alter ego, IP litigation, employment litigation, real estate litigation, construction litigation and a variety of other litigation matters.
                 </p>
                 <p>
-                  Selection to this list is a significant achievement, as it represents recognition at the highest national level for excellence in the field of business valuation.
-                </p>
-
-                <h2>Jason A. Engel&apos;s Profile on the Forbes List</h2>
-                <p>
-                  Jason A. Engel is listed on the Forbes Top CPAs for Valuations as:
-                </p>
-                <ul>
-                  <li><strong>Name:</strong> Jason A. Engel</li>
-                  <li><strong>Title:</strong> Partner, Engel & Engel</li>
-                  <li><strong>Designation:</strong> CPA</li>
-                  <li><strong>Location:</strong> Los Angeles, California</li>
-                </ul>
-
-                <h2>A Distinguished Career in Valuation and Forensic Accounting</h2>
-                <p>
-                  Jason A. Engel brings decades of specialized experience in business valuation, forensic accounting, and financial analysis to the firm. His professional credentials include Certified Public Accountant (CPA), Certified Fraud Examiner (CFE), Certified Valuation Analyst (CVA), Certified Insolvency & Restructuring Advisor (CIRA), and Master Analyst in Financial Forensics (MAFF) — reflecting one of the most comprehensive sets of professional certifications in the industry.
-                </p>
-                <p>
-                  His expertise spans a broad range of valuation and forensic accounting engagements, including:
-                </p>
-                <ul>
-                  <li>Business valuations for litigation, mergers and acquisitions, and corporate transactions</li>
-                  <li>Marital dissolution and family law financial analysis</li>
-                  <li>Estate and gift tax valuation for tax planning and compliance</li>
-                  <li>Shareholder and partnership dispute valuations</li>
-                  <li>Economic damages calculations in commercial litigation</li>
-                  <li>Fraud investigations and forensic accounting analysis</li>
-                  <li>Expert witness testimony in state and federal courts</li>
-                </ul>
-                <p>
-                  Jason&apos;s rigorous analytical methodology and ability to communicate complex financial concepts clearly to judges, juries, and attorneys have made him a trusted expert witness and advisor in high-stakes litigation matters throughout California and nationwide.
-                </p>
-
-                <h2>Engel & Engel&apos;s Commitment to Excellence</h2>
-                <p>
-                  This Forbes recognition reflects the firm&apos;s long-standing commitment to delivering the highest quality forensic accounting and valuation services. Founded over 30 years ago, Engel & Engel LLP has built its reputation on providing rigorous, independent, and objective financial analysis that attorneys and clients rely on in their most critical cases.
-                </p>
-                <p>
-                  &ldquo;Being recognized by Forbes as one of the top CPAs for valuations in the country is a tremendous honor,&rdquo; said Jason A. Engel. &ldquo;This recognition is a testament to the standards we uphold at Engel & Engel and our unwavering commitment to providing thorough, expert-level valuation and forensic accounting services to our clients.&rdquo;
-                </p>
-
-                <h2>About Engel & Engel LLP</h2>
-                <p>
-                  Engel & Engel LLP is a Los Angeles-based forensic accounting and business valuation firm serving attorneys, law firms, and businesses across California and the United States. The firm specializes in forensic accounting analysis, expert witness testimony, business valuations, fraud examinations, and financial investigations for complex litigation matters including commercial disputes, marital dissolution, shareholder disputes, construction litigation, real estate litigation, intellectual property cases, and employment matters.
-                </p>
-                <p>
-                  For more information about Engel & Engel LLP and their forensic accounting and valuation services, visit <Link href="/" className="text-blue-600 hover:underline">engelandengel.com</Link> or contact the firm directly.
-                </p>
-
-                <hr />
-
-                <p className="text-sm text-gray-400 italic">
-                  The Forbes Top CPAs for Valuations list can be viewed at{' '}
-                  <a href="https://www.forbes.com/lists/top-cpas-for-valuations/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    forbes.com/lists/top-cpas-for-valuations
-                  </a>. Jason A. Engel&apos;s profile on the Forbes list can be viewed at{' '}
-                  <a href="https://www.forbes.com/profile/jason-a-engel/?list=top-cpas-for-valuations" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    forbes.com/profile/jason-a-engel
-                  </a>.
+                  For more information about Engel &amp; Engel LLP, visit <Link href="/" className="text-blue-600 hover:underline">engelandengel.com</Link> or contact the firm directly.
                 </p>
               </div>
             </div>

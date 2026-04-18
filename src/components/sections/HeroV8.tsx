@@ -4,7 +4,10 @@ import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
-export default function HeroV8({ overlayOpacity = 0.4 }: { overlayOpacity?: number } = {}) {
+export default function HeroV8({
+  overlayOpacity = 0.4,
+  bgImage = '/images/extended_sky.jpg',
+}: { overlayOpacity?: number; bgImage?: string } = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   // Connection lines between dots
@@ -77,7 +80,7 @@ export default function HeroV8({ overlayOpacity = 0.4 }: { overlayOpacity?: numb
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/extended_sky.jpg"
+          src={bgImage}
           alt="Los Angeles Skyline"
           fill
           className="object-cover brightness-[0.45] contrast-[1.1] grayscale-[30%]"

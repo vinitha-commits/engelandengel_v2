@@ -16,7 +16,7 @@ export default function Home8Page() {
   return (
     <main>
       <Header />
-      <HeroV8 overlayOpacity={0.3} />
+      <HeroV8 overlayOpacity={0.3} bgImage="/images/unnamed.png" />
       <IntroSection />
       <ForbesBanner />
       <ServicesOverviewV3 />
