@@ -113,7 +113,7 @@ const practiceAreas = [
 // Page
 // ─────────────────────────────────────────────
 
-export default function PracticeAreasPage() {
+export default function PracticeAreasV2Page() {
   return (
     <>
       <Header />
@@ -140,6 +140,87 @@ export default function PracticeAreasPage() {
                 </h1>
                 <div className="h-0.5 w-32 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-6" />
               </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════ 16 PRACTICE AREAS ══════════ */}
+        <section className="py-24 md:py-32 bg-slate-50">
+          <div className="container-custom">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {practiceAreas.map((area, idx) => (
+                <motion.div
+                  key={area.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.45, delay: idx * 0.04 }}
+                >
+                  <Link
+                    href={area.href}
+                    className="group relative flex flex-col h-full rounded-2xl bg-white border border-slate-200 hover:border-[#D4AF37]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden"
+                  >
+                    {/* Gold left accent bar */}
+                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-l-2xl" />
+
+                    <div className="p-6 md:p-7 flex flex-col h-full">
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="w-9 h-9 rounded-lg bg-primary-950/[0.04] border border-primary-950/10 flex items-center justify-center group-hover:bg-[#D4AF37]/10 group-hover:border-[#D4AF37]/30 transition-all duration-500">
+                          <svg className="w-4 h-4 text-primary-950/40 group-hover:text-[#D4AF37] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={area.icon} />
+                          </svg>
+                        </div>
+                        <svg
+                          className="w-4 h-4 text-slate-300 group-hover:text-[#D4AF37] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
+                          fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg>
+                      </div>
+
+                      <h3 className="text-[17px] font-bold text-primary-950 mb-3 leading-snug group-hover:text-[#0f3574] transition-colors duration-300">
+                        {area.title}
+                      </h3>
+
+                      <p className="text-slate-500 text-[13px] leading-relaxed flex-grow">
+                        {area.description}
+                      </p>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════ PRACTICE AREAS — DARK CARDS ══════════ */}
+        <section className="py-24 md:py-32 bg-white">
+          <div className="container-custom">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+              {practiceAreas.map((area, idx) => (
+                <motion.div
+                  key={`card2-${area.title}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.4, delay: idx * 0.03 }}
+                >
+                  <Link
+                    href={area.href}
+                    className="group relative flex flex-col items-center text-center h-full p-6 rounded-2xl bg-primary-950 hover:bg-[#0f2a5c] hover:-translate-y-1 hover:shadow-xl transition-all duration-500 overflow-hidden"
+                  >
+                    <div className="absolute inset-x-0 bottom-0 h-1 bg-[#D4AF37] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                    <div className="w-14 h-14 rounded-full bg-[#D4AF37]/10 flex items-center justify-center mb-4 group-hover:bg-[#D4AF37]/20 transition-all duration-500">
+                      <svg className="w-7 h-7 text-[#D4AF37] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={area.icon} />
+                      </svg>
+                    </div>
+                    <h3 className="text-sm font-bold text-white leading-snug">
+                      {area.title}
+                    </h3>
+                  </Link>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>

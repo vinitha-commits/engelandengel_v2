@@ -35,7 +35,7 @@ const services = [
 const aboutDropdown = [
   { name: 'Our Team', href: '/team' },
   { name: 'Blog', href: '/blog' },
-  { name: 'Newsroom & Insights', href: '/newsroom' },
+  { name: 'News & Insight', href: '/newsroom' },
   // { name: 'Events', href: '/events' },
   { name: 'Careers', href: '/careers' },
 ]

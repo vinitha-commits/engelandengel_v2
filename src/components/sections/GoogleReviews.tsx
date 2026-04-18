@@ -4,44 +4,35 @@ import React, { useState, useEffect } from 'react'
 
 const reviews = [
   {
-    name: 'Eric',
+    name: 'Ed M.',
     rating: 5,
-    text: 'The Engels are the best in the business, hands down. They are a remarkable father-son duo, and I had the opportunity to work with them on a very high-stakes, company-breaking matter. They were outstanding from start to finish. They reviewed opposing counsel\'s expert work and professionally dismantled it with precision and credibility. They updated their reports in real time when needed, responded thoroughly to the arbitrator\'s inquiries, and provided strong backup for every position they took. Our success was due in large part to having the Engels in our corner. I recommend them without hesitation.',
+    text: '…professional, knowledgeable, honest, and trustworthy. I would recommend Engel & Engel for any accounting matters.',
   },
   {
-    name: 'Geoffrey',
+    name: 'Mark K.',
+    title: 'Real Estate Litigation Attorney',
     rating: 5,
-    text: 'Jason is the kind of expert witness you want. One who is always going to provide a well-supported expert opinion. His opinion is independent. It might not always be the one you would hope to hear. But it is the one that is right and correct. Jason is careful, attentive to detail and thorough. He presents well at trial. And he is a pleasure to work with. He has my highest recommendation.',
+    text: '…eminently responsive and able to synthesize complicated financial transactions so that the fact-finder may easily understand them at trial.',
   },
   {
-    name: 'Kennedy',
+    name: 'G. Gold',
     rating: 5,
-    text: 'I used Jason in a contentious breach of contract case with eight-figure damages. The case was barreling toward trial, and Jason was asked to provide his analysis and opinion in a very short time frame and under significant pressure from the client. Jason and his team did a fantastic job. He was extremely responsive and his report was exactly what we needed. I will use Jason again.',
+    text: '…opinion is independent. It might not always be the one you would hope to hear. But it is the one that is right and correct.',
   },
   {
-    name: 'Mark',
-    rating: 5,
-    text: 'I am a real estate litigation attorney who has used Jason Engel as my forensic accounting expert in two multi-million dollar cases. He is eminently responsive and able to synthesize complicated financial transactions so that the fact-finder may easily understand them at trial. I highly recommend him and intend to use him again if the need arises.',
-  },
-  {
-    name: 'Michael',
-    rating: 5,
-    text: 'I have had the privilege of using Jason Engel\'s professional services for many years. Simply stated, he is not only excellent at what he does, he is a creative problem solver who always has innovative ways to advance my clients\' interests. I would recommend him without reservation to anyone who is in need of the many services he provides.',
-  },
-  {
-    name: 'Brian',
-    rating: 5,
-    text: 'We hired Engel & Engel as a forensic accountant on a construction defect case. We found Jason and Brandon to both be knowledgeable, responsive and professional. We will definitely use them again.',
-  },
-  {
-    name: 'Ed M',
-    rating: 5,
-    text: 'Jason Engel and his team are professional, knowledgeable, honest, and trustworthy. I would recommend Engel & Engel for any accounting matters.',
-  },
-  {
-    name: 'Phillip',
+    name: 'P. Shinn',
     rating: 5,
     text: 'Excellent forensic accounting experts. Sharp analysis and clear presentation. Timely follow through and ability to work under short deadlines.',
+  },
+  {
+    name: 'D. Sire',
+    rating: 5,
+    text: 'Amazing and thorough job as experts in a Piercing the Corporate Veil case. Very thankful.',
+  },
+  {
+    name: 'B. Friedrich',
+    rating: 5,
+    text: '…knowledgeable, responsive and professional. We will definitely use them again.',
   },
 ]
 
@@ -163,7 +154,11 @@ export default function GoogleReviews() {
                     </div>
 
                     {/* Name */}
-                    <h4 className="font-bold text-primary-950 text-base mb-2">{review.name}</h4>
+                    <h4 className="font-bold text-primary-950 text-base">{review.name}</h4>
+                    {'title' in review && review.title && (
+                      <p className="text-gray-500 text-xs italic mb-2">{review.title}</p>
+                    )}
+                    {!('title' in review && review.title) && <div className="mb-2" />}
 
                     {/* Stars */}
                     <div className="flex justify-center mb-4">
