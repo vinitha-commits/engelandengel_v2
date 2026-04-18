@@ -28,17 +28,6 @@ export default function PrivacyPolicyPage() {
           </div>
         </section>
 
-        {/* Draft Notice */}
-        <section className="bg-yellow-50 border-y border-yellow-200">
-          <div className="container-custom py-4">
-            <div className="max-w-4xl mx-auto">
-              <p className="text-sm text-yellow-900">
-                <strong>DRAFT — FOR CLIENT REVIEW.</strong> This template is generic boilerplate and should be reviewed by an attorney familiar with California (CCPA/CPRA) and applicable AICPA confidentiality rules before publication.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Content */}
         <section className="py-16 md:py-20">
           <div className="container-custom">
