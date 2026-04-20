@@ -66,7 +66,7 @@ export default function AboutPage() {
                 </p>
 
                 {/* Vertical Stats */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 py-12 border-y border-white/10 w-full mb-12">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 py-12 border-y border-white/10 w-full mb-12">
                   {stats.map((stat) => (
                     <div key={stat.label}>
                       <div className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">{stat.value}</div>

@@ -132,7 +132,7 @@ export default function CasesPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
               >
-                <h1 className="text-7xl md:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl">
+                <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl">
                   Representative <br />
                   <span className="font-serif italic text-[#D4AF37] font-medium">Cases</span>
                 </h1>

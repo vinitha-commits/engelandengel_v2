@@ -20,7 +20,7 @@ export default function TeamVariation5({ teamMembers }: { teamMembers: any[] }) 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
             <div key={index} className="group perspective-1000">
-              <div className="relative w-full h-[500px] transform-style-preserve-3d transition-transform duration-700 group-hover:rotate-y-180">
+              <div className="relative w-full h-[420px] sm:h-[500px] transform-style-preserve-3d transition-transform duration-700 group-hover:rotate-y-180">
 
                 {/* Front of Card */}
                 <div className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-2xl">

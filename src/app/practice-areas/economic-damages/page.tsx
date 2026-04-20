@@ -91,7 +91,7 @@ export default function EconomicDamagesPage() {
             <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
           </div>
 
-          <div className="container-custom relative z-10 w-full pb-20 pt-40">
+          <div className="container-custom relative z-10 w-full pb-20 pt-52 md:pt-40">
             <motion.div
               style={{ y: springY1, opacity }}
               className="max-w-5xl"

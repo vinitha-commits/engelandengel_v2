@@ -52,7 +52,7 @@ export default function ExpertTestimonyPublications() {
                     <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
                 </div>
 
-                <div className="container-custom relative z-10 w-full">
+                <div className="container-custom relative z-10 w-full pt-32 md:pt-0">
                     <motion.div
                         style={{ y: springY1, opacity }}
                         className="max-w-4xl mx-auto text-center"

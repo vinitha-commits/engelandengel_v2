@@ -56,7 +56,7 @@ export default function EconomicDamagesPublications() {
 
         </div>
 
-        <div className="container-custom relative z-10 w-full">
+        <div className="container-custom relative z-10 w-full pt-32 md:pt-0">
 
           <motion.div
             style={{ y: springY1, opacity }}
@@ -69,7 +69,7 @@ export default function EconomicDamagesPublications() {
               transition={{ duration: 1.2 }}
             >
 
-              <h1 className="text-7xl md:text-9xl font-bold tracking-tighter text-white">
+              <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white">
                 Economic <br />
                 <span className="font-serif italic text-[#D4AF37] font-medium">
                   Damages

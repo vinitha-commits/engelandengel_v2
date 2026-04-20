@@ -138,7 +138,7 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
             >
               <p className="text-[11px] font-semibold uppercase tracking-[0.5em] text-[#D4AF37]/70 mb-5">Contact</p>
-              <h1 className="text-[2.5rem] md:text-5xl font-bold leading-[1.1] tracking-tight text-white">
+              <h1 className="text-[2.5rem] md:text-5xl font-bold leading-[1.1] tracking-tight text-white text-center md:text-left">
                 Contact us today to discuss <br className="hidden md:block" />
                 <span className="font-serif italic text-[#D4AF37] font-medium">how we can help you</span>
               </h1>
@@ -199,7 +199,7 @@ export default function ContactPage() {
 
                           <div className="h-px bg-white/[0.06]" />
 
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                             <a href={`tel:${person.phone.replace(/[^0-9+]/g, '')}`} className="flex text-white/90 items-center gap-3 hover:text-[#D4AF37] transition-colors duration-300">
                               <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center group-hover:border-[#D4AF37]/20 transition-colors">
                                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

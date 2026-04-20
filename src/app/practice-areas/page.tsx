@@ -147,7 +147,7 @@ export default function PracticeAreasPage() {
         {/* ══════════ PRACTICE AREAS — GRADIENT CARDS ══════════ */}
         <section className="py-24 md:py-32 bg-slate-50">
           <div className="container-custom">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
               {practiceAreas.map((area, idx) => (
                 <motion.div
                   key={`gradient-${area.title}`}

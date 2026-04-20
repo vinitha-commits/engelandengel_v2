@@ -187,7 +187,7 @@ export default function BlogPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-primary-950 mb-10 tracking-tight">Featured Article</h2>
             <Card className="overflow-hidden shadow-lg border border-slate-100">
               <div className="md:flex">
-                <div className="md:w-1/2 relative h-64 md:h-auto">
+                <div className="md:w-1/2 relative h-48 md:h-auto">
                   <Image
                     src={featuredPost.image}
                     alt={featuredPost.imageAlt}

@@ -227,7 +227,7 @@ function PublicationRequestForm() {
           <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
         </div>
 
-        <div className="container-custom relative z-10 w-full text-center">
+        <div className="container-custom relative z-10 w-full text-center pt-32 md:pt-0">
           <motion.div
             style={{ y: springY1, opacity }}
             className="max-w-4xl mx-auto"
@@ -237,7 +237,7 @@ function PublicationRequestForm() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
             >
-              <h1 className="text-7xl md:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl">
+              <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl">
                 Request <br />
                 <span className="font-serif italic text-[#D4AF37] font-medium">Publications</span>
               </h1>

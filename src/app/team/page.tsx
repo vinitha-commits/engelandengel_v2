@@ -98,14 +98,14 @@ export default function TeamPage() {
       <Header />
 
       {/* Hero Section with Cinematic Background */}
-      <section className="relative min-h-[100vh] flex items-center pt-40 pb-0 overflow-hidden">
+      <section className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-[100vh] flex items-center pt-40 pb-0 overflow-hidden">
         {/* ... existing hero code ... */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/team-2.jpg"
             alt="Expert Team"
             fill
-            className="object-cover object-[0_-170px]"
+            className="object-cover object-[center_top] md:object-[center_-40px] lg:object-[0_-170px]"
             priority
           />
           {/* Deep Blue Overlay matching screenshot */}
@@ -116,7 +116,7 @@ export default function TeamPage() {
         </div>
 
         <div className="container-custom relative z-10">
-          <div className="max-w-4xl mx-auto text-center pt-48">
+          <div className="max-w-4xl mx-auto text-center pt-24 lg:pt-48">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -158,10 +158,10 @@ export default function TeamPage() {
                   </Link>
 
                   {/* Info Area */}
-                  <div className="p-8 space-y-7">
+                  <div className="p-6 sm:p-8 space-y-5 sm:space-y-7">
                     <div>
-                      <h3 className="text-[2.2rem] md:text-[2.6rem] font-serif italic text-white mb-1 leading-tight">{member.name}</h3>
-                      <p className="text-[18px] font-bold text-[#D4AF37] tracking-[0.1em] uppercase">{member.credentials}</p>
+                      <h3 className="text-[1.8rem] sm:text-[2.2rem] md:text-[2rem] lg:text-[2.6rem] font-serif italic text-white mb-1 leading-tight">{member.name}</h3>
+                      <p className="text-[15px] sm:text-[18px] font-bold text-[#D4AF37] tracking-[0.1em] uppercase">{member.credentials}</p>
                     </div>
 
                     {/* Contact Rows */}
@@ -171,7 +171,7 @@ export default function TeamPage() {
                         <svg className="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
-                        <span className="text-[0.95rem] font-medium tracking-tight whitespace-nowrap">{member.phonePrimary}</span>
+                        <span className="text-[0.9rem] sm:text-[0.95rem] font-medium tracking-tight whitespace-nowrap">{member.phonePrimary}</span>
                       </a>
 
                       {/* Phone 2 */}
@@ -179,7 +179,7 @@ export default function TeamPage() {
                         <svg className="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
-                        <span className="text-[0.95rem] font-medium tracking-tight whitespace-nowrap">{member.phoneSecondary}</span>
+                        <span className="text-[0.85rem] sm:text-[0.95rem] font-medium tracking-tight whitespace-nowrap">{member.phoneSecondary}</span>
                       </a>
 
                       {/* Email */}
@@ -187,7 +187,7 @@ export default function TeamPage() {
                         <svg className="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        <span className="text-[0.95rem] font-medium tracking-tight whitespace-nowrap truncate">{member.email}</span>
+                        <span className="text-[0.85rem] sm:text-[0.95rem] font-medium tracking-tight truncate">{member.email}</span>
                       </a>
 
                       {/* LinkedIn */}
@@ -197,7 +197,7 @@ export default function TeamPage() {
                             <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.989v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                           </svg>
                         </div>
-                        <span className="text-[0.95rem] font-medium tracking-tight truncate">{member.username}</span>
+                        <span className="text-[0.85rem] sm:text-[0.95rem] font-medium tracking-tight truncate">{member.username}</span>
                       </a>
                     </div>
 

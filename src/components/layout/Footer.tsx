@@ -143,7 +143,7 @@ export default function Footer() {
       <div className="border-t border-[rgba(255,255,255,0.3)]">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex flex-wrap items-center space-x-6 text-sm text-gray-400">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 sm:gap-x-6 gap-y-2 text-sm text-gray-400">
               {legal.map((item, index) => (
                 <React.Fragment key={item.name}>
                   <Link
@@ -152,7 +152,7 @@ export default function Footer() {
                   >
                     {item.name}
                   </Link>
-                  {index < legal.length - 1 && <span className="text-gray-400">•</span>}
+                  {index < legal.length - 1 && <span className="text-gray-400 hidden sm:inline">•</span>}
                 </React.Fragment>
               ))}
             </div>

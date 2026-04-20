@@ -123,7 +123,7 @@ export default function HeroV8({
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="lg:col-span-5 lg:ml-16"
+              className="lg:col-span-5 lg:ml-16 max-w-md mx-auto lg:max-w-none lg:mx-0 w-full"
             >
               <div className="bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-lg p-8 md:p-10 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-[#D4AF37]/70" />
