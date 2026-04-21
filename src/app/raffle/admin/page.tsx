@@ -384,21 +384,22 @@ export default function RaffleAdminPage() {
         {/* Main content */}
         <div className="flex-1 lg:ml-64">
           {/* Mobile/Tablet header */}
-          <div className="lg:hidden bg-[#0d1f42] px-4 py-3 flex items-center justify-between sticky top-0 z-20 border-b border-white/5">
-            <Link href="/">
-              <Image src="/images/logo-name_238ba79c.svg" alt="Engel & Engel" width={150} height={32} />
+          <div className="lg:hidden bg-[#0d1f42] px-3 sm:px-4 py-3 flex items-center justify-between gap-2 sticky top-0 z-20 border-b border-white/5">
+            <Link href="/" className="flex-shrink min-w-0">
+              <Image src="/images/logo-name_238ba79c.svg" alt="Engel & Engel" width={150} height={32} className="h-7 sm:h-8 w-auto" />
             </Link>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
               <span className="bg-[#D4AF37] text-primary-950 text-[11px] font-bold w-7 h-7 rounded-full flex items-center justify-center">{entries.length}</span>
-              <button onClick={() => fetchEntries()} className="bg-white/10 text-white/60 p-2 rounded-lg">
+              <button onClick={() => fetchEntries()} aria-label="Refresh" className="bg-white/10 text-white/60 p-1.5 sm:p-2 rounded-lg">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
               </button>
-              <button onClick={exportCSV} disabled={entries.length === 0} className="bg-white/10 text-white/60 p-2 rounded-lg disabled:opacity-30">
+              <button onClick={exportCSV} disabled={entries.length === 0} aria-label="Export CSV" className="bg-white/10 text-white/60 p-1.5 sm:p-2 rounded-lg disabled:opacity-30">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
               </button>
               <button
                 onClick={() => { sessionStorage.removeItem('raffle_token'); setIsAuthenticated(false); setAuthToken(''); setLoginEmail(''); setLoginPassword(''); setWinner(null); setEntries([]); setIsConfirmed(false); setError(''); window.history.replaceState(null, '', '/raffle/admin') }}
-                className="bg-white/10 text-white/60 p-2 rounded-lg"
+                aria-label="Logout"
+                className="bg-white/10 text-white/60 p-1.5 sm:p-2 rounded-lg"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
               </button>
@@ -408,16 +409,16 @@ export default function RaffleAdminPage() {
           {/* Mobile/Tablet fixed bottom action bar */}
           <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30">
             {winner && (
-              <div className={`text-center text-xs font-medium px-4 py-2 ${isConfirmed ? 'bg-green-600 text-white' : 'bg-[#D4AF37] text-primary-950'}`}>
+              <div className={`text-center text-xs font-medium px-4 py-2 truncate ${isConfirmed ? 'bg-green-600 text-white' : 'bg-[#D4AF37] text-primary-950'}`}>
                 {isConfirmed ? 'Confirmed Winner: ' : 'Selected: '}<strong>{winner.name}</strong> — {winner.company}
               </div>
             )}
             {!isConfirmed && (
-              <div className="bg-primary-950 border-t border-white/10 px-4 py-4 flex justify-center gap-3">
+              <div className="bg-primary-950 border-t border-white/10 px-4 py-3 sm:py-4 flex justify-center gap-2 sm:gap-3">
                 <button
                   onClick={pickWinner}
                   disabled={entries.length === 0 || isPickingWinner}
-                  className="px-8 py-3 bg-[#D4AF37] text-primary-950 text-sm font-bold rounded-xl disabled:opacity-30 shadow-lg"
+                  className="flex-1 max-w-xs px-4 sm:px-8 py-3 bg-[#D4AF37] text-primary-950 text-sm font-bold rounded-xl disabled:opacity-30 shadow-lg"
                 >
                   {isPickingWinner ? 'Picking...' : winner ? 'Pick Again' : 'Pick Winner'}
                 </button>
@@ -425,7 +426,7 @@ export default function RaffleAdminPage() {
                   <button
                     onClick={confirmWinner}
                     disabled={isConfirming}
-                    className="px-8 py-3 bg-green-500 text-white text-sm font-bold rounded-xl disabled:opacity-50 shadow-lg"
+                    className="flex-1 max-w-xs px-4 sm:px-8 py-3 bg-green-500 text-white text-sm font-bold rounded-xl disabled:opacity-50 shadow-lg"
                   >
                     {isConfirming ? 'Confirming...' : 'Confirm'}
                   </button>
@@ -605,15 +606,15 @@ export default function RaffleAdminPage() {
                     exit={{ opacity: 0 }}
                     className="mb-6"
                   >
-                    <div className="bg-primary-950 rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row items-center justify-between gap-4 shadow-xl">
-                      <div className="flex items-center gap-5">
-                        <div className="w-14 h-14 rounded-full bg-[#D4AF37] flex items-center justify-center text-primary-950 text-xl font-bold flex-shrink-0">
+                    <div className="bg-primary-950 rounded-2xl p-4 sm:p-6 lg:p-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 shadow-xl">
+                      <div className="flex items-center gap-4 sm:gap-5 min-w-0 w-full">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#D4AF37] flex items-center justify-center text-primary-950 text-lg sm:text-xl font-bold flex-shrink-0">
                           {winner.name.charAt(0)}
                         </div>
-                        <div>
+                        <div className="min-w-0 flex-1">
                           <p className="text-[#D4AF37] text-[10px] font-bold tracking-[0.3em] uppercase mb-1">Winner</p>
-                          <h2 className="text-2xl font-bold text-white">{winner.name}</h2>
-                          <p className="text-white/40 text-sm">{winner.company} &middot; {winner.email}</p>
+                          <h2 className="text-xl sm:text-2xl font-bold text-white truncate">{winner.name}</h2>
+                          <p className="text-white/40 text-xs sm:text-sm truncate">{winner.company} &middot; {winner.email}</p>
                         </div>
                       </div>
                     </div>
@@ -623,9 +624,9 @@ export default function RaffleAdminPage() {
 
               {/* Entries */}
               <div className="bg-white rounded-2xl shadow-sm overflow-hidden max-w-full">
-                <div className="px-6 py-5 border-b border-gray-100 flex items-center justify-between">
+                <div className="px-4 sm:px-6 py-4 sm:py-5 border-b border-gray-100 flex items-center justify-between gap-3">
                   <h2 className="text-base font-bold text-gray-900">All Entries</h2>
-                  <span className="text-[11px] text-gray-400 bg-gray-100 px-3 py-1 rounded-full font-medium">{entries.length} entries</span>
+                  <span className="text-[11px] text-gray-400 bg-gray-100 px-3 py-1 rounded-full font-medium whitespace-nowrap">{entries.length} entries</span>
                 </div>
 
                 {loading ? (
@@ -640,42 +641,74 @@ export default function RaffleAdminPage() {
                     <p className="text-gray-300 text-sm">No entries yet</p>
                   </div>
                 ) : (
-                  <div className="overflow-x-auto -mx-0">
-                    <table className="w-full min-w-[700px]">
-                      <thead>
-                        <tr className="bg-gray-50/50">
-                          {['#', 'Name', 'Email', 'Phone', 'Company', 'Title', 'Submitted'].map(h => (
-                            <th key={h} className="text-left px-6 py-3.5 text-[11px] font-semibold text-gray-400 uppercase tracking-wider">{h}</th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {entries.map((entry, i) => (
-                          <tr
-                            key={entry._id}
-                            className={`border-t border-gray-50 hover:bg-[#D4AF37]/[0.03] transition-colors ${winner?.email === entry.email ? 'bg-[#D4AF37]/5' : ''}`}
-                          >
-                            <td className="px-6 py-4 text-sm text-gray-300 font-medium">{i + 1}</td>
-                            <td className="px-6 py-4">
-                              <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-full bg-primary-950 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
-                                  {entry.name.charAt(0)}
-                                </div>
-                                <span className="text-sm font-semibold text-gray-900">{entry.name}</span>
+                  <>
+                    {/* Mobile card list */}
+                    <ul className="md:hidden divide-y divide-gray-100">
+                      {entries.map((entry, i) => (
+                        <li
+                          key={entry._id}
+                          className={`px-4 py-4 ${winner?.email === entry.email ? 'bg-[#D4AF37]/5' : ''}`}
+                        >
+                          <div className="flex items-start gap-3">
+                            <div className="w-9 h-9 rounded-full bg-primary-950 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                              {entry.name.charAt(0)}
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-center justify-between gap-2">
+                                <p className="text-sm font-semibold text-gray-900 truncate">{entry.name}</p>
+                                <span className="text-[11px] text-gray-300 font-medium flex-shrink-0">#{i + 1}</span>
                               </div>
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-500">{entry.email}</td>
-                            <td className="px-6 py-4 text-sm text-gray-500">{entry.phone}</td>
-                            <td className="px-6 py-4 text-sm text-gray-500">{entry.company}</td>
-                            <td className="px-6 py-4 text-sm text-gray-500">{entry.title || '—'}</td>
-                            <td className="px-6 py-4 text-sm text-gray-400">
-                              {new Date(entry.timestamp).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
-                            </td>
+                              {entry.title && <p className="text-xs text-gray-400 truncate">{entry.title}</p>}
+                              <p className="text-xs text-gray-500 truncate mt-1">{entry.company}</p>
+                              <p className="text-xs text-gray-500 truncate">{entry.email}</p>
+                              <p className="text-xs text-gray-500 truncate">{entry.phone}</p>
+                              <p className="text-[11px] text-gray-400 mt-1">
+                                {new Date(entry.timestamp).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Tablet/Desktop table */}
+                    <div className="hidden md:block overflow-x-auto">
+                      <table className="w-full min-w-[700px]">
+                        <thead>
+                          <tr className="bg-gray-50/50">
+                            {['#', 'Name', 'Email', 'Phone', 'Company', 'Title', 'Submitted'].map(h => (
+                              <th key={h} className="text-left px-6 py-3.5 text-[11px] font-semibold text-gray-400 uppercase tracking-wider">{h}</th>
+                            ))}
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+                        </thead>
+                        <tbody>
+                          {entries.map((entry, i) => (
+                            <tr
+                              key={entry._id}
+                              className={`border-t border-gray-50 hover:bg-[#D4AF37]/[0.03] transition-colors ${winner?.email === entry.email ? 'bg-[#D4AF37]/5' : ''}`}
+                            >
+                              <td className="px-6 py-4 text-sm text-gray-300 font-medium">{i + 1}</td>
+                              <td className="px-6 py-4">
+                                <div className="flex items-center gap-3">
+                                  <div className="w-8 h-8 rounded-full bg-primary-950 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                                    {entry.name.charAt(0)}
+                                  </div>
+                                  <span className="text-sm font-semibold text-gray-900">{entry.name}</span>
+                                </div>
+                              </td>
+                              <td className="px-6 py-4 text-sm text-gray-500">{entry.email}</td>
+                              <td className="px-6 py-4 text-sm text-gray-500">{entry.phone}</td>
+                              <td className="px-6 py-4 text-sm text-gray-500">{entry.company}</td>
+                              <td className="px-6 py-4 text-sm text-gray-500">{entry.title || '—'}</td>
+                              <td className="px-6 py-4 text-sm text-gray-400">
+                                {new Date(entry.timestamp).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </>
                 )}
               </div>
             </div>
