@@ -26,6 +26,7 @@ const newsItems = [
     excerpt: 'Engel & Engel is proud to sponsor the Association of Business Trial Lawyers\' dinner program on Wednesday, April 22nd at the Omni Hotel. The ABTL provides a forum for litigators and judges to discuss issues critical to all business trial attorneys. Please join us.',
     date: 'April 22, 2026',
     category: 'Events',
+    extraCategories: ['Announcements'],
     image: '/images/abtl-event.jpg',
     featured: false,
   },
@@ -35,6 +36,7 @@ const newsItems = [
     excerpt: 'Engel & Engel is proud to be a Platinum Sponsor of this year\'s Institute for Corporate Counsel Program held at The California Club on December 3, 2025. This day-long conference hosted by the Gould School of Law and the LACBA Business Law Section brings together top law and consulting firms dedicated to understanding the challenges of California\'s business environment and changes in the law that impact in-house legal departments.',
     date: 'December 3, 2025',
     category: 'Events',
+    extraCategories: ['Announcements'],
     image: '/images/event2.jpg',
     featured: false,
   },
@@ -150,8 +152,11 @@ export default function NewsroomPage() {
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             {(() => {
+              const matchesCategory = (item: (typeof newsItems)[number], cat: string) =>
+                item.category === cat || item.extraCategories?.includes(cat)
+
               const filtered = newsItems
-                .filter(item => activeCategory === 'All' ? !item.featured : item.category === activeCategory)
+                .filter(item => !item.featured && (activeCategory === 'All' || matchesCategory(item, activeCategory)))
                 .slice()
                 .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
