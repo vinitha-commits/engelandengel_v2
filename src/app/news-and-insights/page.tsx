@@ -22,17 +22,15 @@ const newsItems = [
   },
   {
     id: 7,
-    slug: 'abtl-dinner-program-omni-hotel-2026',
     title: 'Engel & Engel Sponsors ABTL Dinner Program at the Omni Hotel',
     excerpt: 'Engel & Engel is proud to sponsor the Association of Business Trial Lawyers\' dinner program on Wednesday, April 22nd at the Omni Hotel. The ABTL provides a forum for litigators and judges to discuss issues critical to all business trial attorneys. Please join us.',
     date: 'April 22, 2026',
     category: 'Events',
-    image: '/images/event2.jpg',
+    image: '/images/abtl-event.jpg',
     featured: false,
   },
   {
     id: 8,
-    slug: 'institute-for-corporate-counsel-program-2025',
     title: 'Engel & Engel Platinum Sponsor of the Institute for Corporate Counsel Program',
     excerpt: 'Engel & Engel is proud to be a Platinum Sponsor of this year\'s Institute for Corporate Counsel Program held at The California Club on December 3, 2025. This day-long conference hosted by the Gould School of Law and the LACBA Business Law Section brings together top law and consulting firms dedicated to understanding the challenges of California\'s business environment and changes in the law that impact in-house legal departments.',
     date: 'December 3, 2025',
@@ -88,13 +86,16 @@ export default function NewsroomPage() {
                 <div className="h-px w-12 bg-[#D4AF37]" />
                 <span className="text-[#D4AF37] font-bold tracking-[0.4em] uppercase text-xs">Featured Story</span>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
-                <div className="relative h-64 md:h-auto min-h-[300px] bg-gray-100">
+              <Link
+                href="/news-and-insights/jason-engel-forbes-top-cpas-valuations-2025"
+                className="group grid grid-cols-1 md:grid-cols-2 gap-0 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
+              >
+                <div className="relative h-64 md:h-auto min-h-[300px] bg-gray-100 overflow-hidden">
                   <Image
                     src={featuredItem.image}
                     alt={featuredItem.title}
                     fill
-                    className="object-contain p-10 md:p-16"
+                    className="object-contain p-10 md:p-16 transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="p-8 md:p-12 flex flex-col justify-center">
@@ -104,19 +105,18 @@ export default function NewsroomPage() {
                     </span>
                     <span className="text-xs text-gray-400">{featuredItem.date}</span>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-primary-950 tracking-tight mb-4 leading-tight">
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary-950 tracking-tight mb-4 leading-tight group-hover:text-[#D4AF37] transition-colors">
                     {featuredItem.title}
                   </h2>
                   <p className="text-gray-500 leading-relaxed font-light mb-6">{featuredItem.excerpt}</p>
-                  <div className="h-px bg-gray-100 mb-6" />
-                  <Link href="/news-and-insights/jason-engel-forbes-top-cpas-valuations-2025" className="inline-flex items-center gap-2 text-[#D4AF37] font-bold text-sm hover:gap-4 transition-all duration-300">
+                  <span className="inline-flex items-center gap-2 text-[#D4AF37] font-bold text-sm">
                     Read More
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
-                  </Link>
+                  </span>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </section>
@@ -150,32 +150,40 @@ export default function NewsroomPage() {
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             {(() => {
-              const filtered = newsItems.filter(item =>
-                activeCategory === 'All' ? !item.featured : item.category === activeCategory
-              )
+              const filtered = newsItems
+                .filter(item => activeCategory === 'All' ? !item.featured : item.category === activeCategory)
+                .slice()
+                .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
               if (filtered.length === 0) {
                 return (
-                  <p className="text-center text-gray-400 py-20">No items in this category yet.</p>
+                  <div className="text-center py-20">
+                    <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gray-100 mb-4">
+                      <svg className="w-6 h-6 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                      </svg>
+                    </div>
+                    <p className="text-gray-400 text-sm">No items in this category yet.</p>
+                    <p className="text-gray-300 text-xs mt-1">Check back soon for updates.</p>
+                  </div>
                 )
               }
+
               return (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filtered.map(item => (
-                    <motion.article
-                      key={item.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5 }}
-                      className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col group"
-                    >
-                      <Link href={`/news-and-insights/${item.slug}`} className="flex flex-col h-full">
-                        <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+                  {filtered.map(item => {
+                    const detailUrl = item.category === 'Announcements' && item.slug
+                      ? `/news-and-insights/${item.slug}`
+                      : null
+
+                    const cardInner = (
+                      <>
+                        <div className="relative aspect-square bg-white overflow-hidden">
                           <Image
                             src={item.image}
                             alt={item.title}
                             fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           />
                         </div>
@@ -186,22 +194,43 @@ export default function NewsroomPage() {
                             </span>
                             <span className="text-xs text-gray-400">{item.date}</span>
                           </div>
-                          <h3 className="text-lg font-bold text-primary-950 leading-snug mb-3 group-hover:text-[#D4AF37] transition-colors">
+                          <h3 className={`text-lg font-bold text-primary-950 leading-snug mb-3 ${detailUrl ? 'group-hover:text-[#D4AF37] transition-colors' : ''}`}>
                             {item.title}
                           </h3>
-                          <p className="text-sm text-gray-500 leading-relaxed font-light line-clamp-3 mb-4">
+                          <p className="text-sm text-gray-500 leading-relaxed font-light">
                             {item.excerpt}
                           </p>
-                          <span className="mt-auto inline-flex items-center gap-2 text-[#D4AF37] font-bold text-sm">
-                            Read More
-                            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                          </span>
+                          {detailUrl && (
+                            <span className="mt-4 inline-flex items-center gap-2 text-[#D4AF37] font-bold text-sm">
+                              Read More
+                              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                              </svg>
+                            </span>
+                          )}
                         </div>
-                      </Link>
-                    </motion.article>
-                  ))}
+                      </>
+                    )
+
+                    return (
+                      <motion.article
+                        key={item.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group"
+                      >
+                        {detailUrl ? (
+                          <Link href={detailUrl} className="flex flex-col h-full">
+                            {cardInner}
+                          </Link>
+                        ) : (
+                          cardInner
+                        )}
+                      </motion.article>
+                    )
+                  })}
                 </div>
               )
             })()}
