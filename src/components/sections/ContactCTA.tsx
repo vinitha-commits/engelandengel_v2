@@ -13,7 +13,7 @@ const teamMembers = [
     address: '350 S Grand Avenue, Suite 3160',
     city: 'Los Angeles, CA 90071',
     tel: '(310) 277-2220',
-    fax: '(310) 277-2212',
+    direct: '(310) 277-5986',
     email: 'jasonengel@engelandengel.com'
   },
   {
@@ -23,7 +23,7 @@ const teamMembers = [
     address: '350 S Grand Avenue, Suite 3160',
     city: 'Los Angeles, CA 90071',
     tel: '(310) 277-2220',
-    fax: '(310) 277-2212',
+    direct: '(310) 579-0115',
     email: 'brandon@engelandengel.com'
   }
 ]
@@ -94,7 +94,7 @@ export default function ContactCTA() {
                         <p className="text-white">{member.address}</p>
                         <p className="text-white">{member.city}</p>
                         <p className="text-white font-semibold"><span className="">TEL: </span>{member.tel}</p>
-                        <p className="text-white font-semibold"><span className="">FAX: </span>{member.fax}</p>
+                        <p className="text-white font-semibold"><span className="">DIRECT: </span>{member.direct}</p>
                         <p className="truncate text-white font-semibold">
                           <span className="">EMAIL: </span>
                           <a href={`mailto:${member.email}`} className="text-white/80 hover:text-[#D4AF37] transition-colors duration-300">{member.email}</a>

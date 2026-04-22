@@ -4,6 +4,11 @@ import React, { useState, useEffect, useRef } from 'react'
 
 const reviews = [
   {
+    name: 'Eric Wannon',
+    rating: 5,
+    text: 'The Engels are the best in the business, hands down. They are a remarkable father-son duo, and I had the opportunity to work with them on a very high-stakes, company-breaking matter. They were outstanding from start to finish. They reviewed opposing counsel’s expert work and professionally dismantled it with precision and credibility. They updated their reports in real time when needed, responded thoroughly to the arbitrator’s inquiries, and provided strong backup for every position they took. Our success was due in large part to having the Engels in our corner. I recommend them without hesitation.',
+  },
+  {
     name: 'Ed M.',
     rating: 5,
     text: '…professional, knowledgeable, honest, and trustworthy. I would recommend Engel & Engel for any accounting matters.',

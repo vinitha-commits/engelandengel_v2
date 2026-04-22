@@ -53,6 +53,14 @@ const processGoogleReview = (review: GoogleReview): ProcessedReview => {
 // In production, you would fetch this from Google Places API
 const mockGoogleReviews: GoogleReview[] = [
   {
+    id: '0',
+    author: 'Eric Wannon',
+    firstName: 'Eric',
+    rating: 5,
+    text: 'The Engels are the best in the business, hands down. They are a remarkable father-son duo, and I had the opportunity to work with them on a very high-stakes, company-breaking matter. They were outstanding from start to finish. They reviewed opposing counsel’s expert work and professionally dismantled it with precision and credibility. They updated their reports in real time when needed, responded thoroughly to the arbitrator’s inquiries, and provided strong backup for every position they took. Our success was due in large part to having the Engels in our corner. I recommend them without hesitation.',
+    date: '2026-04-22'
+  },
+  {
     id: '1',
     author: 'Robert Martinez',
     firstName: 'Robert',

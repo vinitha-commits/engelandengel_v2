@@ -12,6 +12,7 @@ const categories = ['All', 'Events', 'News', 'Announcements']
 const newsItems = [
   {
     id: 1,
+    slug: 'jason-engel-forbes-top-cpas-valuations-2025',
     title: 'Jason Engel Named to Forbes\' Inaugural List of America\'s Top CPAs in Valuations',
     excerpt: 'Jason Engel has been named among Forbes\' inaugural list of America\'s Top CPAs in Valuations. This prestigious list was drawn from nominations, independent research, and interviews with industry leaders and experts.',
     date: 'March 6, 2026',
@@ -20,48 +21,23 @@ const newsItems = [
     featured: true,
   },
   {
-    id: 2,
-    title: 'Brandon Engel Speaks at AICPA Forensic & Valuation Services Conference',
-    excerpt: 'Brandon Engel, CPA, CFE, ABV, presented on the topic of financial forensics in complex commercial litigation at the annual AICPA conference.',
-    date: 'February 2025',
+    id: 7,
+    slug: 'abtl-dinner-program-omni-hotel-2026',
+    title: 'Engel & Engel Sponsors ABTL Dinner Program at the Omni Hotel',
+    excerpt: 'Engel & Engel is proud to sponsor the Association of Business Trial Lawyers\' dinner program on Wednesday, April 22nd at the Omni Hotel. The ABTL provides a forum for litigators and judges to discuss issues critical to all business trial attorneys. Please join us.',
+    date: 'April 22, 2026',
     category: 'Events',
-    image: '/images/memberships/aicpa.jpg',
+    image: '/images/event2.jpg',
     featured: false,
   },
   {
-    id: 3,
-    title: 'Engel & Engel Expands Forensic Accounting Services Nationwide',
-    excerpt: 'The firm has expanded its forensic accounting and expert witness services to serve attorneys and legal teams across all 50 states, building on over 30 years of experience.',
-    date: 'January 2025',
-    category: 'News',
-    image: '/images/forensic-accounting.jpg',
-    featured: false,
-  },
-  {
-    id: 4,
-    title: 'Jason Engel Recognized as Leading Forensic Accounting Expert',
-    excerpt: 'Jason A. Engel, CPA, CFE, CVA, CIRA, MAFF has been recognized for his contributions to forensic accounting and expert testimony in high-stakes litigation matters.',
-    date: 'December 2024',
-    category: 'Announcements',
-    image: '/images/forensic-accounting-experts.png',
-    featured: false,
-  },
-  {
-    id: 5,
-    title: 'Engel & Engel Partners with ACFE for Fraud Prevention Initiatives',
-    excerpt: 'As certified fraud examiners, Engel & Engel has partnered with the Association of Certified Fraud Examiners to support fraud prevention education and awareness programs.',
-    date: 'November 2024',
-    category: 'News',
-    image: '/images/memberships/acfe.jpg',
-    featured: false,
-  },
-  {
-    id: 6,
-    title: 'Firm Celebrates 30 Years of Forensic Accounting Excellence',
-    excerpt: 'Engel & Engel LLP marks its 30th anniversary, reflecting on three decades of providing forensic accounting analysis and expert testimony to attorneys across California and nationwide.',
-    date: 'October 2024',
+    id: 8,
+    slug: 'institute-for-corporate-counsel-program-2025',
+    title: 'Engel & Engel Platinum Sponsor of the Institute for Corporate Counsel Program',
+    excerpt: 'Engel & Engel is proud to be a Platinum Sponsor of this year\'s Institute for Corporate Counsel Program held at The California Club on December 3, 2025. This day-long conference hosted by the Gould School of Law and the LACBA Business Law Section brings together top law and consulting firms dedicated to understanding the challenges of California\'s business environment and changes in the law that impact in-house legal departments.',
+    date: 'December 3, 2025',
     category: 'Events',
-    image: '/images/city.jpg',
+    image: '/images/event2.jpg',
     featured: false,
   },
 ]
@@ -93,7 +69,7 @@ export default function NewsroomPage() {
           >
             <p className="text-[#D4AF37] text-sm font-semibold tracking-[0.3em] uppercase mb-6">Latest Updates</p>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.9]">
-              News<span className="font-serif italic text-[#D4AF37] font-medium">room</span>
+              News &amp; <span className="font-serif italic text-[#D4AF37] font-medium">Insights</span>
             </h1>
             <p className="text-white/50 text-lg md:text-xl font-light mt-6 max-w-2xl">
               Press releases, awards, events, and the latest updates from Engel & Engel LLP.
@@ -133,7 +109,7 @@ export default function NewsroomPage() {
                   </h2>
                   <p className="text-gray-500 leading-relaxed font-light mb-6">{featuredItem.excerpt}</p>
                   <div className="h-px bg-gray-100 mb-6" />
-                  <Link href="/newsroom/jason-engel-forbes-top-cpas-valuations-2025" className="inline-flex items-center gap-2 text-[#D4AF37] font-bold text-sm hover:gap-4 transition-all duration-300">
+                  <Link href="/news-and-insights/jason-engel-forbes-top-cpas-valuations-2025" className="inline-flex items-center gap-2 text-[#D4AF37] font-bold text-sm hover:gap-4 transition-all duration-300">
                     Read More
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -165,6 +141,70 @@ export default function NewsroomPage() {
                 </button>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Items Grid */}
+      <section className="py-16 bg-slate-50">
+        <div className="container-custom">
+          <div className="max-w-6xl mx-auto">
+            {(() => {
+              const filtered = newsItems.filter(item =>
+                activeCategory === 'All' ? !item.featured : item.category === activeCategory
+              )
+              if (filtered.length === 0) {
+                return (
+                  <p className="text-center text-gray-400 py-20">No items in this category yet.</p>
+                )
+              }
+              return (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filtered.map(item => (
+                    <motion.article
+                      key={item.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                      className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col group"
+                    >
+                      <Link href={`/news-and-insights/${item.slug}`} className="flex flex-col h-full">
+                        <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          />
+                        </div>
+                        <div className="p-6 flex flex-col flex-1">
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase bg-[#D4AF37] text-primary-950 px-2.5 py-1 rounded-sm">
+                              {item.category}
+                            </span>
+                            <span className="text-xs text-gray-400">{item.date}</span>
+                          </div>
+                          <h3 className="text-lg font-bold text-primary-950 leading-snug mb-3 group-hover:text-[#D4AF37] transition-colors">
+                            {item.title}
+                          </h3>
+                          <p className="text-sm text-gray-500 leading-relaxed font-light line-clamp-3 mb-4">
+                            {item.excerpt}
+                          </p>
+                          <span className="mt-auto inline-flex items-center gap-2 text-[#D4AF37] font-bold text-sm">
+                            Read More
+                            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </span>
+                        </div>
+                      </Link>
+                    </motion.article>
+                  ))}
+                </div>
+              )
+            })()}
           </div>
         </div>
       </section>

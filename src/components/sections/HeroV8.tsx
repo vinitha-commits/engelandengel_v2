@@ -112,7 +112,8 @@ export default function HeroV8({
                   California&apos;s Top
                 </h1>
                 <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl xl:text-9xl italic font-medium text-[#D4AF37] leading-[0.95] drop-shadow-[0_0_40px_rgba(212,175,55,0.35)]">
-                  Forensic<br />Accountants
+                  <span className="block -ml-1 md:-ml-2 lg:-ml-3 xl:-ml-4">Forensic</span>
+                  <span className="block -ml-2 md:-ml-4 lg:-ml-6 xl:-ml-8">Accountants</span>
                 </h1>
 
               </motion.div>

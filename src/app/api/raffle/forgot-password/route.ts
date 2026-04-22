@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
       },
     })
 
-    const resetUrl = `${request.headers.get('origin') || 'http://localhost:3000'}/raffle/reset-password?token=${resetToken}`
+    const resetUrl = `${request.headers.get('origin') || 'http://localhost:3000'}/abtl/drawing/reset-password?token=${resetToken}`
 
     await transporter.sendMail({
       from: `"Engel & Engel" <${process.env.SMTP_USER}>`,

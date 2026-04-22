@@ -35,7 +35,7 @@ const services = [
 const aboutDropdown = [
   { name: 'Our Team', href: '/team' },
   { name: 'Blog', href: '/blog' },
-  { name: 'News & Insights', href: '/newsroom' },
+  { name: 'News & Insights', href: '/news-and-insights' },
   // { name: 'Events', href: '/events' },
   { name: 'Careers', href: '/careers' },
 ]
@@ -158,7 +158,13 @@ export default function Header() {
           <Link href="/" className="flex items-center">
             <div className="relative h-14 w-auto">
               <Image
-                src={isDarkBackground && !isScrolled ? "/images/logo-accountants-white-font.png" : "/images/logo.png"}
+                src={
+                  isScrolled
+                    ? "/images/homelogo.png"
+                    : isDarkBackground
+                      ? "/images/logo-accountants-white-font.png"
+                      : "/images/logo.png"
+                }
                 alt="Engel & Engel Forensic Accounting"
                 width={isDarkBackground && !isScrolled ? 350 : 250}
                 height={isDarkBackground && !isScrolled ? 60 : 48}

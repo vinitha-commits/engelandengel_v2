@@ -36,7 +36,7 @@ export default function ForbesBanner() {
               </div>
 
               <Link
-                href="/newsroom/jason-engel-forbes-top-cpas-valuations-2025"
+                href="/news-and-insights/jason-engel-forbes-top-cpas-valuations-2025"
                 className="inline-flex items-center gap-2 px-7 py-3 bg-primary-950 text-white font-semibold text-sm tracking-wider uppercase rounded-lg hover:bg-[#D4AF37] transition-colors duration-300"
               >
                 Read More
@@ -54,7 +54,7 @@ export default function ForbesBanner() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="lg:col-span-5 flex justify-center"
             >
-              <Link href="/newsroom/jason-engel-forbes-top-cpas-valuations-2025">
+              <Link href="/news-and-insights/jason-engel-forbes-top-cpas-valuations-2025">
                 <div className="relative">
                   {/* Soft shadow behind image */}
                   <div className="absolute inset-4 bg-black/5 rounded-2xl blur-xl" />

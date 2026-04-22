@@ -8,7 +8,7 @@ export default function DashboardRedirect() {
 
   useEffect(() => {
     // Redirect to admin page which will auto-login from sessionStorage
-    router.replace('/raffle/admin')
+    router.replace('/abtl/drawing/admin')
   }, [router])
 
   return (

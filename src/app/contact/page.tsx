@@ -19,7 +19,7 @@ const contactPersons = [
     address: '350 S Grand Avenue, Suite 3160',
     city: 'Los Angeles, CA 90071',
     phone: '(310) 277-2220',
-    fax: '(310) 277-2212',
+    direct: '(310) 277-5986',
     email: 'jasonengel@engelandengel.com',
   },
   {
@@ -29,7 +29,7 @@ const contactPersons = [
     address: '350 S Grand Avenue, Suite 3160',
     city: 'Los Angeles, CA 90071',
     phone: '(310) 277-2220',
-    fax: '(310) 277-2212',
+    direct: '(310) 579-0115',
     email: 'brandon@engelandengel.com',
   }
 ];
@@ -208,14 +208,14 @@ export default function ContactPage() {
                               </div>
                               <span>{person.phone}</span>
                             </a>
-                            <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-white/90">
+                            <a href={`tel:${person.direct.replace(/[^0-9+]/g, '')}`} className="flex text-white/90 items-center gap-3 hover:text-[#D4AF37] transition-colors duration-300">
+                              <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center group-hover:border-[#D4AF37]/20 transition-colors">
                                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
                               </div>
-                              <span>Fax: {person.fax}</span>
-                            </div>
+                              <span>{person.direct}</span>
+                            </a>
                           </div>
 
                           <a href={`mailto:${person.email}`} className="flex items-center gap-3 text-white/90 hover:text-[#D4AF37] transition-colors duration-300 font-medium pt-1">

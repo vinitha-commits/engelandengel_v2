@@ -46,7 +46,7 @@ function ResetPasswordForm() {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center px-4">
         <div className="text-center">
           <p className="text-gray-500 mb-4">Invalid reset link.</p>
-          <Link href="/raffle/admin" className="text-primary-950 font-semibold text-sm hover:underline">Back to Login</Link>
+          <Link href="/abtl/drawing/admin" className="text-primary-950 font-semibold text-sm hover:underline">Back to Login</Link>
         </div>
       </div>
     )
@@ -78,7 +78,7 @@ function ResetPasswordForm() {
               </svg>
             </div>
             <p className="text-gray-500 text-sm mb-6">Your password has been updated successfully.</p>
-            <Link href="/raffle/admin" className="inline-block py-3 px-8 bg-primary-950 text-white text-sm font-semibold rounded-xl hover:bg-black transition-colors">
+            <Link href="/abtl/drawing/admin" className="inline-block py-3 px-8 bg-primary-950 text-white text-sm font-semibold rounded-xl hover:bg-black transition-colors">
               Go to Login
             </Link>
           </div>

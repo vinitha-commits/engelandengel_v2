@@ -42,7 +42,7 @@ export default function RaffleAdminPage() {
       setAuthToken(token)
       setIsAuthenticated(true)
       fetchEntries(token)
-      window.history.replaceState(null, '', '/raffle/admin/dashboard')
+      window.history.replaceState(null, '', '/abtl/drawing/admin/dashboard')
     }
   }, [])
 
@@ -61,7 +61,7 @@ export default function RaffleAdminPage() {
       setAuthToken(data.token)
       setIsAuthenticated(true)
       fetchEntries(data.token)
-      window.history.replaceState(null, '', '/raffle/admin/dashboard')
+      window.history.replaceState(null, '', '/abtl/drawing/admin/dashboard')
     } catch (err: any) {
       setError(err.message || 'Login failed')
     }
@@ -370,7 +370,7 @@ export default function RaffleAdminPage() {
           {/* Logout */}
           <div className="p-5 border-t border-white/5">
             <button
-              onClick={() => { sessionStorage.removeItem('raffle_token'); setIsAuthenticated(false); setAuthToken(''); setLoginEmail(''); setLoginPassword(''); setWinner(null); setEntries([]); setIsConfirmed(false); setError(''); window.history.replaceState(null, '', '/raffle/admin') }}
+              onClick={() => { sessionStorage.removeItem('raffle_token'); setIsAuthenticated(false); setAuthToken(''); setLoginEmail(''); setLoginPassword(''); setWinner(null); setEntries([]); setIsConfirmed(false); setError(''); window.history.replaceState(null, '', '/abtl/drawing/admin') }}
               className="w-full py-2.5 text-xs font-medium text-white bg-white/10 hover:bg-red-500/20 hover:text-red-300 rounded-lg transition-colors flex items-center justify-center gap-2"
             >
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -397,7 +397,7 @@ export default function RaffleAdminPage() {
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
               </button>
               <button
-                onClick={() => { sessionStorage.removeItem('raffle_token'); setIsAuthenticated(false); setAuthToken(''); setLoginEmail(''); setLoginPassword(''); setWinner(null); setEntries([]); setIsConfirmed(false); setError(''); window.history.replaceState(null, '', '/raffle/admin') }}
+                onClick={() => { sessionStorage.removeItem('raffle_token'); setIsAuthenticated(false); setAuthToken(''); setLoginEmail(''); setLoginPassword(''); setWinner(null); setEntries([]); setIsConfirmed(false); setError(''); window.history.replaceState(null, '', '/abtl/drawing/admin') }}
                 aria-label="Logout"
                 className="bg-white/10 text-white/60 p-1.5 sm:p-2 rounded-lg"
               >
